@@ -1,26 +1,375 @@
 @import "tailwindcss";
 
+/* Brand tokens — derived from eTalk logo (black, metallic gold, navy, silver) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #e8e8e8;
+  --brand-navy: #1b1f3b;
+  --brand-navy-deep: #0f1228;
+  --brand-silver: #e0e0e0;
+  --brand-muted: #9ca3af;
+  --brand-gold-mid: #d4af37;
+  --brand-gold-light: #fcf6ba;
+  --brand-gold-dark: #8b6914;
+  --brand-border: rgba(212, 175, 55, 0.35);
+  --brand-glow: rgba(212, 175, 55, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-deep: var(--brand-navy-deep);
+  --color-brand-silver: var(--brand-silver);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-gold: var(--brand-gold-mid);
+  --font-sans: var(--font-baloo-thambi), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-odia: var(--font-noto-oriya);
+  --font-heading: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
+
+  .etalk-typewriter-caret {
+    animation: none;
+    opacity: 0;
+  }
+
+  .etalk-how-reel {
+    animation: none !important;
+  }
+}
+
+/* How E-talk works — infinite vertical film reel inside phone */
+@keyframes etalk-how-reel {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.etalk-how-reel {
+  animation: etalk-how-reel 48s linear infinite;
+}
+
+.etalk-how-reel:hover,
+.etalk-how-reel:focus-within {
+  animation-play-state: paused;
+}
+
+.etalk-how-reel.etalk-how-reel--force-paused {
+  animation-play-state: paused !important;
+}
+
+@keyframes etalk-caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.etalk-typewriter-caret {
+  animation: etalk-caret-blink 1s step-end infinite;
+}
+
+/* English UI: Baloo Thambi 2; Odia UI: Plus Jakarta + Noto (see html.lang-or) */
+html.lang-or {
+  --font-sans: var(--font-plus-jakarta), var(--font-noto-oriya), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-baloo-thambi), system-ui, sans-serif;
+  line-height: 1.65;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+html.lang-or body {
+  font-family: var(--font-plus-jakarta), var(--font-noto-oriya), system-ui, sans-serif;
+}
+
+/* Single outer measure for all sections — aligns nav, content, footer */
+.etalk-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .etalk-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Readable column for hero + long quotes (same width everywhere) */
+.etalk-measure {
+  width: 100%;
+  max-width: 48rem;
+}
+
+/* Focus visible — WCAG-friendly; gold ring matches brand accent */
+:focus-visible {
+  outline: 2px solid var(--brand-gold-mid);
+  outline-offset: 2px;
+}
+
+.etalk-btn-gold:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Metallic gold — buttons, key accents */
+.etalk-btn-gold {
+  background: linear-gradient(
+    135deg,
+    #aa771c 0%,
+    #bf953f 18%,
+    #fcf6ba 42%,
+    #b38728 62%,
+    #8b6914 100%
+  );
+  color: var(--brand-navy-deep);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 4px 24px rgba(212, 175, 55, 0.25);
+}
+
+.etalk-btn-gold:hover {
+  filter: brightness(1.06);
+}
+
+/* Headline accent — gold outline feel without heavy text-stroke */
+.etalk-text-gold-gradient {
+  background: linear-gradient(
+    120deg,
+    #fcf6ba 0%,
+    #d4af37 35%,
+    #f4e4a6 55%,
+    #b8860b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Vector-sharp wordmark (no bitmap) — same gold treatment, tuned for Playfair */
+.etalk-wordmark {
+  background: linear-gradient(
+    120deg,
+    #fcf6ba 0%,
+    #d4af37 38%,
+    #f4e4a6 52%,
+    #b8860b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle section wash (navy → black) */
+.etalk-section-navy {
+  background: linear-gradient(
+    180deg,
+    var(--brand-navy-deep) 0%,
+    #000000 100%
+  );
+}
+
+/* Soft section tint — no hard box; blends into black */
+.etalk-section-mist {
+  background: radial-gradient(
+      120% 80% at 50% -20%,
+      rgba(27, 31, 59, 0.45) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, rgba(15, 18, 40, 0.35) 0%, transparent 100%);
+}
+
+.etalk-section-ambient {
+  background: radial-gradient(
+      ellipse 100% 60% at 50% 100%,
+      rgba(212, 175, 55, 0.06) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, transparent 0%, rgba(15, 18, 40, 0.25) 100%);
+}
+
+/* Hairline separator — fades at edges (replaces heavy section borders) */
+.etalk-separator {
+  height: 1px;
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.22) 50%,
+    transparent 100%
+  );
+  opacity: 0.85;
+}
+
+/* Left accent — narrative columns without a card */
+.etalk-accent-line {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.etalk-accent-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--brand-gold-mid) 0%,
+    rgba(212, 175, 55, 0.12) 100%
+  );
+}
+
+.etalk-accent-line--soft::before {
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.45) 0%,
+    rgba(212, 175, 55, 0.08) 100%
+  );
+}
+
+/* Seamless interactive tiles (features) — no default border */
+.etalk-feature-tile {
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .etalk-feature-tile:hover {
+    background: rgba(255, 255, 255, 0.045);
+    box-shadow:
+      0 0 0 1px rgba(212, 175, 55, 0.12),
+      0 24px 48px -28px rgba(0, 0, 0, 0.7);
+    transform: translateY(-3px);
+  }
+}
+
+/* Icon well — soft glow, not a boxed stroke */
+.etalk-icon-well {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(212, 175, 55, 0.18) 0%,
+    rgba(212, 175, 55, 0.04) 100%
+  );
+  color: var(--brand-gold-mid);
+  transition:
+    background 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .etalk-feature-tile:hover .etalk-icon-well {
+    background: radial-gradient(
+      circle at 30% 25%,
+      rgba(212, 175, 55, 0.28) 0%,
+      rgba(212, 175, 55, 0.08) 100%
+    );
+    transform: scale(1.04);
+  }
+}
+
+/* FAQ row — single hairline, expands smoothly via native details */
+.etalk-faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease;
+}
+
+.etalk-faq-item:first-of-type {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .etalk-faq-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+.etalk-faq-item summary {
+  transition: color 0.25s ease;
+}
+
+/* CTA shell — soft vignette, minimal edge */
+.etalk-cta-shell {
+  border-radius: clamp(1.25rem, 3vw, 2rem);
+  background: linear-gradient(
+    155deg,
+    rgba(27, 31, 59, 0.65) 0%,
+    rgba(0, 0, 0, 0.92) 48%,
+    rgba(8, 10, 20, 0.98) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 32px 64px -32px rgba(0, 0, 0, 0.85);
+}
+
+/* Optional: legacy boxed panel — avoid on marketing surfaces unless needed */
+.etalk-panel {
+  border-radius: 1.5rem;
+  border: 1px solid var(--brand-border);
+  background: linear-gradient(
+    145deg,
+    rgba(27, 31, 59, 0.55) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4) inset;
+}
+
+/* Buttons — motion only when safe */
+@media (prefers-reduced-motion: no-preference) {
+  .etalk-btn-gold {
+    transition:
+      filter 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .etalk-btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+      0 4px 24px rgba(212, 175, 55, 0.25),
+      0 12px 28px -8px rgba(212, 175, 55, 0.2);
+  }
+
+  .etalk-btn-gold:active {
+    transform: translateY(0);
+  }
 }
