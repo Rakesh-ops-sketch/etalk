@@ -18,10 +18,11 @@ function initParticles(w: number, h: number, count: number): Particle[] {
     list.push({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.12,
-      vy: (Math.random() - 0.5) * 0.1,
-      r: Math.random() * 2 + 0.75,
-      kind: i % 3 === 0 ? "voice" : "ai",
+      vx: (Math.random() - 0.5) * 0.1,
+      vy: (Math.random() - 0.5) * 0.085,
+      r: Math.random() * 1.5 + 0.55,
+      /* Half “voice” nodes → fewer edges (links require an “ai” node) */
+      kind: i % 2 === 0 ? "voice" : "ai",
       phase: Math.random() * Math.PI * 2,
     });
   }
@@ -38,10 +39,21 @@ function drawFrame(
 ) {
   ctx.clearRect(0, 0, w, h);
 
+  const narrow = w < 640;
+  /* Subtle but readable; phones slightly softer */
+  const lineAlphaBase = staticOnly ? 0.08 : 0.105;
+  const lineAlpha = narrow ? lineAlphaBase * 0.92 : lineAlphaBase;
+  const linkDist = narrow ? 66 : 78;
+  const lineWMain = narrow ? 0.52 : 0.58;
+  const lineWGlow = narrow ? 0.3 : 0.34;
+  const motionAmp = narrow ? 0.16 : 0.2;
+  const vDot = narrow ? 0.18 : 0.21;
+  const aiDot = narrow ? 0.16 : 0.19;
+
   if (!staticOnly) {
     for (const p of particles) {
       if (p.kind === "voice") {
-        p.y += Math.sin(time * 1.8 + p.phase + p.x * 0.008) * 0.35;
+        p.y += Math.sin(time * 1.8 + p.phase + p.x * 0.008) * motionAmp;
       }
       p.x += p.vx;
       p.y += p.vy;
@@ -51,10 +63,6 @@ function drawFrame(
       p.y = Math.max(0, Math.min(h, p.y));
     }
   }
-
-  const linkDist = staticOnly ? 100 : 112;
-  /* Navy + amber links — tuned for light textured hero */
-  const lineAlpha = staticOnly ? 0.11 : 0.2;
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
@@ -70,14 +78,14 @@ function drawFrame(
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
         ctx.strokeStyle = `rgba(30, 58, 95, ${a1})`;
-        ctx.lineWidth = 0.9;
+        ctx.lineWidth = lineWMain;
         ctx.lineCap = "round";
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = `rgba(200, 155, 45, ${a1 * 0.55})`;
-        ctx.lineWidth = 0.45;
+        ctx.strokeStyle = `rgba(200, 155, 45, ${a1 * 0.46})`;
+        ctx.lineWidth = lineWGlow;
         ctx.stroke();
       }
     }
@@ -88,12 +96,8 @@ function drawFrame(
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fillStyle =
       p.kind === "voice"
-        ? staticOnly
-          ? "rgba(51, 65, 85, 0.42)"
-          : "rgba(51, 65, 85, 0.52)"
-        : staticOnly
-          ? "rgba(180, 130, 20, 0.45)"
-          : "rgba(200, 150, 30, 0.55)";
+        ? `rgba(51, 65, 85, ${vDot})`
+        : `rgba(200, 150, 30, ${aiDot})`;
     ctx.fill();
   }
 }
@@ -124,7 +128,9 @@ export function HeroParticles({ className = "" }: { className?: string }) {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = w < 640 ? 52 : w < 1024 ? 72 : 88;
+      const narrow = w < 640;
+      /* Moderate counts + short link distance = few visible connections */
+      const count = narrow ? 42 : w < 1024 ? 50 : 56;
       particles = initParticles(w, h, count);
       if (reduceMotion) {
         drawFrame(ctx, particles, w, h, 0, true);

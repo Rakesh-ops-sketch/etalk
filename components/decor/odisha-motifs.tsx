@@ -269,64 +269,66 @@ export function OdishaSectionDecor({ variant }: { variant: OdishaDecorVariant })
       {variant === "hero" ? (
         <>
           <SvgTempleRekha
-            className={`${strokeTint} absolute -right-4 bottom-[8%] h-44 w-32 opacity-[0.22] sm:right-2 sm:h-52 sm:w-36 sm:opacity-[0.2]`}
+            className={`${strokeTint} absolute -right-4 bottom-[8%] h-44 w-32 opacity-[0.09] sm:right-2 sm:h-52 sm:w-36 sm:opacity-[0.2]`}
           />
           <SvgCoastalWaves
-            className={`${strokeTint} absolute bottom-0 left-1/2 h-14 w-[min(92vw,22rem)] -translate-x-1/2 opacity-[0.18]`}
+            className={`${strokeTint} absolute bottom-0 left-1/2 h-14 w-[min(92vw,22rem)] -translate-x-1/2 opacity-[0.07] sm:opacity-[0.18]`}
           />
         </>
       ) : null}
       {variant === "trust" ? (
         <SvgCoastalWaves
-          className={`${strokeTint} absolute bottom-4 left-0 right-0 mx-auto h-12 w-[min(100%,30rem)] opacity-[0.2]`}
+          className={`${strokeTint} absolute bottom-4 left-0 right-0 mx-auto h-12 w-[min(100%,30rem)] opacity-[0.1] sm:opacity-[0.2]`}
         />
       ) : null}
       {variant === "approach" ? (
         <SvgLotus
-          className={`${strokeTint} absolute -left-4 top-10 h-36 w-36 opacity-[0.2] sm:left-0`}
+          className={`${strokeTint} absolute -left-4 top-10 h-36 w-36 opacity-[0.1] sm:left-0 sm:opacity-[0.2]`}
         />
       ) : null}
       {variant === "features" ? (
         <>
           <SvgSunWheel
-            className={`${strokeTint} absolute -right-6 top-1/2 h-40 w-40 -translate-y-1/2 opacity-[0.18] sm:right-2`}
+            className={`${strokeTint} absolute -right-6 top-1/2 h-40 w-40 -translate-y-1/2 opacity-[0.09] sm:right-2 sm:opacity-[0.18]`}
           />
-          <SvgLotus className={`${strokeTint} absolute bottom-8 left-6 h-28 w-28 opacity-[0.16]`} />
+          <SvgLotus
+            className={`${strokeTint} absolute bottom-8 left-6 h-28 w-28 opacity-[0.08] sm:opacity-[0.16]`}
+          />
         </>
       ) : null}
       {variant === "how" ? (
         <SvgToranaArch
-          className={`${strokeTint} absolute -left-8 top-[28%] h-36 w-44 -translate-y-[33%] opacity-[0.2] sm:left-0`}
+          className={`${strokeTint} absolute -left-8 top-[28%] h-36 w-44 -translate-y-[33%] opacity-[0.1] sm:left-0 sm:opacity-[0.2]`}
         />
       ) : null}
       {variant === "audience" ? (
         <>
           <SvgPalmFronds
-            className={`${strokeTint} absolute -right-4 bottom-20 h-48 w-32 opacity-[0.18] sm:right-0`}
+            className={`${strokeTint} absolute -right-4 bottom-20 h-48 w-32 opacity-[0.09] sm:right-0 sm:opacity-[0.18]`}
           />
           <SvgPaddyField
-            className={`${strokeTint} absolute bottom-4 left-4 h-20 w-[min(100%,20rem)] opacity-[0.16]`}
+            className={`${strokeTint} absolute bottom-4 left-4 h-20 w-[min(100%,20rem)] opacity-[0.08] sm:opacity-[0.16]`}
           />
         </>
       ) : null}
       {variant === "quote" ? (
         <SvgDiyaGlow
-          className={`${strokeTint} absolute right-[6%] top-16 h-32 w-32 opacity-[0.18]`}
+          className={`${strokeTint} absolute right-[6%] top-16 h-32 w-32 opacity-[0.08] sm:opacity-[0.18]`}
         />
       ) : null}
       {variant === "team" ? (
         <SvgTempleRekha
-          className={`${strokeTint} absolute left-1/2 top-8 h-40 w-28 -translate-x-1/2 opacity-[0.18]`}
+          className={`${strokeTint} absolute left-1/2 top-8 h-40 w-28 -translate-x-1/2 opacity-[0.08] sm:opacity-[0.18]`}
         />
       ) : null}
       {variant === "faq" ? (
         <SvgCoastalWaves
-          className={`${strokeTint} absolute top-10 right-2 h-12 w-52 rotate-180 opacity-[0.16]`}
+          className={`${strokeTint} absolute top-10 right-2 h-12 w-52 rotate-180 opacity-[0.08] sm:opacity-[0.16]`}
         />
       ) : null}
       {variant === "cta" ? (
         <SvgSunWheel
-          className={`${strokeTint} absolute -bottom-8 left-1/2 h-44 w-44 -translate-x-1/2 opacity-[0.14] sm:bottom-0 sm:opacity-[0.16]`}
+          className={`${strokeTint} absolute -bottom-8 left-1/2 h-44 w-44 -translate-x-1/2 opacity-[0.07] sm:bottom-0 sm:opacity-[0.16]`}
         />
       ) : null}
     </div>
