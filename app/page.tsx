@@ -11,8 +11,11 @@ import {
 } from "@/components/brand/brand-logo-text";
 import { OdishaSectionDecor } from "@/components/decor";
 import { HowWorksCarousel } from "@/components/how";
-import { HeroParticles, HeroTypewriter } from "@/components/hero";
-import { LaunchCountdownBanner } from "@/components/launch";
+import {
+  HeroLaunchCountdown,
+  HeroParticles,
+  HeroTypewriter,
+} from "@/components/hero";
 import { LanguageToggle } from "@/components/nav/language-toggle";
 import { SocialLinks } from "@/components/social";
 import { useLang } from "@/lib/i18n/lang-context";
@@ -130,7 +133,7 @@ export default function Home() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(246,245,240,0.88)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(246,245,240,0.72)]">
-        <div className="etalk-container flex h-[4.25rem] items-center justify-between gap-3 sm:gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-4">
+        <div className="etalk-container grid h-[4.25rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 sm:gap-x-4 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-4">
           <div className="flex min-w-0 justify-start justify-self-start">
             <Link
               href="/"
@@ -201,8 +204,6 @@ export default function Home() {
         </div>
       </header>
 
-      <LaunchCountdownBanner />
-
       <main className="overflow-x-hidden">
         <section
           className="relative isolate min-h-[28rem] overflow-hidden etalk-section-navy"
@@ -258,6 +259,8 @@ export default function Home() {
                   {t.hero.odiaLine}
                 </p>
               </div>
+
+              <HeroLaunchCountdown />
 
               <div
                 className={`mt-8 min-h-[4.5rem] border-l-2 border-[var(--brand-navy)]/15 pl-4 text-[clamp(1rem,1.35vw,1.125rem)] font-medium leading-relaxed text-[var(--brand-navy)] sm:min-h-[4rem] sm:pl-5 ${oriaFont}`}

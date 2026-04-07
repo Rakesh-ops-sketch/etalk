@@ -9,6 +9,14 @@ const ODIA_HEADER =
 const EN_HEADER =
   "text-[0.58rem] font-medium leading-tight tracking-wide text-[var(--brand-navy-deep)] sm:text-[0.625rem] md:text-[0.6875rem]";
 
+/** Reserves width for longest `nav.brandTaglines` line so typing / variant swaps don’t shift the nav. */
+export const HEADER_BRAND_TEXT_MIN =
+  "min-w-[min(100%,12.85rem)] sm:min-w-[min(100%,14.25rem)] md:min-w-[min(100%,16rem)]";
+
+/** Footer uses larger type — reserve width + height so tagline typing / brief empty gap don’t move copy below. */
+const FOOTER_BRAND_TEXT_MIN =
+  "min-h-[3.15rem] min-w-[min(100%,17.5rem)] sm:min-h-[3.35rem] sm:min-w-[min(100%,19.5rem)] lg:min-w-[min(100%,22.5rem)]";
+
 const ODIA_FOOTER =
   "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight sm:text-sm";
 const EN_FOOTER = "text-sm font-medium leading-tight text-[var(--brand-navy-deep)]";
@@ -68,7 +76,7 @@ const MD_UP = "(min-width: 768px)";
  * switch to animation after mount.
  */
 export function HeaderBrandLockup() {
-  const [wide, setWide] = useState<boolean | null>(null);
+  const [wide, setWide] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia(MD_UP);
@@ -79,9 +87,17 @@ export function HeaderBrandLockup() {
   }, []);
 
   if (wide) {
-    return <BrandLogoText variant="header" />;
+    return (
+      <div className={HEADER_BRAND_TEXT_MIN}>
+        <BrandLogoText variant="header" />
+      </div>
+    );
   }
-  return <BrandLogoTextStatic variant="header" />;
+  return (
+    <div className={HEADER_BRAND_TEXT_MIN}>
+      <BrandLogoTextStatic variant="header" />
+    </div>
+  );
 }
 
 /** Infinite type → pause → delete cycle across `nav.brandTaglines` pairs. */
@@ -249,10 +265,14 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
   const first = taglines[0]!;
 
   if (reduceMotion) {
-    return <BrandLogoTextStatic variant={variant} />;
+    const staticBlock = <BrandLogoTextStatic variant={variant} />;
+    if (variant === "footer") {
+      return <div className={FOOTER_BRAND_TEXT_MIN}>{staticBlock}</div>;
+    }
+    return staticBlock;
   }
 
-  return (
+  const inner = (
     <div className="flex flex-col gap-0">
       <p className={`m-0 min-h-0 p-0 ${odiaClasses}`} lang="or">
         <span aria-hidden="true">
@@ -273,4 +293,10 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
       </span>
     </div>
   );
+
+  if (variant === "footer") {
+    return <div className={FOOTER_BRAND_TEXT_MIN}>{inner}</div>;
+  }
+
+  return inner;
 }
