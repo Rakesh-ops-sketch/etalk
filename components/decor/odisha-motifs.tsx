@@ -243,8 +243,8 @@ function SvgDiyaGlow({ className }: { className?: string }) {
   );
 }
 
-/** Solid gold for `currentColor` — subtlety comes from `opacity-*` only (avoid double-alpha). */
-const strokeTint = "text-[var(--brand-gold-mid)] motion-reduce:opacity-80";
+/** Slate ink on warm paper — subtlety from per-SVG `opacity-*` only (avoid double-alpha). */
+const strokeTint = "text-[#64748b] motion-reduce:opacity-80";
 
 export type OdishaDecorVariant =
   | "hero"

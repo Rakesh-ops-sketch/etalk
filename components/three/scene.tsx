@@ -15,7 +15,7 @@ export const ThreeScene = dynamic(() => import("./scene-inner"), {
   ssr: false,
   loading: () => (
     <div
-      className="flex min-h-[12rem] w-full items-center justify-center rounded-2xl bg-white/[0.03] text-sm text-[var(--brand-muted)]"
+      className="flex min-h-[12rem] w-full items-center justify-center rounded-2xl border border-[var(--hairline)] bg-[var(--surface-subtle)] text-sm text-[var(--brand-muted)]"
       aria-hidden
     >
       Loading…

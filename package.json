@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export-i18n-review": "npx tsx scripts/export-translation-review.ts"
   },
   "dependencies": {
     "@react-three/fiber": "^9.5.0",

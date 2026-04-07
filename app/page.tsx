@@ -98,11 +98,19 @@ function IconMic({ className }: { className?: string }) {
 
 const featureIcons = [IconBook, IconSpark, IconMessage, IconMic] as const;
 
-/** Team photos: Prasannjit, Bikram, Rakesh (`/public/team/`) */
+/** Team photos: Prasannjit, Bikram, Rakesh (`/public/team/`) — roles in `t.team.members` */
 const cofounders = [
-  { name: "Prasannjit Sahoo", image: "/team/prasannjit-sahoo.png", kind: "cofounder" as const },
-  { name: "Bikram Kesari Swain", image: "/team/bikram-kesari-swain.png", kind: "cofounder" as const },
-  { name: "Rakesh Biswal", image: "/team/rakesh-biswal.png", kind: "product" as const },
+  {
+    key: "prasannjit",
+    name: "Prasannjit Sahoo",
+    image: "/team/prasannjit-sahoo.png",
+  },
+  {
+    key: "bikram",
+    name: "Bikram Kesari Swain",
+    image: "/team/bikram-kesari-swain.png",
+  },
+  { key: "rakesh", name: "Rakesh Biswal", image: "/team/rakesh-biswal.png" },
 ] as const;
 
 export default function Home() {
@@ -115,7 +123,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-white/[0.07] bg-black/80 backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-black/55">
+      <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(246,245,240,0.88)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(246,245,240,0.72)]">
         <div className="etalk-container flex h-[4.25rem] items-center justify-between gap-4">
           <Link
             href="/"
@@ -176,19 +184,19 @@ export default function Home() {
           className="relative isolate min-h-[28rem] overflow-hidden etalk-section-navy"
           aria-labelledby="hero-heading"
         >
-          <HeroParticles className="z-[1] opacity-90 motion-reduce:opacity-40" />
+          <HeroParticles className="z-[1] opacity-100 motion-reduce:opacity-[0.72]" />
           <div
             className="pointer-events-none absolute -left-1/4 top-1/4 z-[2] h-[32rem] w-[32rem] rounded-full opacity-30 blur-[100px] motion-reduce:opacity-15"
             style={{
               background:
-                "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)",
             }}
           />
           <div
             className="pointer-events-none absolute -right-1/4 bottom-0 z-[2] h-[28rem] w-[28rem] rounded-full opacity-25 blur-[90px] motion-reduce:opacity-12"
             style={{
               background:
-                "radial-gradient(circle, rgba(27,31,59,0.9) 0%, transparent 65%)",
+                "radial-gradient(circle, rgba(30,41,59,0.14) 0%, transparent 65%)",
             }}
           />
           {/* Above particle canvas (z-1) so gold line art is actually visible */}
@@ -222,7 +230,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#how"
-                  className={`inline-flex min-h-12 items-center justify-center rounded-full bg-white/[0.04] px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_0_0_1px_rgba(255,255,255,0.08)_inset] transition-[background-color,box-shadow,color] duration-300 ease-out hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(212,175,55,0.2)_inset] hover:text-white ${oriaFont}`}
+                  className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)] ${oriaFont}`}
                 >
                   {t.hero.secondaryCta}
                 </a>
@@ -251,11 +259,11 @@ export default function Home() {
             </div>
             <div className="relative text-center sm:text-left lg:px-10">
               <span
-                className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-white/[0.12] to-transparent sm:block lg:left-0"
+                className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[rgba(15,23,42,0.12)] to-transparent sm:block lg:left-0"
                 aria-hidden
               />
               <span
-                className="pointer-events-none absolute -right-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-white/[0.12] to-transparent sm:block lg:right-0"
+                className="pointer-events-none absolute -right-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[rgba(15,23,42,0.12)] to-transparent sm:block lg:right-0"
                 aria-hidden
               />
               <p className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-[var(--brand-gold-mid)]">
@@ -280,7 +288,7 @@ export default function Home() {
 
         <section
           id="approach"
-          className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+          className="etalk-section-paper relative overflow-hidden py-20 sm:py-24 lg:py-28"
           aria-labelledby="approach-heading"
         >
           <OdishaSectionDecor variant="approach" />
@@ -390,7 +398,7 @@ export default function Home() {
 
         <section
           id="audience"
-          className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+          className="etalk-section-paper relative overflow-hidden py-20 sm:py-24 lg:py-28"
           aria-labelledby="audience-heading"
         >
           <OdishaSectionDecor variant="audience" />
@@ -405,7 +413,7 @@ export default function Home() {
               {t.audience.subhead}
             </p>
 
-            <figure className="relative mt-12 max-w-3xl overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.2)] bg-gradient-to-br from-white/[0.06] to-transparent px-6 py-7 sm:px-8 sm:py-8">
+            <figure className="relative mt-12 max-w-3xl overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-gradient-to-br from-white to-[#faf9f6] px-6 py-7 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] sm:px-8 sm:py-8">
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-30 blur-3xl motion-reduce:opacity-15"
                 style={{
@@ -497,48 +505,52 @@ export default function Home() {
             </p>
 
             <ul className="mt-16 grid gap-12 sm:grid-cols-3 sm:gap-8 lg:gap-0">
-              {cofounders.map((person, index) => (
-                <li
-                  key={person.name}
-                  className="relative flex flex-col items-center text-center sm:items-stretch sm:text-left lg:px-10"
-                >
-                  {index > 0 ? (
-                    <span
-                      className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-white/[0.12] to-transparent sm:block lg:left-0"
-                      aria-hidden
-                    />
-                  ) : null}
-                  <div className="relative mx-auto h-[5rem] w-[5rem] shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(255,255,255,0.1)] sm:mx-0 sm:h-[5.5rem] sm:w-[5.5rem]">
-                    <Image
-                      src={person.image}
-                      alt={
-                        person.kind === "product"
-                          ? `${person.name}, ${t.team.role} and ${t.team.rakeshTitle} at E-talk`
-                          : `${person.name}, ${t.team.role} at E-talk`
-                      }
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 640px) 80px, 88px"
-                    />
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-[var(--brand-silver)]">
-                    {person.name}
-                  </h3>
-                  <div className={`mt-1.5 ${oriaFont}`}>
-                    <p className="text-sm text-[var(--brand-muted)]">{t.team.role}</p>
-                    {person.kind === "product" ? (
-                      <>
-                        <p className="mt-1 text-sm font-medium text-[var(--brand-silver)]">
-                          {t.team.rakeshTitle}
-                        </p>
-                        <p className="mt-0.5 text-xs tracking-wide text-[var(--brand-muted)]/75">
-                          {t.team.rakeshTech}
-                        </p>
-                      </>
+              {cofounders.map((person, index) => {
+                const m = t.team.members[person.key];
+                const roleAlt =
+                  "subtitle" in m
+                    ? `${person.name}, ${t.team.role} — ${m.title}; ${m.subtitle} at E-talk`
+                    : `${person.name}, ${t.team.role} — ${m.title} at E-talk`;
+                return (
+                  <li
+                    key={person.key}
+                    className="relative flex flex-col items-center text-center sm:items-stretch sm:text-left lg:px-10"
+                  >
+                    {index > 0 ? (
+                      <span
+                        className="pointer-events-none absolute -left-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[rgba(15,23,42,0.12)] to-transparent sm:block lg:left-0"
+                        aria-hidden
+                      />
                     ) : null}
-                  </div>
-                </li>
-              ))}
+                    <div className="relative mx-auto h-[5rem] w-[5rem] shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(15,23,42,0.1)] sm:mx-0 sm:h-[5.5rem] sm:w-[5.5rem]">
+                      <Image
+                        src={person.image}
+                        alt={roleAlt}
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 640px) 80px, 88px"
+                      />
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold text-[var(--brand-silver)]">
+                      {person.name}
+                    </h3>
+                    <div className={`mt-1.5 space-y-1.5 ${oriaFont}`}>
+                      <p className="text-sm text-[var(--brand-muted)]">{t.team.role}</p>
+                      <p className="text-sm font-medium leading-snug text-[var(--brand-silver)]">
+                        {m.title}
+                      </p>
+                      {"subtitle" in m ? (
+                        <p className="text-xs font-medium leading-snug text-[var(--brand-silver)]/90">
+                          {m.subtitle}
+                        </p>
+                      ) : null}
+                      <p className="pt-0.5 text-xs leading-relaxed text-[var(--brand-muted)]">
+                        {m.blurb}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
@@ -547,7 +559,7 @@ export default function Home() {
 
         <section
           id="faq"
-          className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+          className="etalk-section-paper relative overflow-hidden py-20 sm:py-24 lg:py-28"
           aria-labelledby="faq-heading"
         >
           <OdishaSectionDecor variant="faq" />
@@ -568,10 +580,10 @@ export default function Home() {
                     key={item.q}
                     className="etalk-faq-item group px-1 [&_summary::-webkit-details-marker]:hidden"
                   >
-                    <summary className={`flex min-h-[3.25rem] cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-[var(--brand-silver)] transition-colors duration-300 group-hover:text-white ${oriaFont}`}>
+                    <summary className={`flex min-h-[3.25rem] cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-[var(--brand-silver)] transition-colors duration-300 group-hover:text-[var(--brand-navy-deep)] ${oriaFont}`}>
                       <span>{item.q}</span>
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.04] text-[var(--brand-gold-mid)] shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset] transition-[transform,background-color,box-shadow] duration-300 ease-out group-open:rotate-180 group-open:bg-white/[0.07] motion-reduce:transition-none"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-gold-mid)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(212,175,55,0.25)] group-open:bg-[#fffefb] motion-reduce:transition-none"
                         aria-hidden
                       >
                         <svg
@@ -587,7 +599,7 @@ export default function Home() {
                         </svg>
                       </span>
                     </summary>
-                    <p className={`border-t border-white/[0.05] pb-5 pt-4 text-sm leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
+                    <p className={`border-t border-[var(--hairline)] pb-5 pt-4 text-sm leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                       {item.a}
                     </p>
                   </details>
@@ -647,7 +659,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="mt-auto border-t border-white/[0.06] py-10">
+      <footer className="etalk-section-paper mt-auto border-t border-[var(--hairline)] py-10">
         <div className="etalk-container flex flex-col gap-8 text-sm text-[var(--brand-muted)]">
           <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-start lg:justify-between">
             <p className={`text-center lg:text-left ${oriaFont}`}>{t.footer.copyright}</p>
@@ -658,9 +670,40 @@ export default function Home() {
               <SocialLinks links={socialLinks} />
             </div>
           </div>
+
+          <div
+            className={`flex flex-col items-center gap-3 border-t border-[var(--hairline)] pt-8 sm:flex-row sm:justify-center sm:gap-8 ${oriaFont}`}
+          >
+            <p className="text-center text-xs text-[var(--brand-muted)] sm:shrink-0 sm:pt-1">
+              {t.footer.fromFounders}
+            </p>
+            <a
+              href="https://thetalentstracker.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex max-w-sm flex-col items-center gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-[rgba(255,255,255,0.65)] sm:flex-row sm:items-center sm:gap-4"
+              aria-label={t.footer.talentsTrackerAria}
+            >
+              <Image
+                src="/talents-tracker-logo.png"
+                alt=""
+                width={140}
+                height={56}
+                className="h-12 w-auto object-contain opacity-90 transition-opacity group-hover:opacity-100"
+              />
+              <span className="text-center sm:text-left">
+                <span className="block font-medium text-[var(--brand-silver)] transition-colors group-hover:text-[var(--brand-navy-deep)]">
+                  {t.footer.talentsTrackerName}
+                </span>
+                <span className="mt-0.5 block text-xs text-[var(--brand-muted)]">
+                  {t.footer.talentsTrackerTagline}
+                </span>
+              </span>
+            </a>
+          </div>
           <nav
             aria-label="Footer"
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/[0.06] pt-8 text-center lg:justify-between"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-[var(--hairline)] pt-8 text-center lg:justify-between"
           >
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               <a

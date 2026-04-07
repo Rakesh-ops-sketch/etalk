@@ -125,7 +125,7 @@ export default function RootLayout({
       lang="en"
       className={`${balooThambi.variable} ${plusJakarta.variable} ${geistMono.variable} ${playfair.variable} ${notoOriya.variable} lang-en h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black font-sans text-[var(--foreground)]">
+      <body className="min-h-full flex flex-col bg-background font-sans text-[var(--foreground)]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

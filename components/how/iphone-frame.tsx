@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  */
 export function IphoneFrame({ children }: { children: ReactNode }) {
   return (
-    <div className="relative mx-auto w-[min(300px,90vw)] select-none">
+    <div className="relative mx-auto w-[min(320px,88vw)] select-none">
       {/* Silent / volume rails (decorative) */}
       <div
         className="pointer-events-none absolute -left-[2px] top-[22%] z-0 h-9 w-[3px] rounded-l-md bg-gradient-to-b from-[#3d3d3f] to-[#1a1a1c]"

@@ -70,7 +70,7 @@ export function AudienceCarousel({
             <article
               key={card.title}
               data-audience-card
-              className="etalk-audience-card flex w-[min(100%,18.5rem)] shrink-0 snap-start flex-col rounded-2xl border border-white/[0.1] bg-white/[0.04] px-5 py-5 shadow-[0_12px_40px_rgba(0,0,0,0.25)] backdrop-blur-sm [box-shadow:0_12px_40px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.06)] sm:w-80"
+              className="etalk-audience-card flex w-[min(100%,18.5rem)] shrink-0 snap-start flex-col rounded-2xl border border-[var(--hairline)] bg-white px-5 py-5 shadow-[0_12px_40px_rgba(15,23,42,0.08)] [box-shadow:0_12px_40px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] sm:w-80"
             >
               <h3
                 className={`text-base font-semibold leading-snug text-[var(--brand-silver)] ${oriaFontClass}`}
@@ -92,7 +92,7 @@ export function AudienceCarousel({
       >
         <button
           type="button"
-          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-3 text-[var(--brand-silver)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-white/[0.07] hover:text-white"
+          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)]"
           onClick={() => scrollStep(-1)}
           aria-label={prevLabel}
         >
@@ -102,7 +102,7 @@ export function AudienceCarousel({
         </button>
         <button
           type="button"
-          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-3 text-[var(--brand-silver)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-white/[0.07] hover:text-white"
+          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)]"
           onClick={() => scrollStep(1)}
           aria-label={nextLabel}
         >

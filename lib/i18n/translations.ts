@@ -172,8 +172,24 @@ export const translations = {
       subhead:
         "A small team building E-talk from Odisha—with a shared focus on accessible, Odia-friendly English learning.",
       role: "Co-founder",
-      rakeshTitle: "Product designer",
-      rakeshTech: "Tech",
+      members: {
+        prasannjit: {
+          title: "Chief of Operations",
+          blurb:
+            "Keeps programs, delivery, and day-to-day execution aligned so learners and partners get a dependable experience.",
+        },
+        bikram: {
+          title: "Chief of Administration and Infrastructure",
+          blurb:
+            "Oversees internal systems, facilities, and administrative support that keep the organisation running smoothly.",
+        },
+        rakesh: {
+          title: "Product design head",
+          subtitle: "Chief of Technology",
+          blurb:
+            "Shapes the product experience and technical direction—from design craft to engineering and architecture.",
+        },
+      },
     },
     faq: {
       heading: "Frequently asked questions",
@@ -206,6 +222,11 @@ export const translations = {
     footer: {
       copyright: `© ${year} E-talk. Made with focus on Odisha.`,
       follow: "Follow us",
+      fromFounders: "Sister venture from the founders",
+      talentsTrackerName: "Talent's Tracker",
+      talentsTrackerTagline: "A step towards Success",
+      talentsTrackerAria:
+        "Talent's Tracker — opens thetalentstracker.com in a new tab",
       team: "Team",
       faq: "FAQ",
       waitlist: "Waitlist",
@@ -383,8 +404,24 @@ export const translations = {
       subhead:
         "ଓଡ଼ିଶାରୁ ଇ-ଟକ୍ ଗଢ଼ୁଥିବା ଏକ ଛୋଟ ଦଳ—ସ୍ୱୀକାର୍ଯ୍ୟ ଓ ଓଡ଼ିଆ-ସହାୟ ଇଂରାଜୀ ଶିଖଣ ଉପରେ ଆଗ୍ରହ।",
       role: "ସହ-ପ୍ରତିଷ୍ଠାତା",
-      rakeshTitle: "ପ୍ରୋଡକ୍ଟ ଡିଜାଇନର",
-      rakeshTech: "ଟେକ୍",
+      members: {
+        prasannjit: {
+          title: "ପରିଚାଳନା ପ୍ରମୁଖ (Chief of Operations)",
+          blurb:
+            "କାର୍ଯ୍ୟକ୍ରମ, ବିତରଣ ଓ ଦୈନନ୍ଦିନ କାର୍ଯ୍ୟ ସୁଚାରୁରୁପେ ଚାଲୁ ରଖନ୍ତି—ଶିଖ୍ୟାର୍ଥୀ ଓ ସାଥୀଙ୍କ ପାଇଁ ନିର୍ଭରଯୋଗ୍ୟ ଅଭିଜ୍ଞତା।",
+        },
+        bikram: {
+          title: "ପ୍ରଶାସନ ଓ ଅବସ୍ଥାପତ୍ୟ ପ୍ରମୁଖ",
+          blurb:
+            "ଆଭ୍ୟନ୍ତରୀଣ ବ୍ୟବସ୍ଥା, ଅବସ୍ଥାପନା ଓ ପ୍ରଶାସନିକ ସହାୟତା ଦେଖାନ୍ତି—ସଂସ୍ଥା ସ୍ଥିର ଓ ସୁଗମ ରହେ।",
+        },
+        rakesh: {
+          title: "ପ୍ରୋଡକ୍ଟ ଡିଜାଇନ୍ ପ୍ରମୁଖ",
+          subtitle: "ପ୍ରଯୁକ୍ତି ବିଜ୍ଞାନ ପ୍ରମୁଖ (Chief of Technology)",
+          blurb:
+            "ପ୍ରୋଡକ୍ଟ ଅଭିଜ୍ଞତା ଓ ପ୍ରଯୁକ୍ତି ଦିଗ ନିର୍ଦ୍ଧାରଣ—ଡିଜାଇନ୍ କୌଶଳରୁ ଇଞ୍ଜିନିୟରିଂ ଓ ଆର୍କିଟେକ୍ଚର୍ ପର୍ଯ୍ୟନ୍ତ।",
+        },
+      },
     },
     faq: {
       heading: "ସାଧାରଣ ପ୍ରଶ୍ନ",
@@ -417,6 +454,11 @@ export const translations = {
     footer: {
       copyright: `© ${year} ଇ-ଟକ୍। ଓଡ଼ିଶା ଉପରେ ଧ୍ୟାନ ଦେଇ ତିଆରି।`,
       follow: "ଅନୁସରଣ",
+      fromFounders: "ପ୍ରତିଷ୍ଠାତାଙ୍କ ଅନ୍ୟ ଉଦ୍ୟମ",
+      talentsTrackerName: "Talent's Tracker",
+      talentsTrackerTagline: "ସଫଳତା ଆଡ଼େ ଗୋଟିଏ ପଦକ୍ଷେପ",
+      talentsTrackerAria:
+        "Talent's Tracker — ନୂଆ ଟ୍ୟାବରେ thetalentstracker.com ଖୋଲିବ",
       team: "ଦଳ",
       faq: "ସାଧାରଣ ପ୍ରଶ୍ନ",
       waitlist: "ପ୍ରତୀକ୍ଷା ତାଲିକା",

@@ -20,7 +20,7 @@ function initParticles(w: number, h: number, count: number): Particle[] {
       y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.12,
       vy: (Math.random() - 0.5) * 0.1,
-      r: Math.random() * 1.4 + 0.6,
+      r: Math.random() * 2 + 0.75,
       kind: i % 3 === 0 ? "voice" : "ai",
       phase: Math.random() * Math.PI * 2,
     });
@@ -52,8 +52,9 @@ function drawFrame(
     }
   }
 
-  const linkDist = staticOnly ? 88 : 90;
-  const lineAlpha = staticOnly ? 0.04 : 0.07;
+  const linkDist = staticOnly ? 100 : 112;
+  /* Navy + amber links — tuned for light textured hero */
+  const lineAlpha = staticOnly ? 0.11 : 0.2;
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
@@ -63,11 +64,20 @@ function drawFrame(
       const dy = a.y - b.y;
       const d = Math.hypot(dx, dy);
       if (d < linkDist && (a.kind === "ai" || b.kind === "ai")) {
-        ctx.strokeStyle = `rgba(212, 175, 55, ${lineAlpha * (1 - d / linkDist)})`;
-        ctx.lineWidth = 0.55;
+        const falloff = 1 - d / linkDist;
+        const a1 = lineAlpha * falloff;
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(30, 58, 95, ${a1})`;
+        ctx.lineWidth = 0.9;
+        ctx.lineCap = "round";
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(200, 155, 45, ${a1 * 0.55})`;
+        ctx.lineWidth = 0.45;
         ctx.stroke();
       }
     }
@@ -79,11 +89,11 @@ function drawFrame(
     ctx.fillStyle =
       p.kind === "voice"
         ? staticOnly
-          ? "rgba(252, 246, 186, 0.32)"
-          : "rgba(252, 246, 186, 0.42)"
+          ? "rgba(51, 65, 85, 0.42)"
+          : "rgba(51, 65, 85, 0.52)"
         : staticOnly
-          ? "rgba(212, 175, 55, 0.24)"
-          : "rgba(212, 175, 55, 0.32)";
+          ? "rgba(180, 130, 20, 0.45)"
+          : "rgba(200, 150, 30, 0.55)";
     ctx.fill();
   }
 }
@@ -114,7 +124,7 @@ export function HeroParticles({ className = "" }: { className?: string }) {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = w < 640 ? 40 : w < 1024 ? 54 : 68;
+      const count = w < 640 ? 52 : w < 1024 ? 72 : 88;
       particles = initParticles(w, h, count);
       if (reduceMotion) {
         drawFrame(ctx, particles, w, h, 0, true);

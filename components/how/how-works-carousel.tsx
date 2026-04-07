@@ -105,7 +105,7 @@ function ReelCard({
   const Icon = ICONS[i % ICONS.length] ?? IconMic;
   return (
     <article
-      className="etalk-how-card flex min-h-[200px] shrink-0 flex-col rounded-2xl border border-white/55 bg-[rgba(255,255,255,0.92)] px-4 py-4 text-center shadow-[0_14px_36px_rgba(15,18,40,0.12)] backdrop-blur-md backdrop-saturate-150 [box-shadow:0_14px_36px_rgba(15,18,40,0.1),inset_0_1px_0_rgba(255,255,255,0.85)]"
+      className="etalk-how-card flex min-h-[200px] shrink-0 flex-col rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[#fafaf8] px-4 py-4 text-center shadow-[0_14px_36px_rgba(15,23,42,0.08)] backdrop-blur-md backdrop-saturate-150 [box-shadow:0_14px_36px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,0.95)]"
     >
       <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(212,175,55,0.28)] text-[var(--brand-gold-dark)] ring-1 ring-[rgba(212,175,55,0.35)]">
         <Icon className="h-5 w-5" />
@@ -161,7 +161,7 @@ export function HowWorksCarousel({
       <div className="flex flex-col items-center gap-4">
         <IphoneFrame>
           <div
-            className="relative h-[min(58vw,340px)] min-h-[280px] max-h-[360px] overflow-hidden rounded-xl [mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)]"
+            className="relative h-[min(78vw,460px)] min-h-[380px] max-h-[520px] overflow-hidden rounded-xl [mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] sm:min-h-[420px] sm:max-h-[580px]"
             data-paused={paused || undefined}
             id={reelId}
           >
