@@ -55,7 +55,7 @@ export function SocialLinks({
 }) {
   return (
     <ul
-      className={`flex flex-wrap items-center justify-center gap-x-1 gap-y-2 sm:justify-end ${className}`}
+      className={`flex flex-wrap items-center justify-start gap-x-1 gap-y-2 sm:justify-end ${className}`}
     >
       {links.map((link) => (
         <li key={link.platform}>

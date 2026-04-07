@@ -3,7 +3,6 @@ import {
   Baloo_Thambi_2,
   Geist_Mono,
   Noto_Sans_Oriya,
-  Playfair_Display,
   Plus_Jakarta_Sans,
 } from "next/font/google";
 import { LangProvider } from "@/lib/i18n/lang-context";
@@ -28,13 +27,6 @@ const plusJakarta = Plus_Jakarta_Sans({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
 });
 
 const notoOriya = Noto_Sans_Oriya({
@@ -123,7 +115,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${balooThambi.variable} ${plusJakarta.variable} ${geistMono.variable} ${playfair.variable} ${notoOriya.variable} lang-en h-full scroll-smooth antialiased`}
+      className={`${balooThambi.variable} ${plusJakarta.variable} ${geistMono.variable} ${notoOriya.variable} lang-en h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background font-sans text-[var(--foreground)]">
         <script

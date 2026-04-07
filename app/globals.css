@@ -88,7 +88,7 @@
   --font-sans: var(--font-baloo-thambi), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-odia: var(--font-noto-oriya);
-  --font-heading: var(--font-playfair);
+  --font-heading: var(--font-baloo-thambi), system-ui, sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -156,6 +156,9 @@ body {
   font-family: var(--font-baloo-thambi), system-ui, sans-serif;
   line-height: 1.65;
   font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html.lang-or body {
@@ -171,11 +174,11 @@ html.lang-or body {
   background-image: var(--etalk-bg-layers);
 }
 
-/* Single outer measure for all sections — aligns nav, content, footer */
+/* Single outer measure — full-bleed width with horizontal padding */
 .etalk-container {
   box-sizing: border-box;
   width: 100%;
-  max-width: 72rem;
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -189,10 +192,32 @@ html.lang-or body {
   }
 }
 
-/* Readable column for hero + long quotes (same width everywhere) */
+/* Full-width wrapper; pair with max-w-* for comfortable measure on large viewports */
 .etalk-measure {
   width: 100%;
-  max-width: 48rem;
+  max-width: none;
+}
+
+/* Section intros / subheads — ~65–72ch on wide screens (full-bleed layout) */
+.etalk-section-lead {
+  max-width: min(42rem, 100%);
+}
+
+/* Section title + intro — centered so full-bleed pages don’t look edge-hugging */
+.etalk-section-head {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(48rem, 100%);
+  text-align: center;
+}
+
+.etalk-section-head .etalk-section-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.etalk-section-head h2 {
+  text-wrap: balance;
 }
 
 /* Focus visible — WCAG-friendly; gold ring matches brand accent */
@@ -205,48 +230,61 @@ html.lang-or body {
   outline-offset: 3px;
 }
 
-/* Primary CTAs — metallic gold; navy only as rim + depth (not half the fill) */
+/*
+ * Primary CTAs — calm slate-navy (industry-standard primary: confident, not loud).
+ * Gold stays in wordmark & accents; buttons use ink + soft depth only.
+ */
 .etalk-btn-gold {
   background: linear-gradient(
-    145deg,
-    #7a5f0a 0%,
-    #9a7415 14%,
-    #c9a227 32%,
-    #e8d48a 46%,
-    #fcf6ba 52%,
-    #d4af37 64%,
-    #b8860b 82%,
-    #8b6914 100%
+    180deg,
+    #2f3f56 0%,
+    #1e293b 48%,
+    #172033 100%
   );
-  color: var(--brand-navy-deep);
-  text-shadow: 0 1px 0 rgba(255, 250, 240, 0.35);
+  color: #f8fafc;
+  text-shadow: none;
   box-shadow:
-    0 0 0 1px rgba(15, 23, 42, 0.22),
-    0 0 0 2px rgba(212, 175, 55, 0.35) inset,
-    0 1px 0 rgba(255, 255, 255, 0.35) inset,
-    0 -1px 0 rgba(15, 23, 42, 0.12) inset,
-    0 4px 18px rgba(15, 23, 42, 0.12),
-    0 6px 22px rgba(212, 175, 55, 0.2);
+    0 0 0 1px rgba(15, 23, 42, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 2px 8px rgba(15, 23, 42, 0.1);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .etalk-btn-gold:hover {
-  filter: brightness(1.05) saturate(1.03);
+  filter: none;
+  background: linear-gradient(
+    180deg,
+    #3d4f6a 0%,
+    #334155 45%,
+    #243145 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 6px 20px rgba(15, 23, 42, 0.14);
 }
 
-/* Headline accent — gold metal; whisper of navy at the edges */
+/* Headline accent — readable gold on light paper; navy only at glyph edges */
 .etalk-text-gold-gradient {
   background: linear-gradient(
     122deg,
-    #1e293b 0%,
-    #b8860b 12%,
-    #fcf6ba 38%,
-    #d4af37 52%,
-    #aa771c 72%,
-    #1e293b 96%
+    #334155 0%,
+    #334155 5%,
+    #8a6c14 14%,
+    #b8860b 30%,
+    #c9a227 44%,
+    #b8960b 52%,
+    #b8860b 66%,
+    #7a5f0a 82%,
+    #334155 94%,
+    #334155 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
+  /* Subtle edge so glyphs don’t disappear on cream / frosted header */
+  text-shadow: 0 0 0.5px rgba(15, 23, 42, 0.2);
 }
 
 /* Wordmark — same: gold-forward, navy only tints the first/last glyphs */
@@ -304,7 +342,7 @@ html.lang-or body {
 .etalk-separator {
   height: 1px;
   width: 100%;
-  max-width: 72rem;
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
   background: linear-gradient(
@@ -447,23 +485,28 @@ html.lang-or body {
 @media (prefers-reduced-motion: no-preference) {
   .etalk-btn-gold {
     transition:
-      filter 0.2s ease,
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
   }
 
   .etalk-btn-gold:hover {
     transform: translateY(-1px);
-    box-shadow:
-      0 0 0 1px rgba(15, 23, 42, 0.26),
-      0 0 0 2px rgba(212, 175, 55, 0.4) inset,
-      0 1px 0 rgba(255, 255, 255, 0.4) inset,
-      0 -1px 0 rgba(15, 23, 42, 0.1) inset,
-      0 8px 28px rgba(15, 23, 42, 0.14),
-      0 12px 32px -4px rgba(212, 175, 55, 0.28);
   }
 
   .etalk-btn-gold:active {
     transform: translateY(0);
   }
+}
+
+.etalk-btn-gold:active {
+  background: linear-gradient(
+    180deg,
+    #243145 0%,
+    #1e293b 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 1px 4px rgba(15, 23, 42, 0.12);
 }

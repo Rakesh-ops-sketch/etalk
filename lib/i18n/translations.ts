@@ -11,6 +11,15 @@ export const translations = {
       team: "Team",
       faq: "FAQ",
       cta: "Get early access",
+      /** Rotating header/footer logo lines (Odia line + English line per variant). */
+      brandTaglines: [
+        { odia: "AI ଇଂରାଜୀ ଶିକ୍ଷକ", en: "AI English Teacher" },
+        {
+          odia: "ଓଡ଼ିଆ ସହଯୋଗ · ଇଂରାଜୀ ଅଭ୍ୟାସ",
+          en: "Odia context · English practice",
+        },
+        { odia: "ବୁଝି · କୁହନ୍ତୁ · ବଢ଼ନ୍ତୁ", en: "Learn. Speak. Grow." },
+      ],
     },
     hero: {
       eyebrow: "Odia-friendly AI English learning",
@@ -22,6 +31,16 @@ export const translations = {
       primaryCta: "Join the waitlist",
       secondaryCta: "See how it works",
       note: "Free to join the waitlist · Launch updates only",
+    },
+    banner: {
+      eyebrow: "Launch countdown",
+      headline: "E-talk goes live in about three months — join the waitlist for the exact date.",
+      days: "Days",
+      hours: "Hrs",
+      minutes: "Min",
+      seconds: "Sec",
+      ariaLabel: "Countdown to E-talk launch",
+      secondaryLink: "Sign up below",
     },
     trust: {
       col1Title: "Odisha-first",
@@ -220,6 +239,8 @@ export const translations = {
       note: "Opens your email app with our address and a short template. You can edit before sending.",
     },
     footer: {
+      brandMarketingLine:
+        "Odia-first AI English learning — clear explanations, adaptive lessons, and confidence for exams, work, and daily life.",
       copyright: `© ${year} E-talk. Made with focus on Odisha.`,
       follow: "Follow us",
       fromFounders: "Sister venture from the founders",
@@ -243,6 +264,14 @@ export const translations = {
       team: "ଦଳ",
       faq: "ସାଧାରଣ ପ୍ରଶ୍ନ",
       cta: "ଆଗୁଆ ଯୋଗ ଦିଅନ୍ତୁ",
+      brandTaglines: [
+        { odia: "AI ଇଂରାଜୀ ଶିକ୍ଷକ", en: "AI English Teacher" },
+        {
+          odia: "ଓଡ଼ିଆ ସହଯୋଗ · ଇଂରାଜୀ ଅଭ୍ୟାସ",
+          en: "Odia context · English practice",
+        },
+        { odia: "ବୁଝି · କୁହନ୍ତୁ · ବଢ଼ନ୍ତୁ", en: "Learn. Speak. Grow." },
+      ],
     },
     hero: {
       eyebrow: "ଓଡ଼ିଆ-ସହାୟ AI ଇଂରାଜୀ ଶିଖଣ",
@@ -254,6 +283,17 @@ export const translations = {
       primaryCta: "ପ୍ରତୀକ୍ଷା ତାଲିକାରେ ଯୋଗ ଦିଅନ୍ତୁ",
       secondaryCta: "କିପରି କାମ କରେ ଦେଖନ୍ତୁ",
       note: "ଯୋଗ ଦେବା ମୁଫ · କେବଳ ଲଞ୍ଚ ଅଦ୍ୟତନ",
+    },
+    banner: {
+      eyebrow: "ଲଞ୍ଚ କାଉଣ୍ଟଡାଉନ୍",
+      headline:
+        "ଇ-ଟକ୍ ପ୍ରାୟ ତିନି ମାସରେ ଲାଇଭ୍ — ଠିକ୍ ତାରିଖ ପାଇଁ ପ୍ରତୀକ୍ଷା ତାଲିକାରେ ଯୋଗ ଦିଅନ୍ତୁ।",
+      days: "ଦିନ",
+      hours: "ଘଣ୍ଟା",
+      minutes: "ମିନିଟ୍",
+      seconds: "ସେକେଣ୍ଡ୍",
+      ariaLabel: "ଇ-ଟକ୍ ଲଞ୍ଚ ପାଇଁ କାଉଣ୍ଟଡାଉନ୍",
+      secondaryLink: "ତଳେ ଯୋଗ ଦିଅନ୍ତୁ",
     },
     trust: {
       col1Title: "ଓଡ଼ିଶା-ପ୍ରଥମ",
@@ -452,6 +492,8 @@ export const translations = {
       note: "ଆପଣଙ୍କ ଇ-ମେଲ ଆପ୍ ଖୋଲିବ ଓ ଠିକଣା ଭରି ଦେବ। ପଠାଇବା ପୂର୍ବେ ବଦଳାଇ ପାରିବେ।",
     },
     footer: {
+      brandMarketingLine:
+        "ଓଡ଼ିଆ-ପ୍ରଥମ AI ଇଂରାଜୀ ଶିଖଣ—ସ୍ପଷ୍ଟ ବ୍ୟାଖ୍ୟା, ଅଭିଯୋଜ୍ୟ ପାଠ ଓ ପରୀକ୍ଷା, କାର୍ଯ୍ୟ ଓ ଦୈନନ୍ଦିନ ଜୀବନ ପାଇଁ ଆତ୍ମବିଶ୍ୱାସ।",
       copyright: `© ${year} ଇ-ଟକ୍। ଓଡ଼ିଶା ଉପରେ ଧ୍ୟାନ ଦେଇ ତିଆରି।`,
       follow: "ଅନୁସରଣ",
       fromFounders: "ପ୍ରତିଷ୍ଠାତାଙ୍କ ଅନ୍ୟ ଉଦ୍ୟମ",

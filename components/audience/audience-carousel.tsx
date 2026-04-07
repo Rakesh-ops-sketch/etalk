@@ -110,7 +110,7 @@ export function AudienceCarousel({
             →
           </span>
         </button>
-        <span className="w-full text-center sm:w-auto sm:text-left">{hint}</span>
+        <span className="w-full text-center sm:w-auto">{hint}</span>
       </div>
     </div>
   );

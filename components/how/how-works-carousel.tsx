@@ -149,9 +149,9 @@ export function HowWorksCarousel({
   }, []);
 
   return (
-    <div className="mx-auto mt-12 w-full max-w-lg sm:mt-16">
+    <div className="mt-14 w-full text-center sm:mt-16">
       {showOdiaTagline ? (
-        <p className="mb-6 text-center font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-gold-mid)]/90">
+        <p className="mb-6 font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-gold-mid)]/90">
           {carouselOdiaLine}
         </p>
       ) : null}
@@ -201,7 +201,7 @@ export function HowWorksCarousel({
         ) : null}
       </div>
 
-      <p className={`mt-5 text-center text-xs text-[var(--brand-muted)] ${oriaFontClass}`}>{carouselHint}</p>
+      <p className={`mt-5 text-xs text-[var(--brand-muted)] ${oriaFontClass}`}>{carouselHint}</p>
     </div>
   );
 }

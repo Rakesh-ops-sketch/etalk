@@ -1,0 +1,68 @@
+---
+description: eTalk UI theme — colors, surfaces, typography, motion, and design ethics (reuse for consistent marketing/education aesthetics)
+alwaysApply: true
+---
+
+# eTalk UI aesthetics (portable design language)
+
+Use this when building or changing UI so new screens match the established **light education** look. You may copy this rule into other apps to keep the same visual DNA.
+
+## Brand feel
+
+- **Education-first**: calm, trustworthy, readable—never flashy or “startup neon.”
+- **Warm paper, not flat gray**: base is warm off-white; cool navy **washes** add depth, not flat blocks of color.
+- **Dual accent**: **navy/slate** (structure, text, depth) + **metallic gold** (CTAs, wordmark, key highlights). Gold is **primary** on buttons; navy appears as **rim, shadow, and text** on gold—not half-and-half fills.
+- **Seamless sections**: gradient fades and **hairline** separators; avoid heavy boxed panels unless content truly needs a card.
+- **Cultural decor** (line art): **low opacity**, slate/navy tint—ambient only; must not compete with copy (stronger on `sm+`, softer on small screens).
+
+## Color schema (CSS tokens)
+
+Map these in `:root` / `@theme` when porting:
+
+| Role | Typical use |
+|------|----------------|
+| `--background` / `--etalk-bg-paper` | `#f6f5f0` warm paper |
+| `--foreground` | Dark ink `#2a2f38` |
+| `--brand-navy` / `--brand-navy-deep` | `#1e293b` / `#0f172a` headings, edges, focus context |
+| `--brand-muted` | Secondary body `#5c6570` |
+| `--brand-gold-mid` / gold light/dark | Accents, borders, icon wells |
+| `--surface-elevated` | `#ffffff` cards on paper |
+| `--surface-subtle` | `#eeede8` secondary surfaces |
+| `--hairline` | `rgba(15, 23, 42, 0.08)` borders/dividers |
+
+**Page background**: layer `--etalk-navy-pattern` (soft blue-tinted navy radials + faint diagonal/grid repeats) **under** a warm linear wash—never a single flat fill.
+
+## Typography
+
+- **Headings / wordmark**: Playfair (`.etalk-wordmark` = gold-forward gradient with **whisper of navy** at ends).
+- **English UI**: rounded humanist sans (e.g. Baloo Thambi 2).
+- **Odia**: Noto Sans Oriya + paired Latin sans (e.g. Plus Jakarta) when `lang-or`.
+- **Hierarchy**: eyebrow (muted, tracked) → H1 (Playfair, ink) → accent line (gold) → body (muted).
+
+## Components & surfaces
+
+- **Primary CTA** (`.etalk-btn-gold`): **metallic gold gradient** fill; **navy** `color` + **navy outer ring** + subtle **inset** highlight/shadow—reads as a gold button, not a navy bar.
+- **Secondary actions**: white/outline on paper, `border-[var(--hairline)]`, hover gold border tint—no dark “glass” pills on light theme.
+- **Feature tiles**: white card, hairline border, soft hover lift + gold edge glow—**not** dark translucent tiles.
+- **FAQ**: hairline rows, light hover wash—no stark white-on-dark rows.
+- **Header**: frosted warm paper + blur; border `--hairline`.
+
+## Motion & hero
+
+- **Particles / canvas**: **subtle** network—low alpha lines, short link distance, moderate counts; **must not reduce legibility** on mobile (same effect as desktop, intensity tuned so text stays first).
+- **Decor SVGs**: opacity often **~0.08–0.2** on mobile, restore toward desktop at `sm:`.
+- Respect **`prefers-reduced-motion`**: pause decorative animation; simplify or dim particles.
+
+## Ethics & a11y
+
+- **Content over chrome**: if decoration overlaps text, **lower opacity** or **density**—never the reverse.
+- **Focus**: visible focus ring using brand gold (or navy + gold) with sensible offset.
+- **Contrast**: body text on paper meets readable contrast; gold gradient text reserved for wordmark/accents, not long paragraphs.
+
+## Porting to another app
+
+1. Copy the token block and **layered** `body` background pattern.
+2. Keep **one** humanist sans + **one** display serif for marketing pages.
+3. Reuse the **gold CTA + navy typography** pattern for primary actions.
+4. Apply **hairlines** and **soft shadows** instead of thick borders and dark cards.
+5. Treat **ambient graphics** as optional, low-contrast layers—test on **375px** width first.
