@@ -107,20 +107,23 @@ function IconMic({ className }: { className?: string }) {
 
 const featureIcons = [IconBook, IconSpark, IconMessage, IconMic] as const;
 
-/** Team photos: Prasannjit, Bikram, Rakesh (`/public/team/`) — roles in `t.team.members` */
-const cofounders = [
-  {
-    key: "prasannjit",
-    name: "Prasannjit Sahoo",
-    image: "/team/prasannjit-sahoo.png",
-  },
-  {
-    key: "bikram",
-    name: "Bikram Kesari Swain",
-    image: "/team/bikram-kesari-swain.png",
-  },
-  { key: "rakesh", name: "Rakesh Biswal", image: "/team/rakesh-biswal.png" },
-] as const;
+/*
+ * Cofounders / team section — restore when ready (see commented block below).
+ * Team photos: Prasannjit, Bikram, Rakesh (`/public/team/`) — roles in `t.team.members`
+ */
+// const cofounders = [
+//   {
+//     key: "prasannjit",
+//     name: "Prasannjit Sahoo",
+//     image: "/team/prasannjit-sahoo.png",
+//   },
+//   {
+//     key: "bikram",
+//     name: "Bikram Kesari Swain",
+//     image: "/team/bikram-kesari-swain.png",
+//   },
+//   { key: "rakesh", name: "Rakesh Biswal", image: "/team/rakesh-biswal.png" },
+// ] as const;
 
 export default function Home() {
   const { t, lang } = useLang();
@@ -179,12 +182,14 @@ export default function Home() {
             >
               {t.nav.howItWorks}
             </a>
+            {/* Team nav — restore with cofounders section
             <a
               href="#team"
               className="rounded-md py-2 transition-colors duration-300 ease-out hover:text-[var(--brand-silver)]"
             >
               {t.nav.team}
             </a>
+            */}
             <a
               href="#faq"
               className="rounded-md py-2 transition-colors duration-300 ease-out hover:text-[var(--brand-silver)]"
@@ -616,6 +621,7 @@ export default function Home() {
 
         <div className="etalk-separator px-4 sm:px-6" aria-hidden />
 
+        {/*
         <section
           id="team"
           className="relative overflow-hidden etalk-section-mist py-20 sm:py-24 lg:py-28"
@@ -687,6 +693,7 @@ export default function Home() {
         </section>
 
         <div className="etalk-separator px-4 sm:px-6" aria-hidden />
+        */}
 
         <section
           id="faq"
@@ -866,12 +873,14 @@ export default function Home() {
               className="flex flex-wrap items-center justify-start gap-x-4 gap-y-1.5 pt-2 text-left lg:justify-between sm:pt-3"
             >
             <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-1.5">
+              {/* Footer team link — restore with cofounders section
               <a
                 href="#team"
                 className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
               >
                 {t.footer.team}
               </a>
+              */}
               <a
                 href="#faq"
                 className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
