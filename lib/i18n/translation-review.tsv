@@ -43,16 +43,26 @@ faq.items.2.q	FAQ	What happens after I join the waitlist?	ଯୋଗ ଦେବା
 faq.items.3.a	FAQ	Pricing is still being shaped. Waitlist members will hear first when plans and timelines are ready.	ମୂଲ୍ୟ ଏ ପର୍ଯ୍ୟନ୍ତ ସ୍ଥିର ହୋଇ ନଥିଲା। ଯୋଗ ଦିଆ ସଦସ୍ୟ ପ୍ରଥମ ଜ ପାଇବେ।
 faq.items.3.q	FAQ	Will E-talk be free?	ଇ-ଟକ୍ ମୁଫ ହେବ?
 faq.subhead	FAQ	Straight answers about how E-talk fits your learning.	ଇ-ଟକ୍ ଆପଣଙ୍କ ଶିଖଣରେ କିପରି ଖାପ ଖାଏ, ତା ସ୍ପଷ୍ଟ ଉତ୍ତର।
-features.heading	Features	Everything in one learning flow	ଏକ ଶିଖଣ ପ୍ରବାହରେ ସବୁ କିଛି
-features.items.0.body	Features	Explanations and prompts that respect Odia speakers—so concepts land faster and you spend less time guessing.	ଓଡ଼ିଆ ଭାଷୀଙ୍କୁ ସମ୍ମାନ ଦେଉଥିବା ବ୍ୟାଖ୍ୟା—ଧାରଣା ଶୀଘ୍ର ସ୍ଥିର ହୁଏ, ଅନୁମାନ ଆଉ ଲାଗେ ନାହିଁ।
-features.items.0.title	Features	Odia-friendly learning	ଓଡ଼ିଆ-ସହାୟ ଶିଖଣ
-features.items.1.body	Features	Courses adjust to your level, goals, and pace—whether you are preparing for exams or workplace English.	ଆପଣଙ୍କ ସ୍ତର, ଲକ୍ଷ୍ୟ ଓ ଗତି ଅନୁଯାୟୀ ଅଭ୍ୟାସ ଢ଼ାଞ୍ଚା ବଦଳେ।
-features.items.1.title	Features	AI paths that adapt to you	ଆପଣ ଅନୁଯାୟୀ AI ପଥ
-features.items.2.body	Features	Ask questions, practise dialogues, and build speaking confidence with guided help in real time.	ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ, ସଂଳାପ ଅଭ୍ୟାସ କରନ୍ତୁ, ସହାୟ ସ୍ୱରରେ ଆତ୍ମବିଶ୍ୱାସ ବଢ଼ାନ୍ତୁ।
-features.items.2.title	Features	Live chat when you are stuck	ଅଟକି ଗଲେ ଲାଇଭ ଚ୍ୟାଟ
-features.items.3.body	Features	Structured rehearsal, feedback loops, and real-world scenarios so you move from reading to confident conversation.	ସଂଗଠିତ ଅଭ୍ୟାସ, ଫିଡ୍‌ବ୍ୟାକ ଲୁପ, ଓ ଆସଲ ଦୁନିଆ ଦୃଶ୍ୟ—ପଢ଼ାରୁ ଆତ୍ମବିଶ୍ୱାସ ଭରା ବ୍ୟବହାର।
-features.items.3.title	Features	Speaking practice that sticks	ଯାହା ମନ ଧରୁଥାଏ ତାହା ଅଭ୍ୟାସ
-features.subhead	Features	Structured lessons, AI guidance, and live support—so you progress without switching between five different apps.	ସଂଗଠିତ ପାଠ, AI ନିର୍ଦ୍ଦେଶ, ଓ ଲାଇଭ ସହାୟତା—ପାଞ୍ଚଟି ଆଲଗ ଆପ ବ୍ୟବହାର ନ କରି ଏଗିଯାଅ।
+features.heading	Features	Why choose E-talk	ଇ-ଟକ୍ କାହିଁକି ବାଛିବେ
+features.items.0.body	Features	Practice English daily and get instant feedback on pronunciation and fluency.	ପ୍ରତିଦିନ ଇଂରାଜୀ ଅଭ୍ୟାସ କରନ୍ତୁ; ଉଚ୍ଚାରଣ ଓ ସ୍ୱାଦ ଉପରେ ତୁରନ୍ତ ମତ ପାଆନ୍ତୁ।
+features.items.0.title	Features	AI English Coach	AI ଇଂରାଜୀ କୋଚ୍
+features.items.1.body	Features	Speak freely and improve with private corrections from AI.	ମୁକ୍ତ ଭାବେ କୁହନ୍ତୁ; AI ଠାରୁ ବ୍ୟକ୍ତିଗତ, ଗୋପନୀୟ ସଂଶୋଧନରେ ଉନ୍ନତି କରନ୍ତୁ।
+features.items.1.title	Features	Learn without fear	ଭୟ ବିନା ଶିଖନ୍ତୁ
+features.items.2.body	Features	Follow a clear path with level milestones to track your progress.	ସ୍ପଷ୍ଟ ପଥ ଅନୁସରଣ କରନ୍ତୁ; ସ୍ତର ଓ ମାଇଲ୍ ଷ୍ଟୋନ୍ ଦେଇ ଆପଣଙ୍କ ପ୍ରଗତି ଦେଖନ୍ତୁ।
+features.items.2.title	Features	Structured learning path	ଗଠିତ ଶିଖଣ ପଥ
+features.items.3.body	Features	Learn in 15 minutes a day with bite-sized lessons designed for busy people.	ଦିନକୁ ପନ୍ଦର ମିନିଟ୍—ବ୍ୟସ୍ତ ଲୋକଙ୍କ ପାଇଁ ଛୋଟ ଛୋଟ ପାଠରେ ଶିଖନ୍ତୁ।
+features.items.3.title	Features	Short daily lessons	ସଂକ୍ଷିପ୍ତ ଦୈନିକ ପାଠ
+features.items.4.body	Features	Stay motivated with daily challenges, rewards, badges, and streaks.	ଦୈନିକ ଚ୍ୟାଲେଞ୍ଜ, ପୁରସ୍କାର, ବ୍ୟାଜ ଓ ଷ୍ଟ୍ରିକ୍ ସହ ପ୍ରେରଣା ରଖନ୍ତୁ।
+features.items.4.title	Features	Gamified learning	ଖେଳ ଭଳି ଶିଖଣ
+features.items.5.body	Features	Quality English learning at prices everyone can afford.	ସମସ୍ତଙ୍କ ପାଇଁ ପହଞ୍ଚ ଯୋଗ୍ୟ ମୂଲ୍ୟରେ ମାନସ୍ମତ ଇଂରାଜୀ ଶିଖଣ।
+features.items.5.title	Features	Affordable plans	ସସ୍ତା ଯୋଜନା
+features.items.6.body	Features	Explanations that respect Odia speakers—so dense ideas land faster and you guess less.	ଓଡ଼ିଆ ଭାଷୀଙ୍କୁ ସମ୍ମାନ ଦେଉଥିବା ବ୍ୟାଖ୍ୟା—କଠିନ ଧାରଣା ଶୀଘ୍ର ବୁଝାଯାଏ, ଅନୁମାନ କମ୍ ଲାଗେ।
+features.items.6.title	Features	Odia-friendly clarity	ଓଡ଼ିଆ-ସହାୟ ସ୍ପଷ୍ଟତା
+features.items.7.body	Features	Boards, entrances, interviews, workplace English, and daily conversation—structured journeys for what you need next, not a one-size-fits-all course.	ବୋର୍ଡ, ପ୍ରବେଶ, ସାକ୍ଷାତ, ଅଫିସ ଇଂରାଜୀ ଓ ଦୈନନ୍ଦିନ କଥା—ସାଧାରଣ କୋର୍ସ ନୁହେଁ, ଆପଣଙ୍କ ପରବର୍ତ୍ତୀ ପଦକ୍ଷେପ ସହ ମେଳ ଖାଉଥିବା ଗଠିତ ଯାତ୍ରା।
+features.items.7.title	Features	Paths for your goals	ଆପଣଙ୍କ ଲକ୍ଷ୍ୟ ଅନୁଯାୟୀ ପଥ
+features.items.8.body	Features	Waitlist members help us prioritise features—built with learners, not only for them.	ପ୍ରତୀକ୍ଷା ତାଲିକା ସଦସ୍ୟ ବୈଶିଷ୍ଟ୍ୟ ଅଗ୍ରାଧିକାର ସ୍ଥିର କରନ୍ତି—ଶୁଧୁ ଶିଖ୍ୟାର୍ଥୀଙ୍କ ପାଇଁ ନୁହେଁ, ସେମାନଙ୍କ ସହ।
+features.items.8.title	Features	Your feedback shapes E-talk	ଆପଣଙ୍କ ମତ ଇ-ଟକ୍ ଗଢ଼େ
+features.subhead	Features	Daily AI coaching, a path you can follow, short lessons, gamified motivation—and plans that stay within reach.	ଦୈନିକ AI କୋଚିଂ, ଅନୁସରଣ ଯୋଗ୍ୟ ପଥ, ଛୋଟ ପାଠ, ଖେଳ ଭଳି ପ୍ରେରଣା—ଓ ଆପଣଙ୍କ ବଜେଟ୍ ଭିତରେ ରହୁଥିବା ଯୋଜନା।
 footer.contact	Footer	Contact	ଯୋଗାଯୋଗ
 footer.brandMarketingLine	Footer	Odia-first AI English learning — clear explanations, adaptive lessons, and confidence for exams, work, and daily life.	ଓଡ଼ିଆ-ପ୍ରଥମ AI ଇଂରାଜୀ ଶିଖଣ—ସ୍ପଷ୍ଟ ବ୍ୟାଖ୍ୟା, ଅଭିଯୋଜ୍ୟ ପାଠ ଓ ପରୀକ୍ଷା, କାର୍ଯ୍ୟ ଓ ଦୈନନ୍ଦିନ ଜୀବନ ପାଇଁ ଆତ୍ମବିଶ୍ୱାସ।
 footer.copyright	Footer	© 2026 E-talk. Made with focus on Odisha.	© 2026 ଇ-ଟକ୍। ଓଡ଼ିଶା ଉପରେ ଧ୍ୟାନ ଦେଇ ତିଆରି।

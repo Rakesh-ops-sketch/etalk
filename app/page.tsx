@@ -25,7 +25,7 @@ import {
   socialLinks,
 } from "@/lib/site-config";
 
-function IconBook({ className }: { className?: string }) {
+function IconMessage({ className }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -39,9 +39,152 @@ function IconBook({ className }: { className?: string }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-      <path d="M8 7h8M8 11h6" />
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  );
+}
+
+function IconShield({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
+function IconTarget({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
+function IconClock({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </svg>
+  );
+}
+
+function IconGamepad({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect x="3" y="9" width="18" height="9" rx="2.5" />
+      <path d="M8 12v2M7 13h2" />
+      <circle cx="16" cy="12" r="1.25" />
+      <circle cx="19" cy="10" r="1.25" />
+    </svg>
+  );
+}
+
+function IconGift({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12 8v13" />
+      <path d="M8 8V6a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2M16 8V6a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v2" />
+      <rect x="3" y="8" width="18" height="4" rx="1" />
+      <path d="M3 12v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8" />
+    </svg>
+  );
+}
+
+function IconBookOpen({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12 7v14" />
+      <path d="M2 5a2 2 0 0 1 2-2h7v16H4a2 2 0 0 1-2-2V5Z" />
+      <path d="M22 5a2 2 0 0 0-2-2h-7v16h7a2 2 0 0 0 2-2V5Z" />
+    </svg>
+  );
+}
+
+function IconFlag({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+      <path d="M4 22v-7" />
     </svg>
   );
 }
@@ -65,47 +208,17 @@ function IconSpark({ className }: { className?: string }) {
   );
 }
 
-function IconMessage({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width={24}
-      height={24}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-  );
-}
-
-function IconMic({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width={24}
-      height={24}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-      <line x1="12" x2="12" y1="19" y2="22" />
-    </svg>
-  );
-}
-
-const featureIcons = [IconBook, IconSpark, IconMessage, IconMic] as const;
+const featureIcons = [
+  IconMessage,
+  IconShield,
+  IconTarget,
+  IconClock,
+  IconGamepad,
+  IconGift,
+  IconBookOpen,
+  IconFlag,
+  IconSpark,
+] as const;
 
 /*
  * Cofounders / team section — restore when ready (see commented block below).
@@ -426,9 +539,9 @@ export default function Home() {
                 {t.features.subhead}
               </p>
             </div>
-            <ul className="mx-auto mt-16 grid w-full max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            <ul className="mx-auto mt-16 grid w-full max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
               {t.features.items.map((f, i) => {
-                const Icon = featureIcons[i];
+                const Icon = featureIcons[i] ?? IconMessage;
                 return (
                   <li
                     key={f.title}

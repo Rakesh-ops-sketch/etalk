@@ -65,25 +65,45 @@ export const translations = {
         "Odia-friendly guidance where it helps, English practice where it counts—so you build fluency for exams, interviews, and everyday conversation.",
     },
     features: {
-      heading: "Everything in one learning flow",
+      heading: "Why choose E-talk",
       subhead:
-        "Structured lessons, AI guidance, and live support—so you progress without switching between five different apps.",
+        "Daily AI coaching, a path you can follow, short lessons, gamified motivation—and plans that stay within reach.",
       items: [
         {
-          title: "Odia-friendly learning",
-          body: "Explanations and prompts that respect Odia speakers—so concepts land faster and you spend less time guessing.",
+          title: "AI English Coach",
+          body: "Practice English daily and get instant feedback on pronunciation and fluency.",
         },
         {
-          title: "AI paths that adapt to you",
-          body: "Courses adjust to your level, goals, and pace—whether you are preparing for exams or workplace English.",
+          title: "Learn without fear",
+          body: "Speak freely and improve with private corrections from AI.",
         },
         {
-          title: "Live chat when you are stuck",
-          body: "Ask questions, practise dialogues, and build speaking confidence with guided help in real time.",
+          title: "Structured learning path",
+          body: "Follow a clear path with level milestones to track your progress.",
         },
         {
-          title: "Speaking practice that sticks",
-          body: "Structured rehearsal, feedback loops, and real-world scenarios so you move from reading to confident conversation.",
+          title: "Short daily lessons",
+          body: "Learn in 15 minutes a day with bite-sized lessons designed for busy people.",
+        },
+        {
+          title: "Gamified learning",
+          body: "Stay motivated with daily challenges, rewards, badges, and streaks.",
+        },
+        {
+          title: "Affordable plans",
+          body: "Quality English learning at prices everyone can afford.",
+        },
+        {
+          title: "Odia-friendly clarity",
+          body: "Explanations that respect Odia speakers—so dense ideas land faster and you guess less.",
+        },
+        {
+          title: "Paths for your goals",
+          body: "Boards, entrances, interviews, workplace English, and daily conversation—structured journeys for what you need next, not a one-size-fits-all course.",
+        },
+        {
+          title: "Your feedback shapes E-talk",
+          body: "Waitlist members help us prioritise features—built with learners, not only for them.",
         },
       ],
     },
@@ -318,25 +338,45 @@ export const translations = {
         "ଦରକାର ଥିଲେ ଓଡ଼ିଆ ସହାୟତା, ଗୁରୁତ୍ୱ ଥିଲେ ଇଂରାଜୀ ଅଭ୍ୟାସ—ଯାହା ଆପଣଙ୍କୁ ପରୀକ୍ଷା, ସାକ୍ଷାତ ଓ ଦୈନ୍ୟ ବ୍ୟବହାରରେ ଦକ୍ଷ କରିଥାଏ।",
     },
     features: {
-      heading: "ଏକ ଶିଖଣ ପ୍ରବାହରେ ସବୁ କିଛି",
+      heading: "ଇ-ଟକ୍ କାହିଁକି ବାଛିବେ",
       subhead:
-        "ସଂଗଠିତ ପାଠ, AI ନିର୍ଦ୍ଦେଶ, ଓ ଲାଇଭ ସହାୟତା—ପାଞ୍ଚଟି ଆଲଗ ଆପ ବ୍ୟବହାର ନ କରି ଏଗିଯାଅ।",
+        "ଦୈନିକ AI କୋଚିଂ, ଅନୁସରଣ ଯୋଗ୍ୟ ପଥ, ଛୋଟ ପାଠ, ଖେଳ ଭଳି ପ୍ରେରଣା—ଓ ଆପଣଙ୍କ ବଜେଟ୍ ଭିତରେ ରହୁଥିବା ଯୋଜନା।",
       items: [
         {
-          title: "ଓଡ଼ିଆ-ସହାୟ ଶିଖଣ",
-          body: "ଓଡ଼ିଆ ଭାଷୀଙ୍କୁ ସମ୍ମାନ ଦେଉଥିବା ବ୍ୟାଖ୍ୟା—ଧାରଣା ଶୀଘ୍ର ସ୍ଥିର ହୁଏ, ଅନୁମାନ ଆଉ ଲାଗେ ନାହିଁ।",
+          title: "AI ଇଂରାଜୀ କୋଚ୍",
+          body: "ପ୍ରତିଦିନ ଇଂରାଜୀ ଅଭ୍ୟାସ କରନ୍ତୁ; ଉଚ୍ଚାରଣ ଓ ସ୍ୱାଦ ଉପରେ ତୁରନ୍ତ ମତ ପାଆନ୍ତୁ।",
         },
         {
-          title: "ଆପଣ ଅନୁଯାୟୀ AI ପଥ",
-          body: "ଆପଣଙ୍କ ସ୍ତର, ଲକ୍ଷ୍ୟ ଓ ଗତି ଅନୁଯାୟୀ ଅଭ୍ୟାସ ଢ଼ାଞ୍ଚା ବଦଳେ।",
+          title: "ଭୟ ବିନା ଶିଖନ୍ତୁ",
+          body: "ମୁକ୍ତ ଭାବେ କୁହନ୍ତୁ; AI ଠାରୁ ବ୍ୟକ୍ତିଗତ, ଗୋପନୀୟ ସଂଶୋଧନରେ ଉନ୍ନତି କରନ୍ତୁ।",
         },
         {
-          title: "ଅଟକି ଗଲେ ଲାଇଭ ଚ୍ୟାଟ",
-          body: "ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ, ସଂଳାପ ଅଭ୍ୟାସ କରନ୍ତୁ, ସହାୟ ସ୍ୱରରେ ଆତ୍ମବିଶ୍ୱାସ ବଢ଼ାନ୍ତୁ।",
+          title: "ଗଠିତ ଶିଖଣ ପଥ",
+          body: "ସ୍ପଷ୍ଟ ପଥ ଅନୁସରଣ କରନ୍ତୁ; ସ୍ତର ଓ ମାଇଲ୍ ଷ୍ଟୋନ୍ ଦେଇ ଆପଣଙ୍କ ପ୍ରଗତି ଦେଖନ୍ତୁ।",
         },
         {
-          title: "ଯାହା ମନ ଧରୁଥାଏ ତାହା ଅଭ୍ୟାସ",
-          body: "ସଂଗଠିତ ଅଭ୍ୟାସ, ଫିଡ୍‌ବ୍ୟାକ ଲୁପ, ଓ ଆସଲ ଦୁନିଆ ଦୃଶ୍ୟ—ପଢ଼ାରୁ ଆତ୍ମବିଶ୍ୱାସ ଭରା ବ୍ୟବହାର।",
+          title: "ସଂକ୍ଷିପ୍ତ ଦୈନିକ ପାଠ",
+          body: "ଦିନକୁ ପନ୍ଦର ମିନିଟ୍—ବ୍ୟସ୍ତ ଲୋକଙ୍କ ପାଇଁ ଛୋଟ ଛୋଟ ପାଠରେ ଶିଖନ୍ତୁ।",
+        },
+        {
+          title: "ଖେଳ ଭଳି ଶିଖଣ",
+          body: "ଦୈନିକ ଚ୍ୟାଲେଞ୍ଜ, ପୁରସ୍କାର, ବ୍ୟାଜ ଓ ଷ୍ଟ୍ରିକ୍ ସହ ପ୍ରେରଣା ରଖନ୍ତୁ।",
+        },
+        {
+          title: "ସସ୍ତା ଯୋଜନା",
+          body: "ସମସ୍ତଙ୍କ ପାଇଁ ପହଞ୍ଚ ଯୋଗ୍ୟ ମୂଲ୍ୟରେ ମାନସ୍ମତ ଇଂରାଜୀ ଶିଖଣ।",
+        },
+        {
+          title: "ଓଡ଼ିଆ-ସହାୟ ସ୍ପଷ୍ଟତା",
+          body: "ଓଡ଼ିଆ ଭାଷୀଙ୍କୁ ସମ୍ମାନ ଦେଉଥିବା ବ୍ୟାଖ୍ୟା—କଠିନ ଧାରଣା ଶୀଘ୍ର ବୁଝାଯାଏ, ଅନୁମାନ କମ୍ ଲାଗେ।",
+        },
+        {
+          title: "ଆପଣଙ୍କ ଲକ୍ଷ୍ୟ ଅନୁଯାୟୀ ପଥ",
+          body: "ବୋର୍ଡ, ପ୍ରବେଶ, ସାକ୍ଷାତ, ଅଫିସ ଇଂରାଜୀ ଓ ଦୈନନ୍ଦିନ କଥା—ସାଧାରଣ କୋର୍ସ ନୁହେଁ, ଆପଣଙ୍କ ପରବର୍ତ୍ତୀ ପଦକ୍ଷେପ ସହ ମେଳ ଖାଉଥିବା ଗଠିତ ଯାତ୍ରା।",
+        },
+        {
+          title: "ଆପଣଙ୍କ ମତ ଇ-ଟକ୍ ଗଢ଼େ",
+          body: "ପ୍ରତୀକ୍ଷା ତାଲିକା ସଦସ୍ୟ ବୈଶିଷ୍ଟ୍ୟ ଅଗ୍ରାଧିକାର ସ୍ଥିର କରନ୍ତି—ଶୁଧୁ ଶିଖ୍ୟାର୍ଥୀଙ୍କ ପାଇଁ ନୁହେଁ, ସେମାନଙ୍କ ସହ।",
         },
       ],
     },

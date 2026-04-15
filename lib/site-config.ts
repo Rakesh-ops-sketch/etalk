@@ -87,7 +87,7 @@ export const socialLinks: SocialLinkConfig[] = [
   },
   {
     platform: "instagram",
-    href: "https://www.instagram.com/etalk_app_placeholder/",
+    href: "https://www.instagram.com/etalk.speak/",
     label: "E-talk on Instagram",
   },
   {
@@ -102,7 +102,7 @@ export const socialLinks: SocialLinkConfig[] = [
   },
   {
     platform: "facebook",
-    href: "https://www.facebook.com/etalk.placeholder",
+    href: "https://www.facebook.com/profile.php?id=61570642372165",
     label: "E-talk on Facebook",
   },
   {
