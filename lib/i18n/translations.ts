@@ -256,7 +256,21 @@ export const translations = {
       heading: "Be first when E-talk launches",
       body: "Email us to join the waitlist or ask a question—we read every message.",
       submitBtn: "Email to join waitlist",
-      note: "Opens your email app with our address and a short template. You can edit before sending.",
+      note: "Add your details (optional), then your email app opens with a ready message—you can edit before sending.",
+    },
+    waitlistForm: {
+      title: "Join the waitlist",
+      description:
+        "Optionally add your name and contact. We will open your email app with a clear message to {email}—edit if you like, then send.",
+      name: "Name",
+      email: "Email",
+      phone: "Phone / WhatsApp",
+      optional: "optional",
+      namePlaceholder: "e.g. Priya Patnaik",
+      emailPlaceholder: "you@example.com",
+      phonePlaceholder: "+91 …",
+      cancel: "Cancel",
+      submit: "Open email app",
     },
     footer: {
       brandMarketingLine:
@@ -529,7 +543,21 @@ export const translations = {
       heading: "ଇ-ଟକ୍ ଲଞ୍ଚ ହେଲାବେଳେ ପ୍ରଥମ ଜାଣନ୍ତୁ",
       body: "ପ୍ରତୀକ୍ଷା ତାଲିକା କି ପ୍ରଶ୍ନ ପାଇଁ ଆମକୁ ଇ-ମେଲ କରନ୍ତୁ—ଆମେ ପଢ଼ୁ।",
       submitBtn: "ଇ-ମେଲରେ ଯୋଗ ଦିଅନ୍ତୁ",
-      note: "ଆପଣଙ୍କ ଇ-ମେଲ ଆପ୍ ଖୋଲିବ ଓ ଠିକଣା ଭରି ଦେବ। ପଠାଇବା ପୂର୍ବେ ବଦଳାଇ ପାରିବେ।",
+      note: "ବିବରଣ (ବୈକଳ୍ପିକ) ଦିଅନ୍ତୁ, ତାପରେ ଇ-ମେଲ ଆପ୍ ଖୋଲିବ—ପଠାଇବା ପୂର୍ବେ ବଦଳାଇ ପାରିବେ।",
+    },
+    waitlistForm: {
+      title: "ପ୍ରତୀକ୍ଷା ତାଲିକା",
+      description:
+        "ନାମ ଓ ଯୋଗାଯୋଗ (ବୈକଳ୍ପିକ)। {email} ପାଇଁ ତିଆରି ବାର୍ତ୍ତା ସହ ଇ-ମେଲ ଆପ୍ ଖୋଲିବ—ଦରକାର ହେଲେ ବଦଳାଇ ପଠାନ୍ତୁ।",
+      name: "ନାମ",
+      email: "ଇ-ମେଲ",
+      phone: "ଫୋନ / WhatsApp",
+      optional: "ବୈକଳ୍ପିକ",
+      namePlaceholder: "ଯେପରି: ପ୍ରିୟା ପାଟନାୟକ",
+      emailPlaceholder: "you@example.com",
+      phonePlaceholder: "+91 …",
+      cancel: "ବାତିଲ",
+      submit: "ଇ-ମେଲ ଆପ୍ ଖୋଲନ୍ତୁ",
     },
     footer: {
       brandMarketingLine:

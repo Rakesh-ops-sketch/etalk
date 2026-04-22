@@ -12,7 +12,7 @@ export function LanguageToggle() {
       onClick={toggle}
       aria-label={isOdia ? "Switch to English" : "ଓଡ଼ିଆକୁ ଯାଆନ୍ତୁ"}
       title={isOdia ? "Switch to English" : "Switch to Odia"}
-      className="shrink-0 rounded-md px-1 py-2 text-xs font-medium text-[var(--brand-muted)] transition-colors hover:text-[var(--brand-silver)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold-mid)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+      className="shrink-0 rounded-md px-1.5 py-2 text-sm font-medium text-[var(--brand-muted)] transition-colors hover:text-[var(--brand-silver)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold-mid)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
     >
       <span className={isOdia ? "opacity-50" : "text-[var(--brand-silver)]"}>
         EN

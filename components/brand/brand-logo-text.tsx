@@ -1,17 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import { useLang } from "@/lib/i18n/lang-context";
 
-const ODIA_HEADER =
-  "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] text-[0.7rem] font-semibold leading-tight tracking-tight sm:text-xs md:text-[0.8125rem]";
-const EN_HEADER =
-  "text-[0.58rem] font-medium leading-tight tracking-wide text-[var(--brand-navy-deep)] sm:text-[0.625rem] md:text-[0.6875rem]";
+const WORDMARK = "etalk-wordmark m-0 p-0 font-sans font-bold leading-none tracking-tight";
+/** “E-Talk” — not tied to logo size; comfortable at all breakpoints */
+const HEADER_WORD =
+  "mb-0 text-xs font-extrabold sm:text-sm md:text-[0.9375rem]";
+const FOOTER_WORD = "mb-0.5 text-lg sm:text-xl";
 
-/** Reserves width for longest `nav.brandTaglines` line so typing / variant swaps don’t shift the nav. */
+/**
+ * Typewriter / tagline lines only (Odia + English). Kept small on narrow viewports so the band
+ * stays compact; wordmark above uses `HEADER_WORD` separately.
+ */
+const ODIA_HEADER =
+  "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] font-semibold max-md:text-[0.5rem] max-md:leading-tight text-xs leading-tight tracking-tight md:text-[0.8125rem] md:leading-tight";
+const EN_HEADER =
+  "font-medium text-[var(--brand-navy-deep)] max-md:text-[0.5rem] max-md:leading-tight max-md:tracking-tight sm:tracking-wide text-[0.6875rem] leading-tight md:text-xs";
+
+/** Reserves width for longest `nav.brandTaglines` line (typing / swaps). */
 export const HEADER_BRAND_TEXT_MIN =
-  "min-w-[min(100%,12.85rem)] sm:min-w-[min(100%,14.25rem)] md:min-w-[min(100%,16rem)]";
+  "w-full min-w-0 sm:min-w-[min(100%,12rem)] md:min-w-[min(100%,13.25rem)] lg:min-w-[min(100%,15rem)]";
 
 /** Footer uses larger type — reserve width + height so tagline typing / brief empty gap don’t move copy below. */
 const FOOTER_BRAND_TEXT_MIN =
@@ -43,7 +53,6 @@ const Caret = () => (
   </span>
 );
 
-/** First tagline only — no animation (mobile header, reduced motion). */
 export function BrandLogoTextStatic({ variant }: { variant: "header" | "footer" }) {
   const { t } = useLang();
   const taglines = t.nav.brandTaglines;
@@ -56,6 +65,9 @@ export function BrandLogoTextStatic({ variant }: { variant: "header" | "footer" 
 
   return (
     <div className="flex flex-col gap-0">
+      <p className={`${WORDMARK} ${variant === "header" ? HEADER_WORD : FOOTER_WORD}`}>
+        E-Talk
+      </p>
       <p className={`m-0 p-0 ${odiaClasses}`} lang="or">
         {first.odia}
       </p>
@@ -71,14 +83,13 @@ export function BrandLogoTextStatic({ variant }: { variant: "header" | "footer" 
 const MD_UP = "(min-width: 768px)";
 
 /**
- * Header lockup: static text on small screens (no typing); animated from `md` up.
- * SSR and first paint use static text to avoid hydration mismatch; desktop may
- * switch to animation after mount.
+ * Brand copy next to the header mark: only at `md` and up (typewriter). Below `md`, nothing
+ * is rendered so the home link is just the logo — use the link’s `aria-label` for a11y.
  */
 export function HeaderBrandLockup() {
   const [wide, setWide] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mq = window.matchMedia(MD_UP);
     setWide(mq.matches);
     const fn = () => setWide(mq.matches);
@@ -86,16 +97,12 @@ export function HeaderBrandLockup() {
     return () => mq.removeEventListener("change", fn);
   }, []);
 
-  if (wide) {
-    return (
-      <div className={HEADER_BRAND_TEXT_MIN}>
-        <BrandLogoText variant="header" />
-      </div>
-    );
+  if (!wide) {
+    return null;
   }
   return (
     <div className={HEADER_BRAND_TEXT_MIN}>
-      <BrandLogoTextStatic variant="header" />
+      <BrandLogoText variant="header" />
     </div>
   );
 }
@@ -274,6 +281,9 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
 
   const inner = (
     <div className="flex flex-col gap-0">
+      <p className={`${WORDMARK} ${variant === "header" ? HEADER_WORD : FOOTER_WORD} min-h-0`}>
+        E-Talk
+      </p>
       <p className={`m-0 min-h-0 p-0 ${odiaClasses}`} lang="or">
         <span aria-hidden="true">
           {odiaShown}
@@ -289,7 +299,7 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
         </span>
       </p>
       <span className="sr-only">
-        {first.odia} {first.en}
+        E-Talk. {first.odia} {first.en}
       </span>
     </div>
   );

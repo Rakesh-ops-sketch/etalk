@@ -2,9 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { AudienceCarousel } from "@/components/audience";
-import { BrandLogoMark } from "@/components/brand/brand-logo-mark";
+import {
+  BRAND_LOGO_MARK,
+  BRAND_LOGO_SECTION_WATERMARK,
+  BrandLogoMark,
+} from "@/components/brand/brand-logo-mark";
 import {
   BrandLogoText,
   HeaderBrandLockup,
@@ -18,12 +23,9 @@ import {
 } from "@/components/hero";
 import { LanguageToggle } from "@/components/nav/language-toggle";
 import { SocialLinks } from "@/components/social";
+import { WaitlistMailDialog } from "@/components/waitlist/waitlist-mail-dialog";
 import { useLang } from "@/lib/i18n/lang-context";
-import {
-  mailtoContact,
-  mailtoWaitlist,
-  socialLinks,
-} from "@/lib/site-config";
+import { mailtoContact, socialLinks } from "@/lib/site-config";
 
 function IconMessage({ className }: { className?: string }) {
   return (
@@ -240,6 +242,7 @@ const featureIcons = [
 
 export default function Home() {
   const { t, lang } = useLang();
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   const isOdia = lang === "or";
   const oriaFont = isOdia
@@ -248,27 +251,28 @@ export default function Home() {
 
   return (
     <>
+      <WaitlistMailDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
       <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(246,245,240,0.88)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(246,245,240,0.72)]">
-        <div className="etalk-container grid h-[4.25rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 sm:gap-x-4 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-4">
-          <div className="flex min-w-0 justify-start justify-self-start">
+        <div className="etalk-container grid min-h-20 auto-rows-min grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2.5 gap-y-0 py-2.5 sm:gap-x-4 md:min-h-0 md:grid-cols-[1fr_auto_1fr] md:gap-y-0 md:py-0 md:h-24">
+          <div className="flex min-w-0 items-center justify-self-start">
             <Link
               href="/"
               className="group relative flex min-w-0 max-w-full items-center gap-1.5 rounded-lg outline-offset-2 transition-opacity duration-300 hover:opacity-92 focus-visible:opacity-100 sm:gap-2 md:gap-2.5"
               aria-label="E-talk — home"
             >
-              <span className="flex h-[2.875rem] shrink-0 items-center sm:h-[3.125rem] md:h-[3.375rem]">
+              <span className="flex h-20 w-auto shrink-0 items-center sm:h-[5rem] md:h-[5.75rem]">
                 <Image
-                  src="/cropped%20logo.png"
+                  src={BRAND_LOGO_MARK.src}
                   alt=""
-                  width={2074}
-                  height={2514}
-                  className="h-full w-auto max-w-[min(100%,6.75rem)] object-contain object-left sm:max-w-[7.25rem] md:max-w-[7.75rem]"
+                  width={BRAND_LOGO_MARK.width}
+                  height={BRAND_LOGO_MARK.height}
+                  className="h-full w-auto max-w-[min(100%,10rem)] object-contain object-left object-top [clip-path:inset(0_0_20%_0)] sm:max-w-[11rem] md:max-w-[12rem]"
                   priority
-                  loading="eager"
-                  sizes="(max-width: 640px) 28vw, 8rem"
+                  // loading="eager"
+                  sizes="(max-width: 640px) 48vw, 12rem"
                 />
               </span>
-              <div className="flex min-h-[2.875rem] min-w-0 max-w-full flex-col justify-center gap-0 leading-none sm:min-h-[3.125rem] md:min-h-[3.375rem]">
+              <div className="flex min-h-0 min-w-0 max-w-full flex-col justify-center gap-0 self-center leading-[1.15]">
                 <HeaderBrandLockup />
               </div>
             </Link>
@@ -312,12 +316,13 @@ export default function Home() {
           </nav>
           <div className="flex items-center justify-end gap-3 justify-self-end">
             <LanguageToggle />
-            <a
-              href={mailtoWaitlist()}
+            <button
+              type="button"
+              onClick={() => setWaitlistOpen(true)}
               className={`etalk-btn-gold inline-flex min-h-11 min-w-[11rem] shrink-0 items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold ${oriaFont}`}
             >
               {t.nav.cta}
-            </a>
+            </button>
           </div>
         </div>
       </header>
@@ -332,12 +337,12 @@ export default function Home() {
             aria-hidden
           >
             <Image
-              src="/cropped%20logo.png"
+              src={BRAND_LOGO_SECTION_WATERMARK.src}
               alt=""
-              width={2074}
-              height={2514}
-              className="h-[min(48vh,26rem)] w-auto max-w-[min(92vw,38rem)] select-none object-contain opacity-[0.07] saturate-[0.4] contrast-[0.94] sm:h-[min(50vh,28rem)] sm:opacity-[0.085] sm:max-w-[40rem] md:opacity-[0.1]"
-              sizes="(max-width: 768px) 92vw, 40rem"
+              width={BRAND_LOGO_SECTION_WATERMARK.width}
+              height={BRAND_LOGO_SECTION_WATERMARK.height}
+              className="h-auto w-[min(100vw,56rem)] max-h-[min(92vh,70rem)] select-none object-contain object-center opacity-[0.03] saturate-[0.3] contrast-[0.9] sm:w-[min(100vw,68rem)] sm:max-h-[min(94vh,78rem)] sm:opacity-[0.034] md:w-[min(100vw,82rem)] md:max-h-[min(96vh,86rem)] md:opacity-[0.038]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 90rem"
               priority
               loading="eager"
             />
@@ -401,12 +406,13 @@ export default function Home() {
               </p>
 
               <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start">
-                <a
-                  href={mailtoWaitlist()}
+                <button
+                  type="button"
+                  onClick={() => setWaitlistOpen(true)}
                   className={`etalk-btn-gold inline-flex min-h-12 items-center justify-center rounded-full px-8 text-base font-semibold ${oriaFont}`}
                 >
                   {t.hero.primaryCta}
-                </a>
+                </button>
                 <a
                   href="#how"
                   className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)] ${oriaFont}`}
@@ -519,12 +525,12 @@ export default function Home() {
             aria-hidden
           >
             <Image
-              src="/cropped%20logo.png"
+              src={BRAND_LOGO_SECTION_WATERMARK.src}
               alt=""
-              width={2074}
-              height={2514}
-              className="h-[min(38vh,17rem)] w-auto max-w-[min(88vw,34rem)] select-none object-contain opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:h-[min(40vh,19rem)] sm:opacity-[0.07] sm:max-w-[36rem] md:opacity-[0.085]"
-              sizes="(max-width: 768px) 88vw, 36rem"
+              width={BRAND_LOGO_SECTION_WATERMARK.width}
+              height={BRAND_LOGO_SECTION_WATERMARK.height}
+              className="h-auto w-[min(92vw,36rem)] max-h-[min(65vh,44rem)] select-none object-contain object-center opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,46rem)] sm:max-h-[min(68vh,50rem)] sm:opacity-[0.07] md:w-[min(100vw,54rem)] md:max-h-[min(72vh,54rem)] md:opacity-[0.085]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 56rem"
             />
           </div>
           <div className="relative z-10 etalk-container">
@@ -587,12 +593,12 @@ export default function Home() {
                   className={`flex min-h-0 items-center justify-center ${rot}`}
                 >
                   <Image
-                    src="/cropped%20logo.png"
+                    src={BRAND_LOGO_SECTION_WATERMARK.src}
                     alt=""
-                    width={2074}
-                    height={2514}
-                    className="h-9 w-auto max-w-[4rem] select-none object-contain saturate-[0.48] contrast-[0.92] sm:h-11 sm:max-w-[4.75rem] md:h-12 md:max-w-[5.5rem]"
-                    sizes="96px"
+                    width={BRAND_LOGO_SECTION_WATERMARK.width}
+                    height={BRAND_LOGO_SECTION_WATERMARK.height}
+                    className="h-auto w-full max-w-[6.25rem] min-w-0 object-contain object-center saturate-[0.48] contrast-[0.92] sm:max-w-[7.75rem] md:max-w-[9rem]"
+                    sizes="(max-width: 640px) 28vw, 9rem"
                   />
                 </div>
               );
@@ -691,12 +697,12 @@ export default function Home() {
             aria-hidden
           >
             <Image
-              src="/cropped%20logo.png"
+              src={BRAND_LOGO_SECTION_WATERMARK.src}
               alt=""
-              width={2074}
-              height={2514}
-              className="h-[min(40vh,18rem)] w-auto max-w-[min(90vw,36rem)] select-none object-contain opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:h-[min(44vh,22rem)] sm:max-w-[40rem] sm:opacity-[0.07] md:opacity-[0.085]"
-              sizes="(max-width: 768px) 90vw, 40rem"
+              width={BRAND_LOGO_SECTION_WATERMARK.width}
+              height={BRAND_LOGO_SECTION_WATERMARK.height}
+              className="h-auto w-[min(100vw,42rem)] max-h-[min(68vh,48rem)] select-none object-contain object-center opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,52rem)] sm:max-h-[min(72vh,54rem)] sm:opacity-[0.07] md:w-[min(100vw,58rem)] md:max-h-[min(75vh,60rem)] md:opacity-[0.085]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 60rem"
             />
           </div>
           <div className="relative z-10 etalk-container">
@@ -892,12 +898,13 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="mt-10 flex w-full max-w-md flex-col items-center gap-4 text-center sm:mx-auto">
-                  <a
-                    href={mailtoWaitlist()}
+                  <button
+                    type="button"
+                    onClick={() => setWaitlistOpen(true)}
                     className={`etalk-btn-gold inline-flex min-h-12 w-full items-center justify-center rounded-full px-8 text-base font-semibold sm:w-auto ${oriaFont}`}
                   >
                     {t.cta.submitBtn}
-                  </a>
+                  </button>
                   <a
                     href={mailtoContact()}
                     className={`text-sm text-[var(--brand-muted)] underline-offset-4 transition-colors hover:text-[var(--brand-silver)] ${oriaFont}`}
@@ -920,12 +927,12 @@ export default function Home() {
           aria-hidden
         >
           <Image
-            src="/cropped%20logo.png"
+            src={BRAND_LOGO_SECTION_WATERMARK.src}
             alt=""
-            width={2074}
-            height={2514}
-            className="h-[min(42vh,18rem)] w-auto max-w-[min(92vw,36rem)] select-none object-contain opacity-[0.035] saturate-[0.4] contrast-[0.94] sm:h-[min(46vh,22rem)] sm:max-w-[40rem] sm:opacity-[0.048] md:opacity-[0.058]"
-            sizes="(max-width: 768px) 92vw, 40rem"
+            width={BRAND_LOGO_SECTION_WATERMARK.width}
+            height={BRAND_LOGO_SECTION_WATERMARK.height}
+            className="h-auto w-[min(100vw,36rem)] max-h-[min(55vh,38rem)] select-none object-contain object-center opacity-[0.035] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,44rem)] sm:max-h-[min(60vh,44rem)] sm:opacity-[0.048] md:w-[min(100vw,50rem)] md:max-h-[min(64vh,48rem)] md:opacity-[0.058]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50rem"
           />
         </div>
         <div className="etalk-container relative z-10">
@@ -933,7 +940,11 @@ export default function Home() {
             <div className="flex flex-col gap-6 pb-6 sm:gap-7 sm:pb-7 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
                 <div className="shrink-0">
-                  <BrandLogoMark variant="solid" size="md" />
+                  <BrandLogoMark
+                    clipBakedWordmark
+                    variant="solid"
+                    size="xl"
+                  />
                 </div>
                 <div className="min-w-0 max-w-2xl">
                   <BrandLogoText variant="footer" />
@@ -945,12 +956,14 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="flex w-full shrink-0 flex-col items-start gap-2 lg:max-w-[17rem] lg:items-end">
-                <p className={`text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--brand-muted)] ${oriaFont}`}>
-                  {t.footer.follow}
-                </p>
-                <SocialLinks links={socialLinks} />
-                <div className={`mt-3 w-full lg:text-right ${oriaFont}`}>
+              <div className="flex w-full max-w-sm shrink-0 flex-col items-center gap-4 sm:mx-auto lg:ml-auto lg:max-w-xs">
+                <div className="flex w-full flex-col items-center gap-2.5 text-center">
+                  <p className={`w-full text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--brand-muted)] ${oriaFont}`}>
+                    {t.footer.follow}
+                  </p>
+                  <SocialLinks links={socialLinks} />
+                </div>
+                <div className={`mt-0 flex w-full flex-col items-center text-center ${oriaFont}`}>
                   <p className="text-[0.65rem] font-medium uppercase tracking-[0.14em] text-[var(--brand-muted)]">
                     {t.footer.fromFounders}
                   </p>
@@ -958,7 +971,7 @@ export default function Home() {
                     href="https://thetalentstracker.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group mt-2 inline-flex max-w-full flex-col items-start gap-1 rounded-lg py-1 transition-colors hover:bg-[rgba(255,255,255,0.5)] sm:flex-row sm:items-center sm:gap-2.5 lg:inline-flex lg:flex-row lg:items-center lg:justify-end"
+                    className="group mt-2 inline-flex max-w-full flex-col items-center justify-center gap-2 rounded-lg py-1 transition-colors hover:bg-[rgba(255,255,255,0.5)] sm:flex-row sm:gap-2.5"
                     aria-label={t.footer.talentsTrackerAria}
                   >
                     <Image
@@ -968,7 +981,7 @@ export default function Home() {
                       height={56}
                       className="h-7 w-auto shrink-0 object-contain opacity-90 transition-opacity group-hover:opacity-100 sm:h-8"
                     />
-                    <span className="min-w-0 text-left sm:text-left lg:text-right">
+                    <span className="min-w-0 text-center sm:text-left">
                       <span className="block text-sm font-medium text-[var(--brand-silver)] transition-colors group-hover:text-[var(--brand-navy-deep)]">
                         {t.footer.talentsTrackerName}
                       </span>
@@ -1000,12 +1013,13 @@ export default function Home() {
               >
                 {t.footer.faq}
               </a>
-              <a
-                href={mailtoWaitlist()}
-                className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
+              <button
+                type="button"
+                onClick={() => setWaitlistOpen(true)}
+                className={`inline cursor-pointer rounded-md border-0 bg-transparent p-0 font-inherit text-inherit transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
               >
                 {t.footer.waitlist}
-              </a>
+              </button>
               <a
                 href={mailtoContact()}
                 className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}

@@ -1,6 +1,6 @@
 /**
- * Subtle line-art motifs inspired by Odisha landscape and built heritage.
- * Decorative only — not replicas of protected monuments.
+ * Subtle line-art section décor. The hero uses voice / waveform / AI network motifs; other
+ * sections use light Odisha-inspired line art (landscape, craft cues). Decorative only.
  */
 
 /** Odia rekha deul silhouette: curved rekha spire, pidha tiers, platform, arched doorway. */
@@ -78,6 +78,91 @@ function SvgTempleRekha({ className }: { className?: string }) {
         strokeLinecap="round"
         opacity={0.75}
       />
+    </svg>
+  );
+}
+
+/** Hero-only: soft spectrum / voice bars (learning + speech metaphor). */
+function SvgVoiceSpectrum({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      {/* Symmetric “voice” response — no temple geometry */}
+      {(
+        [
+          [14, 78, 0.4],
+          [30, 52, 0.55],
+          [50, 96, 0.75],
+          [70, 48, 0.55],
+          [86, 72, 0.4],
+        ] as const
+      ).map(([cx, h, op]) => (
+        <path
+          key={`bar-${cx}`}
+          d={`M ${cx} ${60 - h / 2} v ${h}`}
+          stroke="currentColor"
+          strokeWidth={2.4}
+          strokeLinecap="round"
+          opacity={op}
+        />
+      ))}
+    </svg>
+  );
+}
+
+/** Single-stroke audio-style waveform (bottom band in hero). */
+function SvgSoundWaveform({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <path
+        d="M0 20 C 18 8, 32 30, 48 16 S 80 4, 100 20 S 132 32, 152 10 S 184 8, 200 20"
+        stroke="currentColor"
+        strokeWidth={1.15}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={0.85}
+      />
+      <path
+        d="M0 24 C 22 14, 38 28, 58 20 S 92 12, 118 24 S 154 30, 176 16 S 192 20, 200 24"
+        stroke="currentColor"
+        strokeWidth={0.9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={0.4}
+      />
+    </svg>
+  );
+}
+
+/** Light graph of nodes + edges (AI / adaptive learning hint). */
+function SvgAINodeGraph({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <path
+        d="M 22 32 L 48 18 L 78 30 M 32 70 L 48 18 M 32 70 L 78 30 M 32 70 L 52 82 L 78 30"
+        stroke="currentColor"
+        strokeWidth={0.9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={0.45}
+      />
+      {(
+        [
+          [22, 32],
+          [48, 18],
+          [78, 30],
+          [32, 70],
+          [52, 82],
+        ] as const
+      ).map(([cx, cy]) => (
+        <circle
+          key={`n-${cx}-${cy}`}
+          cx={cx}
+          cy={cy}
+          r={3.2}
+          stroke="currentColor"
+          strokeWidth={1.1}
+        />
+      ))}
     </svg>
   );
 }
@@ -268,11 +353,14 @@ export function OdishaSectionDecor({ variant }: { variant: OdishaDecorVariant })
     >
       {variant === "hero" ? (
         <>
-          <SvgTempleRekha
-            className={`${strokeTint} absolute -right-4 bottom-[8%] h-44 w-32 opacity-[0.09] sm:right-2 sm:h-52 sm:w-36 sm:opacity-[0.2]`}
+          <SvgVoiceSpectrum
+            className={`${strokeTint} absolute -right-4 bottom-[8%] h-48 w-40 opacity-[0.09] sm:right-2 sm:bottom-[10%] sm:h-56 sm:w-44 sm:opacity-[0.2]`}
           />
-          <SvgCoastalWaves
-            className={`${strokeTint} absolute bottom-0 left-1/2 h-14 w-[min(92vw,22rem)] -translate-x-1/2 opacity-[0.07] sm:opacity-[0.18]`}
+          <SvgAINodeGraph
+            className={`${strokeTint} absolute right-2 top-[8%] h-20 w-20 opacity-[0.05] sm:right-[6%] sm:top-[12%] sm:h-28 sm:w-28 sm:opacity-[0.16]`}
+          />
+          <SvgSoundWaveform
+            className={`${strokeTint} absolute bottom-0 left-1/2 h-16 w-[min(92vw,26rem)] -translate-x-1/2 opacity-[0.07] sm:opacity-[0.18]`}
           />
         </>
       ) : null}

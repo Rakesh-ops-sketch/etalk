@@ -24,18 +24,50 @@ export const siteContact = {
   email:
     (typeof process !== "undefined" &&
       process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim()) ||
-    "etalk.contact.placeholder@gmail.com",
+    "admin@e-talk.in",
 } as const;
 
-function mailtoWith(
-  subject: string,
-  body: string
-): string {
-  const q = new URLSearchParams({
-    subject,
-    body,
-  });
-  return `mailto:${siteContact.email}?${q.toString()}`;
+/**
+ * `URLSearchParams` encodes spaces as `+`, which some mail clients show literally in
+ * subject/body. `encodeURIComponent` uses `%20` and matches typical mailto handling.
+ */
+function mailtoWith(subject: string, body: string): string {
+  return `mailto:${siteContact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+export type WaitlistMailFields = {
+  name: string;
+  email: string;
+  phone: string;
+};
+
+/** Waitlist CTA: opens the user's mail app with a filled template (all fields optional). */
+export function buildWaitlistMailto(fields: WaitlistMailFields): string {
+  const name = fields.name.trim();
+  const email = fields.email.trim();
+  const phone = fields.phone.trim();
+  const hasAny = Boolean(name || email || phone);
+
+  const subject = hasAny
+    ? name
+      ? `E-talk — Waitlist / early access (${name})`
+      : "E-talk — Waitlist / early access"
+    : "E-talk — Pre-launch interest (waitlist)";
+
+  const body = hasAny
+    ? `Hi E-talk team,
+
+I'm interested in joining the waitlist and hearing about early access for E-talk.
+
+${name ? `Name: ${name}\n` : ""}${email ? `Email: ${email}\n` : ""}${phone ? `Phone: ${phone}\n` : ""}
+Thanks,`
+    : `Hi E-talk team,
+
+I'm interested in E-talk pre-launch updates and the waitlist for early access.
+
+Thanks,`;
+
+  return `mailto:${siteContact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 /** Opens the user's mail app — pre-filled for waitlist / early access */
@@ -62,14 +94,7 @@ export function mailtoInbox(): string {
 /* -------------------------------------------------------------------------- */
 /* Social — replace href values with your real profiles */
 
-export type SocialPlatform =
-  | "x"
-  | "instagram"
-  | "linkedin"
-  | "youtube"
-  | "facebook"
-  | "github"
-  | "discord";
+export type SocialPlatform = "x" | "instagram" | "linkedin" | "facebook";
 
 export type SocialLinkConfig = {
   platform: SocialPlatform;
@@ -82,7 +107,7 @@ export type SocialLinkConfig = {
 export const socialLinks: SocialLinkConfig[] = [
   {
     platform: "x",
-    href: "https://x.com/etalk_app_placeholder",
+    href: "https://x.com/EtalkSpeak",
     label: "E-talk on X",
   },
   {
@@ -92,27 +117,12 @@ export const socialLinks: SocialLinkConfig[] = [
   },
   {
     platform: "linkedin",
-    href: "https://www.linkedin.com/company/etalk-placeholder",
+    href: "https://www.linkedin.com/in/e-talk-speak-6a178a403/",
     label: "E-talk on LinkedIn",
-  },
-  {
-    platform: "youtube",
-    href: "https://www.youtube.com/@etalk_placeholder",
-    label: "E-talk on YouTube",
   },
   {
     platform: "facebook",
     href: "https://www.facebook.com/profile.php?id=61570642372165",
     label: "E-talk on Facebook",
-  },
-  {
-    platform: "github",
-    href: "https://github.com/etalk-placeholder",
-    label: "E-talk on GitHub",
-  },
-  {
-    platform: "discord",
-    href: "https://discord.gg/placeholder-invite-code",
-    label: "E-talk on Discord",
   },
 ];
