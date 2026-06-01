@@ -22,8 +22,8 @@ const FOOTER_BRAND_TEXT_MIN =
   "min-h-[3.15rem] min-w-[min(100%,17.5rem)] sm:min-h-[3.35rem] sm:min-w-[min(100%,19.5rem)] lg:min-w-[min(100%,22.5rem)]";
 
 const ODIA_FOOTER =
-  "etalk-text-brand-gradient font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight sm:text-sm";
-const EN_FOOTER = "text-sm font-medium leading-tight text-[var(--brand-blue-deep)]";
+  "font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight text-white/95 sm:text-sm";
+const EN_FOOTER = "text-sm font-medium leading-tight text-white/85";
 
 function graphemeSegments(text: string): string[] {
   if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
@@ -41,11 +41,15 @@ function graphemeSegments(text: string): string[] {
   return Array.from(text);
 }
 
-const Caret = () => (
-  <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-blue)]/70">
-    |
-  </span>
-);
+function Caret({ light }: { light?: boolean }) {
+  return (
+    <span
+      className={`etalk-typewriter-caret ml-px inline-block font-light ${light ? "text-white/60" : "text-[var(--brand-blue)]/70"}`}
+    >
+      |
+    </span>
+  );
+}
 
 export function BrandLogoTextStatic({ variant }: { variant: "header" | "footer" }) {
   const { t } = useLang();
@@ -270,12 +274,14 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
     return staticBlock;
   }
 
+  const caretLight = variant === "footer";
+
   const inner = (
     <div className="flex flex-col gap-0">
       <p className={`m-0 min-h-0 p-0 ${odiaClasses}`} lang="or">
         <span aria-hidden="true">
           {odiaShown}
-          {caretOn === "odia" ? <Caret /> : null}
+          {caretOn === "odia" ? <Caret light={caretLight} /> : null}
         </span>
       </p>
       <p
@@ -283,7 +289,7 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
       >
         <span aria-hidden="true">
           {enShown}
-          {caretOn === "en" ? <Caret /> : null}
+          {caretOn === "en" ? <Caret light={caretLight} /> : null}
         </span>
       </p>
       <span className="sr-only">

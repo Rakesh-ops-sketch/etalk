@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   Baloo_Thambi_2,
+  Dancing_Script,
   Geist_Mono,
   Noto_Sans_Oriya,
   Plus_Jakarta_Sans,
@@ -36,24 +37,32 @@ const notoOriya = Noto_Sans_Oriya({
   display: "swap",
 });
 
+/** Cursive accent — speech bubbles & short marketing callouts (Latin). */
+const dancingScript = Dancing_Script({
+  variable: "--font-dancing-script",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://etalk.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "eTalk — Learn & speak English fluently | Odia-friendly AI courses",
-    template: "%s | eTalk",
+    default: "E-Talk — Learn & speak English fluently | Odia-friendly AI courses",
+    template: "%s | E-Talk",
   },
   description:
-    "eTalk helps students and professionals learn English with Odia-friendly, AI-driven lessons, live chat, and practice designed for learners from Odisha and beyond.",
+    "E-Talk helps students and professionals learn English with Odia-friendly, AI-driven lessons, live chat, and practice designed for learners from Odisha and beyond.",
   keywords: [
     "English learning",
     "Odia",
     "Odisha",
     "AI English course",
     "speak English",
-    "eTalk",
+    "E-Talk",
   ],
   alternates: {
     canonical: "/",
@@ -62,14 +71,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "/",
-    siteName: "eTalk",
-    title: "eTalk — English fluency, rooted in Odisha",
+    siteName: "E-Talk",
+    title: "E-Talk — English fluency, rooted in Odisha",
     description:
       "Odia-friendly AI courses, live chat, and guided practice to help you learn and speak English with confidence.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "eTalk — Learn English with AI & live support",
+    title: "E-Talk — Learn English with AI & live support",
     description:
       "Built for Odisha first: Odia-friendly paths, AI-designed courses, and real-time help.",
   },
@@ -85,7 +94,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "eTalk",
+      name: "E-Talk",
       description:
         "English learning platform with Odia-friendly AI courses and live chat, originating from Odisha.",
       url: siteUrl,
@@ -98,7 +107,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "eTalk",
+      name: "E-Talk",
       publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: ["en", "or"],
       description:
@@ -115,14 +124,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${balooThambi.variable} ${plusJakarta.variable} ${geistMono.variable} ${notoOriya.variable} lang-en h-full scroll-smooth antialiased`}
+      className={`${balooThambi.variable} ${plusJakarta.variable} ${geistMono.variable} ${notoOriya.variable} ${dancingScript.variable} lang-en h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background font-sans text-[var(--foreground)]">
+      <body className="flex min-h-dvh flex-col bg-background font-sans text-[var(--foreground)]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          <div className="flex min-h-dvh flex-col">{children}</div>
+        </LangProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { BrandInText } from "@/components/brand/brand-name";
 import { useLang } from "@/lib/i18n/lang-context";
 import { LAUNCH_AT_MS } from "@/lib/site-config";
 
@@ -71,7 +72,7 @@ export function HeroLaunchCountdown() {
           id="launch-heading"
           className={`mt-2 max-w-3xl text-balance text-sm font-semibold leading-snug tracking-tight text-[var(--brand-navy-deep)] sm:text-[0.9375rem] ${headingSans}`}
         >
-          {t.banner.headline}
+          <BrandInText>{t.banner.headline}</BrandInText>
         </h2>
 
         <div

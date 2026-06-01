@@ -1,4 +1,4 @@
-E-talk — translation review (for language reviewers)
+E-Talk — translation review (for language reviewers)
 ================================================
 
 WHAT YOU GET

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 
+import { HowAiVisuals } from "./how-ai-visuals";
 import { IphoneFrame } from "./iphone-frame";
 
 type CarouselItem = { title: string; body: string };
@@ -85,6 +86,7 @@ const ICONS = [IconMic, IconPath, IconBook, IconStreak, IconProgress, IconClock,
 type Props = {
   items: readonly CarouselItem[];
   carouselHint: string;
+  carouselHintMobile: string;
   carouselA11y: string;
   carouselOdiaLine: string;
   showOdiaTagline: boolean;
@@ -104,9 +106,7 @@ function ReelCard({
 }) {
   const Icon = ICONS[i % ICONS.length] ?? IconMic;
   return (
-    <article
-      className="etalk-how-card flex min-h-[200px] shrink-0 flex-col rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[#fafaf8] px-4 py-4 text-center shadow-[0_14px_36px_rgba(15,23,42,0.08)] backdrop-blur-md backdrop-saturate-150 [box-shadow:0_14px_36px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,0.95)]"
-    >
+    <article className="etalk-how-card flex min-h-[200px] shrink-0 flex-col rounded-2xl border border-[var(--hairline)] bg-[var(--surface-elevated)] px-4 py-4 text-center shadow-[0_14px_36px_rgba(0,71,204,0.1)] backdrop-blur-md backdrop-saturate-150 [box-shadow:0_14px_36px_rgba(0,71,204,0.08),inset_0_1px_0_rgba(255,255,255,0.85)]">
       <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(0,102,255,0.14)] text-[var(--brand-blue-deep)] ring-1 ring-[rgba(0,102,255,0.28)]">
         <Icon className="h-5 w-5" />
       </div>
@@ -127,6 +127,7 @@ function ReelCard({
 export function HowWorksCarousel({
   items,
   carouselHint,
+  carouselHintMobile,
   carouselA11y,
   carouselOdiaLine,
   showOdiaTagline,
@@ -149,59 +150,81 @@ export function HowWorksCarousel({
   }, []);
 
   return (
-    <div className="mt-14 w-full text-center sm:mt-16">
+    <div className="mt-10 w-full text-center sm:mt-14 lg:mt-16">
       {showOdiaTagline ? (
-        <p className="mb-6 font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-blue)]/90">
+        <p className="mb-5 font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-blue)]/90 sm:mb-6">
           {carouselOdiaLine}
         </p>
       ) : null}
 
       <p className={`sr-only ${oriaFontClass}`}>{carouselA11y}</p>
 
-      <div className="flex flex-col items-center gap-4">
-        <IphoneFrame>
-          <div
-            className="relative h-[min(78vw,460px)] min-h-[380px] max-h-[520px] overflow-hidden rounded-xl [mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] sm:min-h-[420px] sm:max-h-[580px]"
-            data-paused={paused || undefined}
-            id={reelId}
-          >
-            {reducedMotion ? (
-              <div className="flex h-full flex-col gap-3 overflow-y-auto pr-1">
-                {items.map((item, i) => (
-                  <ReelCard key={item.title} item={item} i={i} oriaFontClass={oriaFontClass} />
-                ))}
-              </div>
-            ) : (
-              <div
-                className={`etalk-how-reel flex flex-col gap-4 will-change-transform ${paused ? "etalk-how-reel--force-paused" : ""}`}
-              >
-                {doubled.map((item, i) => (
-                  <ReelCard
-                    key={`${item.title}-${i}`}
-                    item={item}
-                    i={i % n}
-                    oriaFontClass={oriaFontClass}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </IphoneFrame>
+      <div className="etalk-how-showcase">
+        <HowAiVisuals
+          layout="pair"
+          className="etalk-how-showcase__lotties-pair mx-auto lg:hidden"
+        />
 
-        {!reducedMotion ? (
-          <button
-            type="button"
-            onClick={() => setPaused((p) => !p)}
-            aria-pressed={paused}
-            aria-controls={reelId}
-            className={`text-xs font-medium text-[var(--brand-muted)] underline-offset-4 transition-colors hover:text-[var(--brand-silver)] ${oriaFontClass}`}
-          >
-            {paused ? carouselResume : carouselPause}
-          </button>
-        ) : null}
+        <HowAiVisuals
+          layout="sphere"
+          className="etalk-how-showcase__lotties-side hidden lg:block"
+        />
+
+        <div className="etalk-how-showcase__phone flex w-full flex-col items-center gap-3 sm:gap-4">
+          <IphoneFrame>
+            <div
+              className="etalk-how-reel-viewport relative overflow-hidden rounded-xl [mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_4%,black_96%,transparent_100%)]"
+              data-paused={paused || undefined}
+              id={reelId}
+            >
+              {reducedMotion ? (
+                <div className="flex h-full flex-col gap-3 overflow-y-auto pr-1">
+                  {items.map((item, i) => (
+                    <ReelCard key={item.title} item={item} i={i} oriaFontClass={oriaFontClass} />
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className={`etalk-how-reel flex flex-col gap-3 will-change-transform sm:gap-4 ${paused ? "etalk-how-reel--force-paused" : ""}`}
+                >
+                  {doubled.map((item, i) => (
+                    <ReelCard
+                      key={`${item.title}-${i}`}
+                      item={item}
+                      i={i % n}
+                      oriaFontClass={oriaFontClass}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </IphoneFrame>
+
+          {!reducedMotion ? (
+            <button
+              type="button"
+              onClick={() => setPaused((p) => !p)}
+              aria-pressed={paused}
+              aria-controls={reelId}
+              className={`text-xs font-medium text-[var(--brand-muted)] underline-offset-4 transition-colors hover:text-[var(--brand-silver)] ${oriaFontClass}`}
+            >
+              {paused ? carouselResume : carouselPause}
+            </button>
+          ) : null}
+        </div>
+
+        <HowAiVisuals
+          layout="text"
+          className="etalk-how-showcase__lotties-side hidden lg:block"
+        />
       </div>
 
-      <p className={`mt-5 text-xs text-[var(--brand-muted)] ${oriaFontClass}`}>{carouselHint}</p>
+      <p className={`mt-4 text-xs text-[var(--brand-muted)] lg:hidden ${oriaFontClass}`}>
+        {carouselHintMobile}
+      </p>
+      <p className={`mt-5 hidden text-xs text-[var(--brand-muted)] lg:block ${oriaFontClass}`}>
+        {carouselHint}
+      </p>
     </div>
   );
 }

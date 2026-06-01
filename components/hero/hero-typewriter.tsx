@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { BrandInText } from "@/components/brand/brand-name";
+
 function graphemeSegments(text: string): string[] {
   if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
     try {
@@ -145,13 +147,17 @@ export function HeroTypewriter({
   ]);
 
   if (reduceMotion) {
-    return <span className={className}>{text}</span>;
+    return (
+      <span className={className}>
+        <BrandInText>{text}</BrandInText>
+      </span>
+    );
   }
 
   return (
     <>
       <span aria-hidden="true" className={className}>
-        {display}
+        <BrandInText>{display}</BrandInText>
         {showCaret ? (
           <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-blue)]/70">
             |

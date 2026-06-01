@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 export const translations = {
   en: {
     nav: {
-      whyEtalk: "Why E-talk",
+      whyEtalk: "Why E-Talk",
       features: "Features",
       howItWorks: "How it works",
       team: "Team",
@@ -26,23 +26,28 @@ export const translations = {
       odiaLine: "ଓଡ଼ିଆ AI ଇଂରାଜୀ କହିବା ଆପ୍",
       h1: "Speak English confidently—with Odia context at every step",
       typewriter:
-        "Your voice and our AI—E-talk builds your learning journey, step by step.",
+        "Your voice and our AI—E-Talk builds your learning journey, step by step.",
       body: "For students and professionals who want clear explanations, adaptive lessons, and real-time help—built with Odisha first, open to learners everywhere.",
       primaryCta: "Join the waitlist",
       secondaryCta: "See how it works",
       note: "Free to join the waitlist · Launch updates only",
+      robotAria:
+        "Friendly AI coach robot waving hello—your AI-powered English learning guide",
+      robotCaption: "AI-driven learning, with you at every step",
     },
     banner: {
       eyebrow: "Launch countdown",
-      headline: "E-talk goes live in about three months — join the waitlist for the exact date.",
+      headline: "E-Talk goes live in about three months — join the waitlist for the exact date.",
       days: "Days",
       hours: "Hrs",
       minutes: "Min",
       seconds: "Sec",
-      ariaLabel: "Countdown to E-talk launch",
+      ariaLabel: "Countdown to E-Talk launch",
       secondaryLink: "Sign up below",
     },
     trust: {
+      worldMapAria:
+        "Animated world map—E-Talk is rooted in Odisha and open to learners everywhere",
       col1Title: "Odisha-first",
       col1Body:
         "Product and pedagogy rooted in local language context—not a generic import.",
@@ -60,12 +65,36 @@ export const translations = {
       gapTitle: "The gap",
       gapBody:
         "Pure English-only explanations can feel abstract. You end up translating twice—from lesson to Odia, then back to English for real life.",
-      approachTitle: "The E-talk approach",
+      approachTitle: "The E-Talk approach",
       approachBody:
         "Odia-friendly guidance where it helps, English practice where it counts—so you build fluency for exams, interviews, and everyday conversation.",
+      coachAria:
+        "Friendly AI coach waving hello—here to guide your English learning journey",
+      coachBubbleParts: [
+        ["Speak with ", false],
+        ["confidence", true],
+        ["—your ", false],
+        ["AI coach", true],
+        [" is with you.", false],
+      ],
+      coachBubbleTaglineParts: [
+        ["Odia-friendly · ", false],
+        ["AI-powered", true],
+        [" English", false],
+      ],
+      coachMottoParts: [
+        ["Speak ", false],
+        ["Better", true],
+        [". ", false],
+        ["Grow ", false],
+        ["Faster", true],
+        [".", false],
+      ],
+      coachBubbleAria:
+        "Speak with confidence—your AI coach is with you. Odia-friendly, AI-powered English learning. Speak Better. Grow Faster.",
     },
     features: {
-      heading: "Why choose E-talk",
+      heading: "Why choose E-Talk",
       subhead:
         "Daily AI coaching, a path you can follow, short lessons, gamified motivation—and plans that stay within reach.",
       items: [
@@ -102,18 +131,22 @@ export const translations = {
           body: "Boards, entrances, interviews, workplace English, and daily conversation—structured journeys for what you need next, not a one-size-fits-all course.",
         },
         {
-          title: "Your feedback shapes E-talk",
+          title: "Your feedback shapes E-Talk",
           body: "Waitlist members help us prioritise features—built with learners, not only for them.",
         },
       ],
     },
     how: {
-      heading: "How E-talk works",
+      heading: "How E-Talk works",
       subhead:
         "Goal → contextual lessons → spoken practice—with AI and live chat at each step.",
       carouselOdiaLine: "ଓଡ଼ିଆରେ ବୁଝି · ଇଂରାଜୀରେ ଆଗକୁ ବଢ଼ନ୍ତୁ",
+      aiSphereAria: "Animated AI sphere representing intelligent English coaching",
+      aiTextAria: "Animated AI text representing smart lesson guidance",
       carouselHint:
         "Steps scroll automatically in the phone preview — hover the screen to pause, or use the Pause button.",
+      carouselHintMobile:
+        "Steps scroll in the phone preview — tap Pause if you need the motion to stop.",
       carouselA11y:
         "Product steps scroll in an infinite vertical reel inside a phone preview. Use Pause if you need motion to stop.",
       carouselPause: "Pause scrolling",
@@ -156,11 +189,11 @@ export const translations = {
     audience: {
       heading: "Built for your schedule—not a one-size course",
       subhead:
-        "Students, professionals, shopkeepers, caregivers, farmers, first-time English learners—whoever you are, we want you here. E-talk meets you where you are.",
+        "Students, professionals, shopkeepers, caregivers, farmers, first-time English learners—whoever you are, we want you here. E-Talk meets you where you are.",
       heritageQuote:
-        "Our forebears like Madhu Babu (Madhusudan Das) used English to stand before British courts and councils—not with violence, but with law, debate, and the force of words. Without that language, the same fight could not have been waged the same way. Today, English still opens rooms; E-talk helps every kind of learner walk in with confidence.",
+        "Our forebears like Madhu Babu (Madhusudan Das) used English to stand before British courts and councils—not with violence, but with law, debate, and the force of words. Without that language, the same fight could not have been waged the same way. Today, English still opens rooms; E-Talk helps every kind of learner walk in with confidence.",
       heritageCaption: "Heritage, not hype—language as dignity and leverage",
-      carouselAria: "Who E-talk is for—scroll through learner types",
+      carouselAria: "Who E-Talk is for—scroll through learner types",
       carouselHint: "Swipe the row or use the arrows.",
       carouselPrev: "Previous learner card",
       carouselNext: "Next learner card",
@@ -202,14 +235,14 @@ export const translations = {
     quote: {
       heading: "Built with learners, not just for them",
       subhead:
-        "We are shaping E-talk alongside students and professionals in Odisha. Your waitlist feedback helps prioritise what ships first.",
-      text: "Fluency is not memorising rules—it is feeling safe to speak. E-talk is designed around that idea: clear support in Odia when you need it, and real English practice when you are ready.",
-      caption: "— E-talk team",
+        "We are shaping E-Talk alongside students and professionals in Odisha. Your waitlist feedback helps prioritise what ships first.",
+      text: "Fluency is not memorising rules—it is feeling safe to speak. E-Talk is designed around that idea: clear support in Odia when you need it, and real English practice when you are ready.",
+      caption: "— E-Talk team",
     },
     team: {
       heading: "Meet the co-founders",
       subhead:
-        "A small team building E-talk from Odisha—with a shared focus on accessible, Odia-friendly English learning.",
+        "A small team building E-Talk from Odisha—with a shared focus on accessible, Odia-friendly English learning.",
       role: "Co-founder",
       members: {
         prasannjit: {
@@ -232,7 +265,7 @@ export const translations = {
     },
     faq: {
       heading: "Frequently asked questions",
-      subhead: "Straight answers about how E-talk fits your learning.",
+      subhead: "Straight answers about how E-Talk fits your learning.",
       items: [
         {
           q: "Do I need strong English to start?",
@@ -247,13 +280,13 @@ export const translations = {
           a: "You will get launch updates by email. We will not spam you; you can unsubscribe any time.",
         },
         {
-          q: "Will E-talk be free?",
+          q: "Will E-Talk be free?",
           a: "Pricing is still being shaped. Waitlist members will hear first when plans and timelines are ready.",
         },
       ],
     },
     cta: {
-      heading: "Be first when E-talk launches",
+      heading: "Be first when E-Talk launches",
       body: "Email us to join the waitlist or ask a question—we read every message.",
       submitBtn: "Email to join waitlist",
       note: "Add your details (optional), then your email app opens with a ready message—you can edit before sending.",
@@ -273,9 +306,17 @@ export const translations = {
       submit: "Open email app",
     },
     footer: {
+      waveAria: "Animated sound wave—your voice paired with AI English coaching",
+      voicePromoParts: [
+        ["Your voice, ", false],
+        ["AI-powered", true],
+        ["—English that ", false],
+        ["clicks", true],
+        [".", false],
+      ],
       brandMarketingLine:
         "Odia-first AI English learning — clear explanations, adaptive lessons, and confidence for exams, work, and daily life.",
-      copyright: `© ${year} E-talk. Made with focus on Odisha.`,
+      copyright: `© ${year} E-Talk. Made with focus on Odisha.`,
       follow: "Follow us",
       team: "Team",
       faq: "FAQ",
@@ -312,6 +353,9 @@ export const translations = {
       primaryCta: "ପ୍ରତୀକ୍ଷା ତାଲିକାରେ ଯୋଗ ଦିଅନ୍ତୁ",
       secondaryCta: "କିପରି କାମ କରେ ଦେଖନ୍ତୁ",
       note: "ଯୋଗ ଦେବା ମୁଫ · କେବଳ ଲଞ୍ଚ ଅଦ୍ୟତନ",
+      robotAria:
+        "ନমସ୍କାର କରୁଥିବା ବନ୍ଧୁତ୍ୱପୂର୍ଣ AI ଶିକ୍ଷକ ରୋବଟ—ଆପଣଙ୍କ AI ଇଂରାଜୀ ଶିଖଣ ଗାଇଡ୍",
+      robotCaption: "AI ଚାଳିତ ଶିଖଣ, ପ୍ରତ୍ୟେକ ପଦକ୍ଷେପରେ ଆପଣଙ୍କ ସହ",
     },
     banner: {
       eyebrow: "ଲଞ୍ଚ କାଉଣ୍ଟଡାଉନ୍",
@@ -325,6 +369,8 @@ export const translations = {
       secondaryLink: "ତଳେ ଯୋଗ ଦିଅନ୍ତୁ",
     },
     trust: {
+      worldMapAria:
+        "ବିଶ୍ୱ ମାନଚିତ୍ର ଆନିମେସନ—ଇ-ଟକ୍ ଓଡ଼ିଶାରୁ ଆରମ୍ଭ, ସର୍ବତ୍ର ଶିଖ୍ୟାର୍ଥୀଙ୍କ ପାଇଁ",
       col1Title: "ଓଡ଼ିଶା-ପ୍ରଥମ",
       col1Body:
         "ସ୍ଥାନୀୟ ଭାଷା ପ୍ରସଙ୍ଗରୁ ଉଦ୍ଭୂତ ଉତ୍ପାଦ ଓ ଶିକ୍ଷଣ ଶୈଳୀ—ସାଧାରଣ ଆମଦାନି ନୁହେଁ।",
@@ -343,6 +389,30 @@ export const translations = {
       gapBody:
         "ଶୁଦ୍ଧ ଇଂରାଜୀ ବ୍ୟାଖ୍ୟା ଅସ୍ପଷ୍ଟ ଲାଗୁଥାଏ। ଆପଣ ଦୁଇ ଥର ଅନୁବାଦ କରୁଥାଆନ୍ତି—ପ୍ରଥମେ ଓଡ଼ିଆ, ଆଉ ତାପରେ ଇଂରାଜୀ।",
       approachTitle: "ଇ-ଟକ୍ ର ଉପାୟ",
+      coachAria:
+        "ନମସ୍କାର କରୁଥିବା ବନ୍ଧୁତ୍ୱପୂର୍ଣ AI ଶିକ୍ଷକ—ଆପଣଙ୍କ ଇଂରାଜୀ ଶିଖଣ ଯାତ୍ରାରେ ସାଥୀ",
+      coachBubbleParts: [
+        ["ଆତ୍ମବିଶ୍ୱାସରେ ", false],
+        ["କୁହନ୍ତୁ", true],
+        ["—", false],
+        ["AI", true],
+        [" ଆପଣଙ୍କ ପାଖରେ ଅଛି।", false],
+      ],
+      coachBubbleTaglineParts: [
+        ["ଓଡ଼ିଆ-ସହାୟ · ", false],
+        ["AI", true],
+        [" ଇଂରାଜୀ ଶିଖଣ", false],
+      ],
+      coachMottoParts: [
+        ["ଭଲ ", false],
+        ["କୁହନ୍ତୁ", true],
+        [". ", false],
+        ["ଶୀଘ୍ର ", false],
+        ["ବଢ଼ନ୍ତୁ", true],
+        [".", false],
+      ],
+      coachBubbleAria:
+        "ଆତ୍ମବିଶ୍ୱାସରେ କୁହନ୍ତୁ—AI ଆପଣଙ୍କ ପାଖରେ ଅଛି। ଓଡ଼ିଆ-ସହାୟ AI ଇଂରାଜୀ ଶିଖଣ। ଭଲ କୁହନ୍ତୁ। ଶୀଘ୍ର ବଢ଼ନ୍ତୁ।",
       approachBody:
         "ଦରକାର ଥିଲେ ଓଡ଼ିଆ ସହାୟତା, ଗୁରୁତ୍ୱ ଥିଲେ ଇଂରାଜୀ ଅଭ୍ୟାସ—ଯାହା ଆପଣଙ୍କୁ ପରୀକ୍ଷା, ସାକ୍ଷାତ ଓ ଦୈନ୍ୟ ବ୍ୟବହାରରେ ଦକ୍ଷ କରିଥାଏ।",
     },
@@ -394,8 +464,12 @@ export const translations = {
       subhead:
         "ଲକ୍ଷ୍ୟ → ପ୍ରସଙ୍ଗ ପାଠ → କଥ୍ୟ ଅଭ୍ୟାସ—ପ୍ରତ୍ୟେକ ପଦକ୍ଷେପରେ AI ଓ ଲାଇଭ ଚ୍ୟାଟ।",
       carouselOdiaLine: "ଓଡ଼ିଆରେ ବୁଝି · ଇଂରାଜୀରେ ଆଗକୁ ବଢ଼ନ୍ତୁ",
+      aiSphereAria: "AI ବୁଦ୍ଧିମତ୍ତା ପ୍ରତିନିଧିତ୍ୱ କରୁଥିବା ଗୋଲାକାର ଆନିମେସନ",
+      aiTextAria: "ସ୍ମାର୍ଟ ପାଠ ମାର୍ଗଦର୍ଶନ ପ୍ରତିନିଧିତ୍ୱ କରୁଥିବା AI ଟେକ୍ସଟ ଆନିମେସନ",
       carouselHint:
         "ଫୋନ୍ ଭିତରେ ପଦକ୍ଷେପ ଆପେ ଚାଲେ—ସ୍କ୍ରିନ୍ ଉପରେ ହୋଭର୍ କରି ବିରତ କରନ୍ତୁ, ବା ବିରତ ବଟନ ବ୍ୟବହାର କରନ୍ତୁ।",
+      carouselHintMobile:
+        "ଫୋନ୍ ଭିତରେ ପଦକ୍ଷେପ ଚାଲୁଛି—ଗତି ବନ୍ଦ ଦରକାର ହେଲେ ବିରତ ବଟନ ଦବାନ୍ତୁ।",
       carouselA11y:
         "ପଦକ୍ଷେପଗୁଡ଼ିକ ଫୋନ୍ ଭିତରେ ଅନବରତ ଭାବେ ଉପରକୁ ଚାଲୁଛି। ଗତି ବନ୍ଦ ଦରକାର ହେଲେ ବିରତ ବଟନ ଦବାନ୍ତୁ।",
       carouselPause: "ବିରତ",
@@ -555,6 +629,14 @@ export const translations = {
       submit: "ଇ-ମେଲ ଆପ୍ ଖୋଲନ୍ତୁ",
     },
     footer: {
+      waveAria: "ଧ୍ୱନି ତରଙ୍ଗ ଆନିମେସନ—ଆପଣଙ୍କ ସ୍ୱର ଓ AI ଇଂରାଜୀ କୋଚିଂ",
+      voicePromoParts: [
+        ["ଆପଣଙ୍କ ସ୍ୱର, ", false],
+        ["AI", true],
+        ["—ଇଂରାଜୀ ", false],
+        ["କ୍ଲିକ୍", true],
+        [" ହେଉଛି।", false],
+      ],
       brandMarketingLine:
         "ଓଡ଼ିଆ-ପ୍ରଥମ AI ଇଂରାଜୀ ଶିଖଣ—ସ୍ପଷ୍ଟ ବ୍ୟାଖ୍ୟା, ଅଭିଯୋଜ୍ୟ ପାଠ ଓ ପରୀକ୍ଷା, କାର୍ଯ୍ୟ ଓ ଦୈନନ୍ଦିନ ଜୀବନ ପାଇଁ ଆତ୍ମବିଶ୍ୱାସ।",
       copyright: `© ${year} ଇ-ଟକ୍। ଓଡ଼ିଶା ଉପରେ ଧ୍ୟାନ ଦେଇ ତିଆରି।`,

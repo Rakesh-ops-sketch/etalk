@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { ApproachCoachLottie } from "@/components/approach";
 import { AudienceCarousel } from "@/components/audience";
+import { BrandInText } from "@/components/brand/brand-name";
 import {
   BRAND_LOGO_SECTION_WATERMARK,
   BrandLogoMark,
@@ -16,12 +18,18 @@ import {
 import { OdishaSectionDecor } from "@/components/decor";
 import { HowWorksCarousel } from "@/components/how";
 import {
+  HeroAiRobot,
   HeroLaunchCountdown,
   HeroParticles,
   HeroTypewriter,
 } from "@/components/hero";
+import {
+  FooterGradientBackdrop,
+  FooterWavePromo,
+} from "@/components/footer";
 import { LanguageToggle } from "@/components/nav/language-toggle";
 import { SocialLinks } from "@/components/social";
+import { TrustWorldMap } from "@/components/trust";
 import { WaitlistMailDialog } from "@/components/waitlist/waitlist-mail-dialog";
 import { useLang } from "@/lib/i18n/lang-context";
 import { mailtoContact, socialLinks } from "@/lib/site-config";
@@ -221,6 +229,53 @@ const featureIcons = [
   IconSpark,
 ] as const;
 
+const footerSections = [
+  {
+    title: "About E-Talk",
+    links: [
+      { label: "Why E-Talk", href: "#approach" },
+      { label: "Features", href: "#features" },
+      { label: "How it works", href: "#how" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
+    title: "Learner Paths",
+    links: [
+      { label: "AI English coach", href: "#features" },
+      { label: "Odia-friendly lessons", href: "#how" },
+      { label: "Exam & interview prep", href: "#audience" },
+      { label: "Daily speaking practice", href: "#how" },
+    ],
+  },
+  {
+    title: "Help and support",
+    links: [
+      { label: "Join waitlist", href: "#cta" },
+      { label: "Contact us", href: "mailto:hello@e-talk.in" },
+      { label: "Privacy", href: "#faq" },
+      { label: "Terms", href: "#faq" },
+    ],
+  },
+] as const;
+
+const siteLanguages = [
+  "Odia",
+  "English",
+  "Hindi",
+  "Bengali",
+  "Telugu",
+  "Tamil",
+  "Marathi",
+  "Gujarati",
+  "Kannada",
+  "Malayalam",
+  "Punjabi",
+  "Urdu",
+] as const;
+
+const FOOTER_LOGO_SRC = "/PNG/E-talk_Logo-png.png" as const;
+
 /*
  * Cofounders / team section — restore when ready (see commented block below).
  * Team photos: Prasannjit, Bikram, Rakesh (`/public/team/`) — roles in `t.team.members`
@@ -251,13 +306,13 @@ export default function Home() {
   return (
     <>
       <WaitlistMailDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
-      <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(245,248,252,0.9)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(245,248,252,0.75)]">
+      <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(250,249,247,0.92)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(250,249,247,0.78)]">
         <div className="etalk-container grid min-h-20 auto-rows-min grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2.5 gap-y-0 py-2.5 sm:gap-x-4 md:min-h-0 md:grid-cols-[1fr_auto_1fr] md:gap-y-0 md:py-0 md:h-24">
           <div className="flex min-w-0 items-center justify-self-start">
             <Link
               href="/"
               className="group relative flex min-w-0 max-w-full items-center gap-1.5 rounded-lg outline-offset-2 transition-opacity duration-300 hover:opacity-92 focus-visible:opacity-100 sm:gap-2 md:gap-2.5"
-              aria-label="E-talk — home"
+              aria-label="E-Talk — home"
             >
               <BrandLogoMark
                 variant="solid"
@@ -278,7 +333,7 @@ export default function Home() {
               href="#approach"
               className="rounded-md py-2 transition-colors duration-300 ease-out hover:text-[var(--brand-silver)]"
             >
-              {t.nav.whyEtalk}
+              <BrandInText>{t.nav.whyEtalk}</BrandInText>
             </a>
             <a
               href="#features"
@@ -320,7 +375,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="overflow-x-hidden">
+      <main className="flex-1 overflow-x-hidden">
         <section
           className="relative isolate min-h-[28rem] overflow-hidden etalk-section-navy"
           aria-labelledby="hero-heading"
@@ -345,7 +400,7 @@ export default function Home() {
             className="pointer-events-none absolute -left-1/4 top-1/4 z-[2] h-[32rem] w-[32rem] rounded-full opacity-30 blur-[100px] motion-reduce:opacity-15"
             style={{
               background:
-                "radial-gradient(circle, rgba(0,102,255,0.18) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0,102,255,0.06) 0%, transparent 70%)",
             }}
           />
           <div
@@ -358,64 +413,71 @@ export default function Home() {
           {/* Above particle canvas (z-1) so decor line art is visible */}
           <OdishaSectionDecor variant="hero" />
           <div className="relative z-[3] etalk-container pb-20 pt-12 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20">
-            <div className="mx-auto w-full max-w-4xl text-left">
-              <div className="space-y-0">
-                <p
-                  className={`text-[0.7rem] font-medium uppercase tracking-[0.2em] text-[var(--brand-muted)] sm:text-xs ${oriaFont}`}
-                >
-                  {t.hero.eyebrow}
-                </p>
-                <h1
-                  id="hero-heading"
-                  className={`mt-5 text-[clamp(1.75rem,2.85vw,2.75rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-[var(--brand-navy-deep)] antialiased ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : "font-sans"}`}
-                >
-                  {t.hero.h1}
-                </h1>
-                <p className="mt-3 max-w-2xl font-[family-name:var(--font-noto-oriya)] text-sm leading-relaxed text-[var(--brand-muted)] sm:text-[0.9375rem]">
-                  {t.hero.odiaLine}
-                </p>
-              </div>
-
-              <HeroLaunchCountdown />
-
-              <div
-                className={`mt-8 min-h-[4.5rem] border-l-2 border-[var(--brand-blue)]/25 pl-4 text-[clamp(1rem,1.35vw,1.125rem)] font-medium leading-relaxed text-[var(--brand-navy)] sm:min-h-[4rem] sm:pl-5 ${oriaFont}`}
-                aria-live="polite"
-              >
-                <HeroTypewriter
-                  text={t.hero.typewriter}
-                  loop
-                  speedMs={32}
-                  deleteSpeedMs={16}
-                  pauseAfterMs={2800}
-                  pauseBeforeMs={800}
-                />
-              </div>
-
+            <div className="etalk-hero-layout mx-auto w-full max-w-6xl">
               <p
-                className={`mt-8 max-w-3xl text-base leading-[1.65] text-[var(--brand-muted)] sm:text-[1.0625rem] ${oriaFont}`}
+                className={`text-[0.7rem] font-medium uppercase tracking-[0.2em] text-[var(--brand-muted)] sm:text-xs ${oriaFont}`}
               >
-                {t.hero.body}
+                {t.hero.eyebrow}
+              </p>
+              <h1
+                id="hero-heading"
+                className={`mt-4 text-[clamp(1.75rem,2.85vw,2.75rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-[var(--brand-navy-deep)] antialiased sm:mt-5 ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : "font-sans"}`}
+              >
+                {t.hero.h1}
+              </h1>
+              <p className="mt-3 max-w-2xl font-[family-name:var(--font-noto-oriya)] text-sm leading-relaxed text-[var(--brand-muted)] sm:text-[0.9375rem]">
+                {t.hero.odiaLine}
               </p>
 
-              <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start">
-                <button
-                  type="button"
-                  onClick={() => setWaitlistOpen(true)}
-                  className={`etalk-btn-gold inline-flex min-h-12 items-center justify-center rounded-full px-8 text-base font-semibold ${oriaFont}`}
-                >
-                  {t.hero.primaryCta}
-                </button>
-                <a
-                  href="#how"
-                  className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(0,102,255,0.35)] hover:bg-[#f8fbff] hover:text-[var(--brand-blue-deep)] ${oriaFont}`}
-                >
-                  {t.hero.secondaryCta}
-                </a>
+              <div className="etalk-hero-layout__mid">
+                <HeroLaunchCountdown />
+                <HeroAiRobot className="etalk-hero-layout__robot" />
               </div>
-              <p className={`mt-4 text-sm text-[var(--brand-muted)] ${oriaFont}`}>
-                {t.hero.note}
-              </p>
+
+              <div className="etalk-hero-layout__main min-w-0 text-left">
+                <div
+                  className="h-px w-full bg-gradient-to-r from-[rgba(0,102,255,0.18)] via-[rgba(0,102,255,0.28)] to-transparent lg:hidden"
+                  aria-hidden
+                />
+                <div
+                  className={`mt-5 min-h-[4.5rem] text-[clamp(1rem,1.35vw,1.125rem)] font-medium leading-relaxed text-[var(--brand-navy)] sm:mt-6 sm:min-h-[4rem] lg:mt-8 lg:border-l-2 lg:border-[var(--brand-blue)]/25 lg:pl-5 ${oriaFont}`}
+                  aria-live="polite"
+                >
+                  <HeroTypewriter
+                    text={t.hero.typewriter}
+                    loop
+                    speedMs={32}
+                    deleteSpeedMs={16}
+                    pauseAfterMs={2800}
+                    pauseBeforeMs={800}
+                  />
+                </div>
+
+                <p
+                  className={`mt-8 max-w-3xl text-base leading-[1.65] text-[var(--brand-muted)] sm:text-[1.0625rem] ${oriaFont}`}
+                >
+                  {t.hero.body}
+                </p>
+
+                <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start">
+                  <button
+                    type="button"
+                    onClick={() => setWaitlistOpen(true)}
+                    className={`etalk-btn-gold inline-flex min-h-12 items-center justify-center rounded-full px-8 text-base font-semibold ${oriaFont}`}
+                  >
+                    {t.hero.primaryCta}
+                  </button>
+                  <a
+                    href="#how"
+                    className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-[var(--surface-elevated)] px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(0,71,204,0.06)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(0,102,255,0.35)] hover:bg-[#fffef9] hover:text-[var(--brand-blue-deep)] ${oriaFont}`}
+                  >
+                    {t.hero.secondaryCta}
+                  </a>
+                </div>
+                <p className={`mt-4 text-sm text-[var(--brand-muted)] ${oriaFont}`}>
+                  {t.hero.note}
+                </p>
+              </div>
             </div>
           </div>
           <div className="etalk-separator px-4 sm:px-6" aria-hidden />
@@ -427,6 +489,7 @@ export default function Home() {
         >
           <OdishaSectionDecor variant="trust" />
           <div className="relative z-10 etalk-container">
+            <TrustWorldMap />
             <div className="mx-auto grid w-full max-w-7xl gap-12 sm:grid-cols-3 sm:gap-8 lg:gap-0">
             <div className="text-center lg:pr-10">
               <p className="font-sans text-2xl font-bold text-[var(--brand-blue)]">
@@ -484,7 +547,7 @@ export default function Home() {
                 {t.approach.subhead}
               </p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-6xl gap-14 lg:grid-cols-2 lg:gap-20 lg:items-start">
+            <div className="etalk-approach-grid mx-auto mt-16 grid max-w-6xl gap-12 sm:gap-14 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-14 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(9.5rem,12.5rem)] xl:items-start">
               <div className="etalk-accent-line etalk-accent-line--soft text-left">
                 <h3 className={`text-lg font-semibold text-[var(--brand-silver)] ${oriaFont}`}>
                   {t.approach.gapTitle}
@@ -495,12 +558,13 @@ export default function Home() {
               </div>
               <div className="etalk-accent-line text-left">
                 <h3 className={`text-lg font-semibold text-[var(--brand-silver)] ${oriaFont}`}>
-                  {t.approach.approachTitle}
+                  <BrandInText>{t.approach.approachTitle}</BrandInText>
                 </h3>
                 <p className={`mt-4 leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                   {t.approach.approachBody}
                 </p>
               </div>
+              <ApproachCoachLottie className="etalk-approach-grid__coach" />
             </div>
           </div>
         </section>
@@ -532,7 +596,7 @@ export default function Home() {
                 id="features-heading"
                 className={`font-sans text-2xl font-bold tracking-tight text-[var(--brand-silver)] sm:text-3xl ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : ""}`}
               >
-                {t.features.heading}
+                <BrandInText>{t.features.heading}</BrandInText>
               </h2>
               <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                 {t.features.subhead}
@@ -553,7 +617,7 @@ export default function Home() {
                       <h3
                         className={`mt-5 text-lg font-semibold text-[var(--brand-silver)] ${oriaFont}`}
                       >
-                        {f.title}
+                        <BrandInText>{f.title}</BrandInText>
                       </h3>
                       <p className={`mt-2 flex-1 text-sm leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                         {f.body}
@@ -603,7 +667,7 @@ export default function Home() {
                 id="how-heading"
                 className={`font-sans text-2xl font-bold tracking-tight text-[var(--brand-silver)] sm:text-3xl ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : ""}`}
               >
-                {t.how.heading}
+                <BrandInText>{t.how.heading}</BrandInText>
               </h2>
               <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                 {t.how.subhead}
@@ -613,6 +677,7 @@ export default function Home() {
             <HowWorksCarousel
               items={t.how.carousel}
               carouselHint={t.how.carouselHint}
+              carouselHintMobile={t.how.carouselHintMobile}
               carouselA11y={t.how.carouselA11y}
               carouselOdiaLine={t.how.carouselOdiaLine}
               showOdiaTagline
@@ -640,11 +705,11 @@ export default function Home() {
                 {t.audience.heading}
               </h2>
               <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
-                {t.audience.subhead}
+                <BrandInText>{t.audience.subhead}</BrandInText>
               </p>
             </div>
 
-            <figure className="relative mx-auto mt-12 w-full max-w-4xl overflow-hidden rounded-2xl border border-[rgba(0,102,255,0.22)] bg-gradient-to-br from-white to-[#f0f9ff] px-6 py-7 text-center shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] sm:px-8 sm:py-8">
+            <figure className="relative mx-auto mt-12 w-full max-w-4xl overflow-hidden rounded-2xl border border-[var(--hairline)] bg-gradient-to-br from-[var(--surface-elevated)] to-[#f5f4f1] px-6 py-7 text-center shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] sm:px-8 sm:py-8">
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-30 blur-3xl motion-reduce:opacity-15"
                 style={{
@@ -657,7 +722,7 @@ export default function Home() {
                 className={`relative text-base font-medium leading-relaxed text-[var(--brand-silver)] sm:text-lg sm:leading-relaxed ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : "font-sans"}`}
               >
                 <span className="text-[var(--brand-blue)]/85">&ldquo;</span>
-                {t.audience.heritageQuote}
+                <BrandInText>{t.audience.heritageQuote}</BrandInText>
                 <span className="text-[var(--brand-blue)]/85">&rdquo;</span>
               </blockquote>
               <figcaption
@@ -707,7 +772,7 @@ export default function Home() {
                 {t.quote.heading}
               </h2>
               <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
-                {t.quote.subhead}
+                <BrandInText>{t.quote.subhead}</BrandInText>
               </p>
             </div>
             <figure className="relative mx-auto mt-14 w-full max-w-3xl text-center">
@@ -721,11 +786,11 @@ export default function Home() {
               />
               <blockquote className={`relative font-sans text-xl font-medium leading-snug tracking-tight text-[var(--brand-silver)] sm:text-2xl sm:leading-snug ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : ""}`}>
                 <span className="text-[var(--brand-blue)]/90">&ldquo;</span>
-                {t.quote.text}
+                <BrandInText>{t.quote.text}</BrandInText>
                 <span className="text-[var(--brand-blue)]/90">&rdquo;</span>
               </blockquote>
               <figcaption className={`mt-6 text-sm text-[var(--brand-muted)] ${oriaFont}`}>
-                {t.quote.caption}
+                <BrandInText>{t.quote.caption}</BrandInText>
               </figcaption>
             </figure>
           </div>
@@ -758,8 +823,8 @@ export default function Home() {
                 const m = t.team.members[person.key];
                 const roleAlt =
                   "subtitle" in m
-                    ? `${person.name}, ${t.team.role} — ${m.title}; ${m.subtitle} at E-talk`
-                    : `${person.name}, ${t.team.role} — ${m.title} at E-talk`;
+                    ? `${person.name}, ${t.team.role} — ${m.title}; ${m.subtitle} at E-Talk`
+                    : `${person.name}, ${t.team.role} — ${m.title} at E-Talk`;
                 return (
                   <li
                     key={person.key}
@@ -823,7 +888,7 @@ export default function Home() {
                   {t.faq.heading}
                 </h2>
                 <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
-                  {t.faq.subhead}
+                  <BrandInText>{t.faq.subhead}</BrandInText>
                 </p>
               </div>
               <div className="mt-12 text-left">
@@ -833,9 +898,11 @@ export default function Home() {
                     className="etalk-faq-item group px-1 [&_summary::-webkit-details-marker]:hidden"
                   >
                     <summary className={`flex min-h-[3.25rem] cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-[var(--brand-silver)] transition-colors duration-300 group-hover:text-[var(--brand-navy-deep)] ${oriaFont}`}>
-                      <span>{item.q}</span>
+                      <span>
+                        <BrandInText>{item.q}</BrandInText>
+                      </span>
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-blue)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(0,102,255,0.25)] group-open:bg-[#f8fbff] motion-reduce:transition-none"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-[var(--surface-elevated)] text-[var(--brand-blue)] shadow-[0_1px_2px_rgba(0,71,204,0.06)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(0,102,255,0.25)] group-open:bg-[#fffef9] motion-reduce:transition-none"
                         aria-hidden
                       >
                         <svg
@@ -884,7 +951,7 @@ export default function Home() {
                     id="cta-heading"
                     className={`font-sans text-2xl font-bold tracking-tight text-[var(--brand-silver)] sm:text-3xl ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : ""}`}
                   >
-                    {t.cta.heading}
+                    <BrandInText>{t.cta.heading}</BrandInText>
                   </h2>
                   <p className={`etalk-section-lead mt-4 text-base leading-relaxed text-[var(--brand-muted)] ${oriaFont}`}>
                     {t.cta.body}
@@ -914,84 +981,112 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="relative overflow-hidden etalk-section-paper mt-auto border-t border-[var(--hairline)] py-7 sm:py-8">
-        <div
-          className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden"
-          aria-hidden
-        >
-          <Image
-            src={BRAND_LOGO_SECTION_WATERMARK.src}
-            alt=""
-            width={BRAND_LOGO_SECTION_WATERMARK.width}
-            height={BRAND_LOGO_SECTION_WATERMARK.height}
-            className="etalk-logo-watermark h-auto w-[min(100vw,36rem)] max-h-[min(55vh,38rem)] select-none object-contain object-center sm:w-[min(100vw,44rem)] sm:max-h-[min(60vh,44rem)] md:w-[min(100vw,50rem)] md:max-h-[min(64vh,48rem)]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50rem"
-          />
-        </div>
-        <div className="etalk-container relative z-10">
-          <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-[var(--brand-muted)]">
-            <div className="flex flex-col gap-6 pb-6 sm:gap-7 sm:pb-7 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-                <div className="shrink-0">
-                  <BrandLogoMark variant="solid" size="xl" />
-                </div>
-                <div className="min-w-0 max-w-2xl">
-                  <BrandLogoText variant="footer" />
-                  <p className={`mt-2 text-sm leading-snug text-[var(--brand-muted)] ${oriaFont}`}>
-                    {t.footer.brandMarketingLine}
-                  </p>
-                  <p className={`mt-2.5 text-xs leading-snug text-[var(--brand-muted)] ${oriaFont}`}>
-                    {t.footer.copyright}
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full max-w-sm shrink-0 flex-col items-center gap-4 sm:mx-auto lg:ml-auto lg:max-w-xs">
-                <div className="flex w-full flex-col items-center gap-2.5 text-center lg:items-end lg:text-right">
-                  <p className={`w-full text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--brand-muted)] ${oriaFont}`}>
-                    {t.footer.follow}
-                  </p>
-                  <SocialLinks links={socialLinks} />
-                </div>
-              </div>
-            </div>
-
-            <nav
-              aria-label="Footer"
-              className="flex flex-wrap items-center justify-start gap-x-4 gap-y-1.5 pt-2 text-left lg:justify-between sm:pt-3"
+      <footer className="etalk-footer-shell shrink-0">
+        <div className="etalk-footer-unified">
+          <FooterGradientBackdrop />
+          <div className="etalk-footer-content">
+            <div
+              className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
+              aria-hidden
             >
-            <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-1.5">
-              {/* Footer team link — restore with cofounders section
-              <a
-                href="#team"
-                className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
-              >
-                {t.footer.team}
-              </a>
-              */}
-              <a
-                href="#faq"
-                className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
-              >
-                {t.footer.faq}
-              </a>
-              <button
-                type="button"
-                onClick={() => setWaitlistOpen(true)}
-                className={`inline cursor-pointer rounded-md border-0 bg-transparent p-0 font-inherit text-inherit transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
-              >
-                {t.footer.waitlist}
-              </button>
-              <a
-                href={mailtoContact()}
-                className={`rounded-md transition-colors duration-300 hover:text-[var(--brand-silver)] ${oriaFont}`}
-              >
-                {t.footer.contact}
-              </a>
+              <Image
+                src={FOOTER_LOGO_SRC}
+                alt=""
+                width={736}
+                height={985}
+                unoptimized
+                className="h-auto w-[min(92vw,28rem)] opacity-[0.09] select-none object-contain sm:w-[min(72vw,34rem)]"
+              />
             </div>
-            <span className="font-[family-name:var(--font-noto-oriya)] text-[var(--brand-silver)]/90">
-              {t.footer.thanks}
-            </span>
-            </nav>
+            <div className="etalk-container relative z-10 pb-10 pt-4 sm:pb-12 sm:pt-6">
+              <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 sm:gap-10">
+                <FooterWavePromo />
+                <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-[minmax(0,1.15fr)_repeat(3,minmax(0,1fr))] lg:gap-x-10 lg:gap-y-8">
+                  <div className="min-w-0 space-y-3">
+                    <Image
+                      src={FOOTER_LOGO_SRC}
+                      alt="E-Talk logo"
+                      width={736}
+                      height={985}
+                      unoptimized
+                      className="h-auto w-[8rem] select-none object-contain sm:w-[9rem]"
+                    />
+                    <div className="etalk-footer-brand-copy max-w-md">
+                      <BrandLogoText variant="footer" />
+                    </div>
+                    <p
+                      className={`max-w-md text-sm leading-snug text-white/85 ${oriaFont}`}
+                    >
+                      {t.footer.brandMarketingLine}
+                    </p>
+                    <p
+                      className={`text-xs leading-snug text-white/80 ${oriaFont}`}
+                    >
+                      <BrandInText>{t.footer.copyright}</BrandInText>
+                    </p>
+                  </div>
+
+                  {footerSections.map((section) => (
+                    <div key={section.title} className="min-w-0">
+                      <h3 className="text-base font-bold tracking-[0.01em] text-white/95">
+                        {section.title}
+                      </h3>
+                      <ul className="mt-3 space-y-2.5">
+                        {section.links.map((link) => (
+                          <li key={link.label}>
+                            <a
+                              className="text-sm text-white/82 no-underline transition-colors duration-200 hover:text-white"
+                              href={link.href}
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col items-start justify-between gap-4 border-t border-white/20 pt-6 sm:flex-row sm:items-center sm:pt-7">
+                  <div className="min-w-0">
+                    <p
+                      className={`text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-white/85 ${oriaFont}`}
+                    >
+                      {t.footer.follow}
+                    </p>
+                    <SocialLinks
+                      links={socialLinks}
+                      className="etalk-footer-social mt-3 !justify-start"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setWaitlistOpen(true)}
+                    className={`shrink-0 rounded-full border border-white/35 px-5 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white/12 ${oriaFont}`}
+                  >
+                    {t.footer.waitlist}
+                  </button>
+                </div>
+
+                <div className="border-t border-white/20 pt-5 sm:pt-6">
+                  <p
+                    className={`text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/78 ${oriaFont}`}
+                  >
+                    Site language
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                    {siteLanguages.map((language) => (
+                      <span
+                        key={language}
+                        className={`text-xs text-white/80 ${oriaFont}`}
+                      >
+                        {language}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

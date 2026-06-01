@@ -1,43 +1,20 @@
 @import "tailwindcss";
 
-/* Light education palette — cool paper #f5f8fc, blue→cyan accents (E-Talk logo) */
+/* Light education palette — milk white paper, blue→cyan brand accents (E-Talk logo) */
 :root {
   color-scheme: light;
-  --background: #f5f8fc;
-  --etalk-bg-paper: #f5f8fc;
-  /*
-   * Soft blue→cyan mesh (E-Talk logo) — low contrast on light paper.
-   */
+  --background: #faf9f7;
+  --etalk-bg-paper: #faf9f7;
   --etalk-blue-pattern:
-    radial-gradient(ellipse 140% 100% at 0% -15%, rgba(0, 102, 255, 0.09) 0%, transparent 48%),
-    radial-gradient(ellipse 120% 90% at 105% 8%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 70% at 8% 105%, rgba(0, 71, 204, 0.06) 0%, transparent 52%),
-    radial-gradient(ellipse 75% 55% at 92% 88%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 65% 85% at 50% -5%, rgba(0, 102, 255, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 60% at 0% 45%, rgba(37, 99, 235, 0.04) 0%, transparent 58%),
-    radial-gradient(ellipse 70% 50% at 100% 35%, rgba(56, 189, 248, 0.04) 0%, transparent 52%),
-    radial-gradient(ellipse 80% 65% at 35% 100%, rgba(0, 102, 255, 0.035) 0%, transparent 55%),
-    repeating-linear-gradient(
-      -22deg,
-      transparent,
-      transparent 34px,
-      rgba(0, 102, 255, 0.018) 34px,
-      rgba(0, 102, 255, 0.018) 35px
-    ),
-    repeating-linear-gradient(
-      68deg,
-      transparent,
-      transparent 42px,
-      rgba(56, 189, 248, 0.012) 42px,
-      rgba(56, 189, 248, 0.012) 43px
-    );
+    radial-gradient(ellipse 120% 80% at 100% 0%, rgba(0, 102, 255, 0.03) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 70% at 0% 100%, rgba(56, 189, 248, 0.025) 0%, transparent 52%);
   --etalk-navy-pattern: var(--etalk-blue-pattern);
-  --etalk-bg-layers:
-    var(--etalk-blue-pattern),
-    radial-gradient(ellipse 120% 85% at 96% -8%, rgba(0, 102, 255, 0.08) 0%, transparent 52%),
-    radial-gradient(ellipse 95% 75% at -8% 102%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 55% 42% at 48% 48%, rgba(59, 130, 246, 0.04) 0%, transparent 58%),
-    linear-gradient(168deg, #f8fafc 0%, #eff6ff 42%, #f0f9ff 72%, #f5f8fc 100%);
+  --etalk-bg-layers: linear-gradient(
+    180deg,
+    #fffef9 0%,
+    #faf9f7 42%,
+    #f8f7f4 100%
+  );
   --foreground: #2a2f38;
   --brand-navy: #1e293b;
   --brand-navy-deep: #0f172a;
@@ -56,8 +33,20 @@
   --brand-border: rgba(0, 102, 255, 0.28);
   --brand-glow: var(--brand-blue-glow);
   --surface-elevated: #ffffff;
-  --surface-subtle: #eeede8;
+  --surface-subtle: #f3f2ef;
   --hairline: rgba(15, 23, 42, 0.08);
+  --etalk-brand-gradient: linear-gradient(
+    to bottom right,
+    #0047cc 0%,
+    #0066ff 42%,
+    #0066ff 66%,
+    #2488ff 78%,
+    #38bdf8 88%,
+    #7dd3fc 94%,
+    #00d4ff 100%
+  );
+  /* Footer: one gradient for wave + body (must match exactly) */
+  --etalk-footer-gradient: var(--etalk-brand-gradient);
 }
 
 @theme inline {
@@ -73,6 +62,7 @@
   --font-mono: var(--font-geist-mono);
   --font-odia: var(--font-noto-oriya);
   --font-heading: var(--font-baloo-thambi), system-ui, sans-serif;
+  --font-cursive: var(--font-dancing-script), "Segoe Script", cursive;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -90,7 +80,7 @@
   }
 }
 
-/* How E-talk works — infinite vertical film reel inside phone */
+/* How E-Talk works — infinite vertical film reel inside phone */
 @keyframes etalk-how-reel {
   from {
     transform: translateY(0);
@@ -111,6 +101,193 @@
 
 .etalk-how-reel.etalk-how-reel--force-paused {
   animation-play-state: paused !important;
+}
+
+/* Footer — wave Lottie + voice × AI promo */
+.etalk-footer-wave-promo__wave {
+  width: 4.5rem;
+  height: 4.5rem;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
+}
+
+.etalk-footer-wave-promo__line {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.94);
+  letter-spacing: 0.01em;
+}
+
+.etalk-footer-voice-highlight {
+  font-weight: 700;
+  color: #b8e6ff;
+  text-shadow: 0 0 20px rgba(125, 211, 252, 0.35);
+}
+
+@media (min-width: 640px) {
+  .etalk-footer-wave-promo__wave {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .etalk-footer-wave-promo__line {
+    font-size: 1.5rem;
+  }
+}
+
+/* Scroll reveal — slide in from the right when `.is-visible` */
+.etalk-scroll-reveal-side {
+  opacity: 0;
+  transform: translateX(115%);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.etalk-scroll-reveal-side.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .etalk-scroll-reveal-side {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Trust — world map Lottie above signal columns */
+.etalk-trust-world {
+  max-width: min(100%, 9.5rem);
+  margin-bottom: 1.75rem;
+}
+
+.etalk-trust-world__figure {
+  width: 100%;
+  max-width: 9.5rem;
+}
+
+.etalk-trust-world__lottie {
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 640px) {
+  .etalk-trust-world {
+    max-width: 11rem;
+    margin-bottom: 2rem;
+  }
+
+  .etalk-trust-world__figure {
+    max-width: 11rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .etalk-trust-world {
+    max-width: 13rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .etalk-trust-world__figure {
+    max-width: 13rem;
+  }
+}
+
+/* How section — AI lotties + phone vertical scroll reel (all breakpoints) */
+.etalk-how-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.etalk-how-showcase__lotties-pair {
+  flex-shrink: 0;
+}
+
+.etalk-how-showcase__phone {
+  width: 100%;
+}
+
+/* Phone reel viewport — original mobile height; taller on lg */
+.etalk-how-reel-viewport {
+  height: min(78vw, 460px);
+  min-height: 380px;
+  max-height: 520px;
+}
+
+@media (min-width: 640px) {
+  .etalk-how-reel-viewport {
+    min-height: 420px;
+    max-height: 580px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .etalk-how-reel-viewport {
+    height: min(52vh, 520px);
+    min-height: 400px;
+    max-height: 580px;
+  }
+}
+
+.etalk-how-ai-visuals__cell {
+  position: relative;
+}
+
+.etalk-how-ai-visuals__cell::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(0, 102, 255, 0.12) 0%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.etalk-how-ai-visuals--single {
+  width: min(7.5rem, 28vw);
+  max-width: 7.5rem;
+}
+
+@media (min-width: 1024px) {
+  .etalk-how-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 7.5rem) minmax(0, 320px) minmax(0, 7.5rem);
+    align-items: center;
+    justify-content: center;
+    column-gap: clamp(1.25rem, 3vw, 2.5rem);
+    row-gap: 1rem;
+  }
+
+  .etalk-how-showcase__lotties-pair {
+    display: none;
+  }
+
+  .etalk-how-showcase__phone {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .etalk-how-showcase__lotties-side:first-of-type {
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .etalk-how-showcase__lotties-side:last-of-type {
+    grid-column: 3;
+    justify-self: start;
+  }
+
+  .etalk-how-ai-visuals--single {
+    width: 7.5rem;
+    max-width: 7.5rem;
+  }
 }
 
 @keyframes etalk-caret-blink {
@@ -147,15 +324,6 @@ body {
 
 html.lang-or body {
   font-family: var(--font-plus-jakarta), var(--font-noto-oriya), system-ui, sans-serif;
-}
-
-/*
- * Sections without a tinted shell (transparent) still need the same navy mesh
- * as the page — otherwise opaque section bands would be the only “patterned” areas.
- */
-.etalk-section-paper {
-  background-color: var(--etalk-bg-paper);
-  background-image: var(--etalk-bg-layers);
 }
 
 /* Single outer measure — full-bleed width with horizontal padding */
@@ -248,70 +416,27 @@ html.lang-or body {
     0 8px 28px rgba(0, 102, 255, 0.35);
 }
 
-/* Headline / Odia accent — logo blue → cyan */
+/* Headline / Odia accent — deep blue; light cyan pools bottom-right */
 .etalk-text-brand-gradient,
-.etalk-text-gold-gradient {
-  background: linear-gradient(
-    120deg,
-    #0047cc 0%,
-    #0066ff 32%,
-    #38bdf8 52%,
-    #00d4ff 68%,
-    #0066ff 100%
-  );
+.etalk-text-gold-gradient,
+.etalk-wordmark {
+  background: var(--etalk-brand-gradient);
+  /* Slightly oversized + top-left anchor so the cyan highlight sits bottom-right */
+  background-size: 122% 122%;
+  background-position: 0% 0%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-.etalk-wordmark {
-  background: linear-gradient(
-    120deg,
-    #0047cc 0%,
-    #0066ff 38%,
-    #7dd3fc 55%,
-    #00d4ff 72%,
-    #0047cc 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Hero — cool paper + blue veils */
-.etalk-section-navy {
-  background:
-    var(--etalk-blue-pattern),
-    radial-gradient(ellipse 100% 75% at 88% 8%, rgba(0, 102, 255, 0.07) 0%, transparent 52%),
-    radial-gradient(ellipse 80% 55% at 12% 92%, rgba(56, 189, 248, 0.05) 0%, transparent 48%),
-    linear-gradient(180deg, #fafcff 0%, #eff6ff 48%, #f5f8fc 100%);
-}
-
-/* Mid sections — cool mist + paper */
-.etalk-section-mist {
-  background:
-    var(--etalk-navy-pattern),
-    radial-gradient(
-      120% 80% at 50% -10%,
-      rgba(255, 255, 255, 0.88) 0%,
-      transparent 55%
-    ),
-    radial-gradient(ellipse 90% 60% at 30% 100%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
-    linear-gradient(180deg, #eef6ff 0%, var(--background) 100%);
-}
-
-/* Accent bands — blue + cool wash */
-.etalk-section-ambient {
-  background:
-    var(--etalk-navy-pattern),
-    radial-gradient(
-      ellipse 100% 55% at 50% 100%,
-      rgba(0, 102, 255, 0.06) 0%,
-      transparent 52%
-    ),
-    radial-gradient(ellipse 70% 45% at 75% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 55%),
-    linear-gradient(180deg, var(--background) 0%, #eef6ff 55%, #e8f4ff 100%);
+/* Sections — seamless milk white */
+.etalk-section-navy,
+.etalk-section-mist,
+.etalk-section-ambient,
+.etalk-section-paper {
+  background-color: var(--etalk-bg-paper);
+  background-image: var(--etalk-bg-layers);
 }
 
 /* Hairline separator — blue fade on light paper */
@@ -365,7 +490,7 @@ html.lang-or body {
   padding: 1.5rem;
   background: var(--surface-elevated);
   border: 1px solid var(--hairline);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset;
   transition:
     background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -374,7 +499,7 @@ html.lang-or body {
 
 @media (prefers-reduced-motion: no-preference) {
   .etalk-feature-tile:hover {
-    background: #f8fbff;
+    background: #fffef9;
     box-shadow:
       0 0 0 1px rgba(0, 102, 255, 0.12),
       0 20px 40px -24px rgba(15, 23, 42, 0.12);
@@ -424,7 +549,7 @@ html.lang-or body {
 
 @media (prefers-reduced-motion: no-preference) {
   .etalk-faq-item:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.55);
   }
 }
 
@@ -432,18 +557,18 @@ html.lang-or body {
   transition: color 0.25s ease;
 }
 
-/* CTA shell — white card with soft blue vignette */
+/* CTA shell — milk white card */
 .etalk-cta-shell {
   border-radius: clamp(1.25rem, 3vw, 2rem);
   background: linear-gradient(
     155deg,
     #ffffff 0%,
-    #f0f9ff 48%,
-    #e8f4ff 100%
+    #faf9f7 48%,
+    #f5f4f1 100%
   );
   box-shadow:
-    0 0 0 1px rgba(0, 102, 255, 0.06) inset,
-    0 24px 48px -28px rgba(0, 71, 204, 0.08);
+    0 0 0 1px rgba(15, 23, 42, 0.05) inset,
+    0 24px 48px -28px rgba(15, 23, 42, 0.08);
 }
 
 .etalk-panel {
@@ -454,7 +579,7 @@ html.lang-or body {
     #ffffff 0%,
     var(--surface-subtle) 100%
   );
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.45) inset;
 }
 
 /* Buttons — motion only when safe */
@@ -487,6 +612,319 @@ html.lang-or body {
     0 1px 4px rgba(0, 102, 255, 0.2);
 }
 
+/* Cursive marketing accent (Latin UI) */
+.etalk-font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Speech bubble (approach robot) */
+.etalk-speech-bubble {
+  position: relative;
+  z-index: 2;
+  max-width: min(15rem, 90vw);
+  filter: drop-shadow(0 6px 18px rgba(0, 102, 255, 0.1));
+}
+
+.etalk-speech-bubble__line {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--brand-navy-deep);
+}
+
+@media (min-width: 640px) {
+  .etalk-speech-bubble__line {
+    font-size: 1.35rem;
+  }
+}
+
+.etalk-speech-bubble__inner {
+  position: relative;
+  border-radius: 1.125rem 1.125rem 1.125rem 0.35rem;
+  border: 1px solid rgba(0, 102, 255, 0.14);
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8fbff 55%,
+    #eef6ff 100%
+  );
+  padding: 0.7rem 0.85rem 0.75rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 0 0 1px rgba(0, 102, 255, 0.08),
+    0 8px 24px rgba(0, 102, 255, 0.07);
+}
+
+.etalk-speech-bubble__line .etalk-text-brand-gradient,
+.etalk-speech-bubble__sub .etalk-text-brand-gradient {
+  font-weight: 700;
+}
+
+.etalk-approach-coach__bubble .etalk-speech-bubble__inner::after {
+  bottom: -7px;
+  left: 50%;
+  margin-left: -7px;
+}
+
+.etalk-speech-bubble__inner::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 1.35rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 0 0 3px 0;
+  background: inherit;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 4px rgba(0, 71, 204, 0.06);
+}
+
+.etalk-approach-coach {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.etalk-approach-coach__bubble {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.etalk-approach-coach__figure {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.etalk-approach-coach__motto {
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 14rem;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--brand-navy-deep);
+}
+
+@media (min-width: 640px) {
+  .etalk-approach-coach__motto {
+    font-size: 1.25rem;
+  }
+}
+
+.etalk-approach-coach__motto .etalk-text-brand-gradient {
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .etalk-approach-coach {
+    gap: 0.65rem;
+  }
+
+  .etalk-approach-coach__bubble {
+    max-width: 13rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .etalk-approach-coach__bubble {
+    max-width: 14rem;
+  }
+}
+
+/* Section Lottie spots (e.g. robot.json in approach) */
+.etalk-lottie-spot__lottie {
+  aspect-ratio: 500 / 394;
+}
+
+.etalk-lottie-spot--wave .etalk-lottie-spot__figure {
+  width: min(10rem, 42vw);
+  max-width: 10rem;
+}
+
+@media (min-width: 640px) {
+  .etalk-lottie-spot--wave .etalk-lottie-spot__figure {
+    width: 11rem;
+    max-width: 11rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .etalk-lottie-spot--wave .etalk-lottie-spot__figure {
+    width: 12rem;
+    max-width: 12rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .etalk-lottie-spot--wave .etalk-lottie-spot__figure {
+    width: 12.5rem;
+    max-width: 12.5rem;
+  }
+}
+
+.etalk-approach-grid__coach {
+  justify-self: center;
+  overflow: visible;
+}
+
+@media (max-width: 1279px) {
+  .etalk-approach-grid__coach {
+    grid-column: 1 / -1;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .etalk-approach-grid__coach {
+    grid-column: 3;
+    grid-row: 1 / -1;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+/* Hero robot (robot3) — responsive footprint per breakpoint */
+.etalk-hero-robot__figure {
+  width: min(11.5rem, 46vw);
+  max-width: 11.5rem;
+}
+
+.etalk-hero-robot__lottie {
+  aspect-ratio: 952 / 784;
+}
+
+.etalk-hero-robot__caption {
+  max-width: min(18rem, 92vw);
+}
+
+@media (min-width: 640px) {
+  .etalk-hero-robot__figure {
+    width: 13rem;
+    max-width: 13rem;
+  }
+
+  .etalk-hero-robot__caption {
+    max-width: 16rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .etalk-hero-robot__figure {
+    width: clamp(16rem, 18vw, 20rem);
+    max-width: 20rem;
+  }
+
+  .etalk-hero-robot__caption {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .etalk-hero-robot__figure {
+    width: clamp(17rem, 19vw, 21rem);
+    max-width: 21rem;
+  }
+
+  .etalk-hero-robot__caption {
+    max-width: 21rem;
+  }
+}
+
+/* Hero — mobile: copy → countdown → robot → rest; lg: robot right of countdown */
+.etalk-hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.etalk-hero-layout__mid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.etalk-hero-layout__main {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .etalk-hero-layout {
+    gap: 1.5rem;
+  }
+
+  .etalk-hero-layout__mid {
+    gap: 1.5rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .etalk-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 19rem);
+    align-items: start;
+    column-gap: 2.5rem;
+    row-gap: 0;
+  }
+
+  .etalk-hero-layout > :not(.etalk-hero-layout__mid):not(.etalk-hero-layout__main) {
+    grid-column: 1;
+  }
+
+  .etalk-hero-layout__mid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(12rem, 22vw, 21rem);
+    align-items: center;
+    column-gap: 2rem;
+    gap: 0;
+  }
+
+  .etalk-hero-layout__mid > :first-child {
+    grid-column: 1;
+    min-width: 0;
+  }
+
+  .etalk-hero-layout__robot {
+    grid-column: 2;
+    justify-self: end;
+    align-self: center;
+    width: max-content;
+    max-width: none;
+    margin-inline-end: -0.75rem;
+  }
+
+  .etalk-hero-layout__main {
+    grid-column: 1;
+  }
+}
+
+@media (min-width: 1280px) {
+  .etalk-hero-layout__mid {
+    grid-template-columns: minmax(0, 1fr) clamp(13rem, 24vw, 24rem);
+    column-gap: 1.75rem;
+  }
+
+  .etalk-hero-layout__robot {
+    margin-inline-end: -1.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .etalk-hero-layout__robot {
+    margin-inline-end: -2.25rem;
+  }
+}
+
 /* Ambient logo marks on paper — SpeakX-style, barely visible (no blend hacks) */
 .etalk-logo-watermark {
   opacity: 0.035;
@@ -497,4 +935,73 @@ html.lang-or body {
   .etalk-logo-watermark {
     opacity: 0.045;
   }
+}
+
+/* Duolingo-style footer — single SVG gradient (wave + body, no seam) */
+.etalk-footer-shell {
+  position: relative;
+  margin-top: auto;
+  width: 100%;
+  background: transparent;
+}
+
+.etalk-footer-unified {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  margin-top: clamp(-2.5rem, -5vw, -3.5rem);
+}
+
+.etalk-footer-content {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: clamp(2.75rem, 6vw, 4.5rem);
+  padding-bottom: 0;
+}
+
+.etalk-footer-brand-copy .etalk-text-brand-gradient,
+.etalk-footer-content .etalk-text-brand-gradient {
+  background: none;
+  background-size: unset;
+  background-position: unset;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.etalk-footer-brand-copy p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.etalk-footer-heading {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.etalk-footer-link {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.etalk-footer-link:hover {
+  color: #fff;
+}
+
+.etalk-footer-muted {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.etalk-footer-social a {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.etalk-footer-social a:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.14) !important;
 }

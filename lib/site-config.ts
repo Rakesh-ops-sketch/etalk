@@ -50,20 +50,20 @@ export function buildWaitlistMailto(fields: WaitlistMailFields): string {
 
   const subject = hasAny
     ? name
-      ? `E-talk — Waitlist / early access (${name})`
-      : "E-talk — Waitlist / early access"
-    : "E-talk — Pre-launch interest (waitlist)";
+      ? `E-Talk — Waitlist / early access (${name})`
+      : "E-Talk — Waitlist / early access"
+    : "E-Talk — Pre-launch interest (waitlist)";
 
   const body = hasAny
-    ? `Hi E-talk team,
+    ? `Hi E-Talk team,
 
-I'm interested in joining the waitlist and hearing about early access for E-talk.
+I'm interested in joining the waitlist and hearing about early access for E-Talk.
 
 ${name ? `Name: ${name}\n` : ""}${email ? `Email: ${email}\n` : ""}${phone ? `Phone: ${phone}\n` : ""}
 Thanks,`
-    : `Hi E-talk team,
+    : `Hi E-Talk team,
 
-I'm interested in E-talk pre-launch updates and the waitlist for early access.
+I'm interested in E-Talk pre-launch updates and the waitlist for early access.
 
 Thanks,`;
 
@@ -73,16 +73,16 @@ Thanks,`;
 /** Opens the user's mail app — pre-filled for waitlist / early access */
 export function mailtoWaitlist(): string {
   return mailtoWith(
-    "E-talk — Waitlist / early access",
-    "Hi E-talk team,\n\nI'd like to join the waitlist or hear about early access.\n\nThanks,\n"
+    "E-Talk — Waitlist / early access",
+    "Hi E-Talk team,\n\nI'd like to join the waitlist or hear about early access.\n\nThanks,\n"
   );
 }
 
 /** Opens the user's mail app — general contact */
 export function mailtoContact(): string {
   return mailtoWith(
-    "E-talk — Contact",
-    "Hi E-talk team,\n\n"
+    "E-Talk — Contact",
+    "Hi E-Talk team,\n\n"
   );
 }
 
@@ -100,7 +100,7 @@ export type SocialLinkConfig = {
   platform: SocialPlatform;
   /** Full profile URL */
   href: string;
-  /** Screen reader label, e.g. "E-talk on X" */
+  /** Screen reader label, e.g. "E-Talk on X" */
   label: string;
 };
 
@@ -108,21 +108,21 @@ export const socialLinks: SocialLinkConfig[] = [
   {
     platform: "x",
     href: "https://x.com/EtalkSpeak",
-    label: "E-talk on X",
+    label: "E-Talk on X",
   },
   {
     platform: "instagram",
     href: "https://www.instagram.com/etalk.speak/",
-    label: "E-talk on Instagram",
+    label: "E-Talk on Instagram",
   },
   {
     platform: "linkedin",
     href: "https://www.linkedin.com/in/e-talk-speak-6a178a403/",
-    label: "E-talk on LinkedIn",
+    label: "E-Talk on LinkedIn",
   },
   {
     platform: "facebook",
-    href: "https://www.facebook.com/profile.php?id=61570642372165",
-    label: "E-talk on Facebook",
+    href: "https://www.facebook.com/people/E-TalkAI/61590247852304/",
+    label: "E-Talk.AI on Facebook",
   },
 ];

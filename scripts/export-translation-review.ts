@@ -78,7 +78,7 @@ const bom = "\uFEFF";
 
 writeFileSync(outPath, bom + header + "\n" + rows.join("\n") + "\n", "utf8");
 
-const readme = `E-talk — translation review (for language reviewers)
+const readme = `E-Talk — translation review (for language reviewers)
 ================================================
 
 WHAT YOU GET

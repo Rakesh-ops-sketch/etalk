@@ -10,7 +10,7 @@ Use this when building or changing UI so new screens match the established **lig
 ## Brand feel
 
 - **Education-first**: calm, trustworthy, readable—never flashy or “startup neon.”
-- **Cool light paper**: base `#f5f8fc` with soft **blue→cyan** mesh washes (matches E-Talk logo gradient)—not warm cream or gold tints.
+- **Milk white paper**: base `#faf9f7` with a soft warm gradient—no strong blue page washes; blue→cyan is for logo, CTAs, and links only.
 - **Dual accent**: **slate ink** (structure, body text) + **electric blue** `#0066FF` → **cyan** `#00D4FF` / `#38BDF8` (CTAs, links, decor, accent lines). Logo on **light header** like [SpeakX](https://speakx.ai/)—no dark plates; prefer transparent PNG/SVG.
 - **Seamless sections**: gradient fades and **hairline** separators; avoid heavy boxed panels unless content truly needs a card.
 - **Cultural decor** (line art): **low opacity**, **blue** tint (`#3b82f6`)—ambient only; must not compete with copy.
@@ -21,7 +21,7 @@ Map these in `:root` / `@theme` when porting:
 
 | Role | Typical use |
 |------|----------------|
-| `--background` / `--etalk-bg-paper` | `#f5f8fc` cool paper |
+| `--background` / `--etalk-bg-paper` | `#faf9f7` milk white |
 | `--foreground` | Dark ink `#2a2f38` |
 | `--brand-navy` / `--brand-navy-deep` | `#1e293b` / `#0f172a` headings, body emphasis |
 | `--brand-blue` / `--brand-blue-cyan` | `#0066FF` / `#00D4FF` accents, CTAs, gradients |
@@ -30,7 +30,7 @@ Map these in `:root` / `@theme` when porting:
 | `--surface-subtle` | `#eeede8` secondary surfaces |
 | `--hairline` | `rgba(15, 23, 42, 0.08)` borders/dividers |
 
-**Page background**: layer `--etalk-blue-pattern` (soft blue/cyan radials) under a cool linear wash—never gold/amber glows or warm beige vignettes.
+**Page background**: milk white (`--etalk-bg-layers` warm gradient). Optional whisper of blue in decor only—not sitewide blue fills.
 
 ## Typography
 
