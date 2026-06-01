@@ -151,7 +151,7 @@ export function HowWorksCarousel({
   return (
     <div className="mt-14 w-full text-center sm:mt-16">
       {showOdiaTagline ? (
-        <p className="mb-6 font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-gold-mid)]/90">
+        <p className="mb-6 font-[family-name:var(--font-noto-oriya)] text-sm text-[var(--brand-blue)]/90">
           {carouselOdiaLine}
         </p>
       ) : null}

@@ -23,7 +23,7 @@ export function IphoneFrame({ children }: { children: ReactNode }) {
 
       {/* Outer metallic rim */}
       <div
-        className="relative rounded-[2.75rem] p-[3px] shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset,0_32px_64px_-12px_rgba(0,0,0,0.85),0_0_80px_-20px_rgba(212,175,55,0.08)]"
+        className="relative rounded-[2.75rem] p-[3px] shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset,0_32px_64px_-12px_rgba(0,0,0,0.85),0_0_80px_-20px_rgba(0,102,255,0.12)]"
         style={{
           background:
             "linear-gradient(165deg, #4a4a4e 0%, #1c1c1e 40%, #0c0c0e 100%)",

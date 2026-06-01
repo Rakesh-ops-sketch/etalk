@@ -9,7 +9,7 @@ import { useLang } from "@/lib/i18n/lang-context";
  * stays compact; wordmark above uses `HEADER_WORD` separately.
  */
 const ODIA_HEADER =
-  "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] font-semibold max-md:text-[0.5rem] max-md:leading-tight text-xs leading-tight tracking-tight md:text-[0.8125rem] md:leading-tight";
+  "etalk-text-brand-gradient font-[family-name:var(--font-noto-oriya)] font-semibold max-md:text-[0.5rem] max-md:leading-tight text-xs leading-tight tracking-tight md:text-[0.8125rem] md:leading-tight";
 const EN_HEADER =
   "font-medium text-[var(--brand-blue-deep)] max-md:text-[0.5rem] max-md:leading-tight max-md:tracking-tight sm:tracking-wide text-[0.6875rem] leading-tight md:text-xs";
 
@@ -22,7 +22,7 @@ const FOOTER_BRAND_TEXT_MIN =
   "min-h-[3.15rem] min-w-[min(100%,17.5rem)] sm:min-h-[3.35rem] sm:min-w-[min(100%,19.5rem)] lg:min-w-[min(100%,22.5rem)]";
 
 const ODIA_FOOTER =
-  "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight sm:text-sm";
+  "etalk-text-brand-gradient font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight sm:text-sm";
 const EN_FOOTER = "text-sm font-medium leading-tight text-[var(--brand-blue-deep)]";
 
 function graphemeSegments(text: string): string[] {

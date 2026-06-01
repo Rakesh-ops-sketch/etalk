@@ -1,71 +1,49 @@
 @import "tailwindcss";
 
-/* Light education palette — warm paper base #f6f5f0, electric blue accents (E-Talk logo) */
+/* Light education palette — cool paper #f5f8fc, blue→cyan accents (E-Talk logo) */
 :root {
   color-scheme: light;
-  --background: #f6f5f0;
-  /* Layered sitewide wash (applied on body; not flat #f6f5f0) */
-  --etalk-bg-paper: #f6f5f0;
+  --background: #f5f8fc;
+  --etalk-bg-paper: #f5f8fc;
   /*
-   * Soft navy-blue gradient “mesh” — reused on body + sections so opaque bands
-   * don’t lose the atmosphere. Stays low-contrast (education / paper).
+   * Soft blue→cyan mesh (E-Talk logo) — low contrast on light paper.
    */
-  --etalk-navy-pattern:
-    radial-gradient(ellipse 140% 100% at 0% -15%, rgba(30, 58, 95, 0.11) 0%, transparent 48%),
-    radial-gradient(ellipse 120% 90% at 105% 8%, rgba(15, 23, 42, 0.09) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 70% at 8% 105%, rgba(30, 41, 59, 0.085) 0%, transparent 52%),
-    radial-gradient(ellipse 75% 55% at 92% 88%, rgba(51, 65, 85, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse 65% 85% at 50% -5%, rgba(30, 58, 95, 0.05) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 60% at 0% 45%, rgba(15, 23, 42, 0.045) 0%, transparent 58%),
-    radial-gradient(ellipse 70% 50% at 100% 35%, rgba(30, 41, 59, 0.05) 0%, transparent 52%),
-    radial-gradient(ellipse 80% 65% at 35% 100%, rgba(51, 65, 85, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 45% at 70% 15%, rgba(30, 58, 95, 0.035) 0%, transparent 60%),
+  --etalk-blue-pattern:
+    radial-gradient(ellipse 140% 100% at 0% -15%, rgba(0, 102, 255, 0.09) 0%, transparent 48%),
+    radial-gradient(ellipse 120% 90% at 105% 8%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 8% 105%, rgba(0, 71, 204, 0.06) 0%, transparent 52%),
+    radial-gradient(ellipse 75% 55% at 92% 88%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 65% 85% at 50% -5%, rgba(0, 102, 255, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 60% at 0% 45%, rgba(37, 99, 235, 0.04) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 50% at 100% 35%, rgba(56, 189, 248, 0.04) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 65% at 35% 100%, rgba(0, 102, 255, 0.035) 0%, transparent 55%),
     repeating-linear-gradient(
       -22deg,
       transparent,
       transparent 34px,
-      rgba(15, 23, 42, 0.022) 34px,
-      rgba(15, 23, 42, 0.022) 35px
+      rgba(0, 102, 255, 0.018) 34px,
+      rgba(0, 102, 255, 0.018) 35px
     ),
     repeating-linear-gradient(
       68deg,
       transparent,
       transparent 42px,
-      rgba(30, 41, 59, 0.015) 42px,
-      rgba(30, 41, 59, 0.015) 43px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 56px,
-      rgba(15, 23, 42, 0.012) 56px,
-      rgba(15, 23, 42, 0.012) 57px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 56px,
-      rgba(30, 58, 95, 0.01) 56px,
-      rgba(30, 58, 95, 0.01) 57px
+      rgba(56, 189, 248, 0.012) 42px,
+      rgba(56, 189, 248, 0.012) 43px
     );
+  --etalk-navy-pattern: var(--etalk-blue-pattern);
   --etalk-bg-layers:
-    var(--etalk-navy-pattern),
-    radial-gradient(ellipse 120% 85% at 96% -8%, rgba(30, 58, 95, 0.1) 0%, transparent 52%),
-    radial-gradient(ellipse 95% 75% at -8% 102%, rgba(15, 23, 42, 0.09) 0%, transparent 50%),
-    radial-gradient(ellipse 55% 42% at 48% 48%, rgba(51, 65, 85, 0.045) 0%, transparent 58%),
-    repeating-linear-gradient(
-      -22deg,
-      transparent,
-      transparent 34px,
-      rgba(15, 23, 42, 0.02) 34px,
-      rgba(15, 23, 42, 0.02) 35px
-    ),
-    linear-gradient(168deg, #f8f7f3 0%, #eef1f7 38%, #f3f1ec 72%, #f6f5f0 100%);
+    var(--etalk-blue-pattern),
+    radial-gradient(ellipse 120% 85% at 96% -8%, rgba(0, 102, 255, 0.08) 0%, transparent 52%),
+    radial-gradient(ellipse 95% 75% at -8% 102%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 42% at 48% 48%, rgba(59, 130, 246, 0.04) 0%, transparent 58%),
+    linear-gradient(168deg, #f8fafc 0%, #eff6ff 42%, #f0f9ff 72%, #f5f8fc 100%);
   --foreground: #2a2f38;
   --brand-navy: #1e293b;
   --brand-navy-deep: #0f172a;
   --brand-blue: #0066ff;
-  --brand-blue-bright: #3385ff;
+  --brand-blue-bright: #38bdf8;
+  --brand-blue-cyan: #00d4ff;
   --brand-blue-deep: #0047cc;
   --brand-blue-glow: rgba(0, 102, 255, 0.14);
   /* On light: "silver" = primary text (headings); muted = secondary */
@@ -232,17 +210,19 @@ html.lang-or body {
   outline-offset: 2px;
 }
 
-.etalk-btn-gold:focus-visible {
+.etalk-btn-gold:focus-visible,
+.etalk-btn-primary:focus-visible {
   outline-offset: 3px;
 }
 
-/* Primary CTAs — electric blue (logo accent) */
-.etalk-btn-gold {
+/* Primary CTAs — logo blue → cyan */
+.etalk-btn-gold,
+.etalk-btn-primary {
   background: linear-gradient(
-    180deg,
-    #4d94ff 0%,
-    #0066ff 45%,
-    #0047cc 100%
+    135deg,
+    #0047cc 0%,
+    #0066ff 40%,
+    #00b4ff 100%
   );
   color: #ffffff;
   text-shadow: none;
@@ -253,13 +233,14 @@ html.lang-or body {
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.etalk-btn-gold:hover {
+.etalk-btn-gold:hover,
+.etalk-btn-primary:hover {
   filter: none;
   background: linear-gradient(
-    180deg,
-    #66a3ff 0%,
-    #1a75ff 42%,
-    #0055e6 100%
+    135deg,
+    #0055e6 0%,
+    #1a75ff 38%,
+    #38bdf8 100%
   );
   box-shadow:
     0 0 0 1px rgba(0, 71, 204, 0.4),
@@ -267,31 +248,30 @@ html.lang-or body {
     0 8px 28px rgba(0, 102, 255, 0.35);
 }
 
-/* Headline / Odia accent — electric blue gradient (logo) */
+/* Headline / Odia accent — logo blue → cyan */
+.etalk-text-brand-gradient,
 .etalk-text-gold-gradient {
   background: linear-gradient(
-    122deg,
+    120deg,
     #0047cc 0%,
-    #0066ff 28%,
-    #66a3ff 48%,
-    #0066ff 62%,
-    #3385ff 78%,
-    #0047cc 100%
+    #0066ff 32%,
+    #38bdf8 52%,
+    #00d4ff 68%,
+    #0066ff 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  text-shadow: 0 0 0.5px rgba(0, 71, 204, 0.15);
 }
 
 .etalk-wordmark {
   background: linear-gradient(
-    122deg,
-    #003d99 0%,
-    #0066ff 35%,
-    #99c2ff 52%,
-    #0066ff 72%,
+    120deg,
+    #0047cc 0%,
+    #0066ff 38%,
+    #7dd3fc 55%,
+    #00d4ff 72%,
     #0047cc 100%
   );
   -webkit-background-clip: text;
@@ -299,13 +279,13 @@ html.lang-or body {
   color: transparent;
 }
 
-/* Hero / top band — cream + faint navy veils (matches page layers) */
+/* Hero — cool paper + blue veils */
 .etalk-section-navy {
   background:
-    var(--etalk-navy-pattern),
-    radial-gradient(ellipse 100% 75% at 88% 8%, rgba(30, 58, 95, 0.09) 0%, transparent 52%),
-    radial-gradient(ellipse 80% 55% at 12% 92%, rgba(15, 23, 42, 0.06) 0%, transparent 48%),
-    linear-gradient(180deg, #fafaf8 0%, #f0f2f6 42%, #f4f1eb 100%);
+    var(--etalk-blue-pattern),
+    radial-gradient(ellipse 100% 75% at 88% 8%, rgba(0, 102, 255, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 55% at 12% 92%, rgba(56, 189, 248, 0.05) 0%, transparent 48%),
+    linear-gradient(180deg, #fafcff 0%, #eff6ff 48%, #f5f8fc 100%);
 }
 
 /* Mid sections — cool mist + paper */
@@ -317,8 +297,8 @@ html.lang-or body {
       rgba(255, 255, 255, 0.88) 0%,
       transparent 55%
     ),
-    radial-gradient(ellipse 90% 60% at 30% 100%, rgba(30, 41, 59, 0.05) 0%, transparent 50%),
-    linear-gradient(180deg, #e8ecf2 0%, var(--background) 100%);
+    radial-gradient(ellipse 90% 60% at 30% 100%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #eef6ff 0%, var(--background) 100%);
 }
 
 /* Accent bands — blue + cool wash */
@@ -330,8 +310,8 @@ html.lang-or body {
       rgba(0, 102, 255, 0.06) 0%,
       transparent 52%
     ),
-    radial-gradient(ellipse 70% 45% at 75% 20%, rgba(51, 65, 85, 0.06) 0%, transparent 55%),
-    linear-gradient(180deg, var(--background) 0%, #f0ede6 55%, #e9edf4 100%);
+    radial-gradient(ellipse 70% 45% at 75% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, var(--background) 0%, #eef6ff 55%, #e8f4ff 100%);
 }
 
 /* Hairline separator — blue fade on light paper */
@@ -394,7 +374,7 @@ html.lang-or body {
 
 @media (prefers-reduced-motion: no-preference) {
   .etalk-feature-tile:hover {
-    background: #fffefb;
+    background: #f8fbff;
     box-shadow:
       0 0 0 1px rgba(0, 102, 255, 0.12),
       0 20px 40px -24px rgba(15, 23, 42, 0.12);
@@ -452,18 +432,18 @@ html.lang-or body {
   transition: color 0.25s ease;
 }
 
-/* CTA shell — warm paper card with navy-gold vignette */
+/* CTA shell — white card with soft blue vignette */
 .etalk-cta-shell {
   border-radius: clamp(1.25rem, 3vw, 2rem);
   background: linear-gradient(
     155deg,
     #ffffff 0%,
-    #f4f1e9 48%,
-    #ebe6dc 100%
+    #f0f9ff 48%,
+    #e8f4ff 100%
   );
   box-shadow:
-    0 0 0 1px rgba(15, 23, 42, 0.06) inset,
-    0 24px 48px -28px rgba(15, 23, 42, 0.1);
+    0 0 0 1px rgba(0, 102, 255, 0.06) inset,
+    0 24px 48px -28px rgba(0, 71, 204, 0.08);
 }
 
 .etalk-panel {
@@ -479,23 +459,27 @@ html.lang-or body {
 
 /* Buttons — motion only when safe */
 @media (prefers-reduced-motion: no-preference) {
-  .etalk-btn-gold {
+  .etalk-btn-gold,
+  .etalk-btn-primary {
     transition:
       background 0.2s ease,
       box-shadow 0.2s ease,
       transform 0.2s ease;
   }
 
-  .etalk-btn-gold:hover {
+  .etalk-btn-gold:hover,
+  .etalk-btn-primary:hover {
     transform: translateY(-1px);
   }
 
-  .etalk-btn-gold:active {
+  .etalk-btn-gold:active,
+  .etalk-btn-primary:active {
     transform: translateY(0);
   }
 }
 
-.etalk-btn-gold:active {
+.etalk-btn-gold:active,
+.etalk-btn-primary:active {
   background: linear-gradient(180deg, #0055e6 0%, #0047cc 100%);
   box-shadow:
     0 0 0 1px rgba(0, 71, 204, 0.45),

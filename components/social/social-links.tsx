@@ -53,7 +53,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={link.label}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--brand-muted)] transition-[color,background-color] duration-300 hover:bg-[rgba(15,23,42,0.06)] hover:text-[var(--brand-gold-mid)]"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-[var(--brand-muted)] transition-[color,background-color] duration-300 hover:bg-[rgba(15,23,42,0.06)] hover:text-[var(--brand-blue)]"
           >
             <Icon platform={link.platform} />
           </a>

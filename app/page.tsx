@@ -251,7 +251,7 @@ export default function Home() {
   return (
     <>
       <WaitlistMailDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
-      <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(246,245,240,0.88)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(246,245,240,0.72)]">
+      <header className="sticky top-0 z-50 border-b border-[var(--hairline)] bg-[rgba(245,248,252,0.9)] backdrop-blur-xl transition-[border-color,background-color] duration-300 supports-[backdrop-filter]:bg-[rgba(245,248,252,0.75)]">
         <div className="etalk-container grid min-h-20 auto-rows-min grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2.5 gap-y-0 py-2.5 sm:gap-x-4 md:min-h-0 md:grid-cols-[1fr_auto_1fr] md:gap-y-0 md:py-0 md:h-24">
           <div className="flex min-w-0 items-center justify-self-start">
             <Link
@@ -345,7 +345,7 @@ export default function Home() {
             className="pointer-events-none absolute -left-1/4 top-1/4 z-[2] h-[32rem] w-[32rem] rounded-full opacity-30 blur-[100px] motion-reduce:opacity-15"
             style={{
               background:
-                "radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0,102,255,0.18) 0%, transparent 70%)",
             }}
           />
           <div
@@ -355,7 +355,7 @@ export default function Home() {
                 "radial-gradient(circle, rgba(30,41,59,0.14) 0%, transparent 65%)",
             }}
           />
-          {/* Above particle canvas (z-1) so gold line art is actually visible */}
+          {/* Above particle canvas (z-1) so decor line art is visible */}
           <OdishaSectionDecor variant="hero" />
           <div className="relative z-[3] etalk-container pb-20 pt-12 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20">
             <div className="mx-auto w-full max-w-4xl text-left">
@@ -379,7 +379,7 @@ export default function Home() {
               <HeroLaunchCountdown />
 
               <div
-                className={`mt-8 min-h-[4.5rem] border-l-2 border-[var(--brand-navy)]/15 pl-4 text-[clamp(1rem,1.35vw,1.125rem)] font-medium leading-relaxed text-[var(--brand-navy)] sm:min-h-[4rem] sm:pl-5 ${oriaFont}`}
+                className={`mt-8 min-h-[4.5rem] border-l-2 border-[var(--brand-blue)]/25 pl-4 text-[clamp(1rem,1.35vw,1.125rem)] font-medium leading-relaxed text-[var(--brand-navy)] sm:min-h-[4rem] sm:pl-5 ${oriaFont}`}
                 aria-live="polite"
               >
                 <HeroTypewriter
@@ -429,7 +429,7 @@ export default function Home() {
           <div className="relative z-10 etalk-container">
             <div className="mx-auto grid w-full max-w-7xl gap-12 sm:grid-cols-3 sm:gap-8 lg:gap-0">
             <div className="text-center lg:pr-10">
-              <p className="font-sans text-2xl font-bold text-[var(--brand-gold-mid)]">
+              <p className="font-sans text-2xl font-bold text-[var(--brand-blue)]">
                 {t.trust.col1Title}
               </p>
               <p className={`mt-3 max-w-xs text-sm leading-relaxed text-[var(--brand-muted)] sm:max-w-[min(100%,22rem)] ${oriaFont}`}>
@@ -445,7 +445,7 @@ export default function Home() {
                 className="pointer-events-none absolute -right-px top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[rgba(15,23,42,0.12)] to-transparent sm:block lg:right-0"
                 aria-hidden
               />
-              <p className="font-sans text-2xl font-bold text-[var(--brand-gold-mid)]">
+              <p className="font-sans text-2xl font-bold text-[var(--brand-blue)]">
                 {t.trust.col2Title}
               </p>
               <p className={`mt-3 max-w-xs text-sm leading-relaxed text-[var(--brand-muted)] sm:max-w-[min(100%,22rem)] ${oriaFont}`}>
@@ -453,7 +453,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center lg:pl-10">
-              <p className="font-sans text-2xl font-bold text-[var(--brand-gold-mid)]">
+              <p className="font-sans text-2xl font-bold text-[var(--brand-blue)]">
                 {t.trust.col3Title}
               </p>
               <p className={`mt-3 max-w-xs text-sm leading-relaxed text-[var(--brand-muted)] sm:max-w-[min(100%,22rem)] ${oriaFont}`}>
@@ -644,21 +644,21 @@ export default function Home() {
               </p>
             </div>
 
-            <figure className="relative mx-auto mt-12 w-full max-w-4xl overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-gradient-to-br from-white to-[#faf9f6] px-6 py-7 text-center shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] sm:px-8 sm:py-8">
+            <figure className="relative mx-auto mt-12 w-full max-w-4xl overflow-hidden rounded-2xl border border-[rgba(0,102,255,0.22)] bg-gradient-to-br from-white to-[#f0f9ff] px-6 py-7 text-center shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] sm:px-8 sm:py-8">
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-30 blur-3xl motion-reduce:opacity-15"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(0,102,255,0.25) 0%, transparent 70%)",
                 }}
                 aria-hidden
               />
               <blockquote
                 className={`relative text-base font-medium leading-relaxed text-[var(--brand-silver)] sm:text-lg sm:leading-relaxed ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : "font-sans"}`}
               >
-                <span className="text-[var(--brand-gold-mid)]/85">&ldquo;</span>
+                <span className="text-[var(--brand-blue)]/85">&ldquo;</span>
                 {t.audience.heritageQuote}
-                <span className="text-[var(--brand-gold-mid)]/85">&rdquo;</span>
+                <span className="text-[var(--brand-blue)]/85">&rdquo;</span>
               </blockquote>
               <figcaption
                 className={`relative mt-4 text-sm text-[var(--brand-muted)] ${oriaFont}`}
@@ -715,14 +715,14 @@ export default function Home() {
                 className="pointer-events-none absolute -left-6 -top-6 h-32 w-32 rounded-full opacity-40 blur-3xl motion-reduce:opacity-20"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(212,175,55,0.2) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 70%)",
                 }}
                 aria-hidden
               />
               <blockquote className={`relative font-sans text-xl font-medium leading-snug tracking-tight text-[var(--brand-silver)] sm:text-2xl sm:leading-snug ${isOdia ? "font-[family-name:var(--font-noto-oriya)]" : ""}`}>
-                <span className="text-[var(--brand-gold-mid)]/90">&ldquo;</span>
+                <span className="text-[var(--brand-blue)]/90">&ldquo;</span>
                 {t.quote.text}
-                <span className="text-[var(--brand-gold-mid)]/90">&rdquo;</span>
+                <span className="text-[var(--brand-blue)]/90">&rdquo;</span>
               </blockquote>
               <figcaption className={`mt-6 text-sm text-[var(--brand-muted)] ${oriaFont}`}>
                 {t.quote.caption}
@@ -835,7 +835,7 @@ export default function Home() {
                     <summary className={`flex min-h-[3.25rem] cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-[var(--brand-silver)] transition-colors duration-300 group-hover:text-[var(--brand-navy-deep)] ${oriaFont}`}>
                       <span>{item.q}</span>
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-gold-mid)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(0,102,255,0.25)] group-open:bg-[#f8fbff] motion-reduce:transition-none"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-blue)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(0,102,255,0.25)] group-open:bg-[#f8fbff] motion-reduce:transition-none"
                         aria-hidden
                       >
                         <svg
@@ -875,7 +875,7 @@ export default function Home() {
                 className="pointer-events-none absolute inset-0 opacity-50 motion-reduce:opacity-25"
                 style={{
                   background:
-                    "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212,175,55,0.14), transparent 55%)",
+                    "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,102,255,0.14), transparent 55%)",
                 }}
               />
               <div className="relative z-10 mx-auto w-full max-w-3xl">

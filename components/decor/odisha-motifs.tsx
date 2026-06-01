@@ -328,8 +328,8 @@ function SvgDiyaGlow({ className }: { className?: string }) {
   );
 }
 
-/** Slate ink on warm paper — subtlety from per-SVG `opacity-*` only (avoid double-alpha). */
-const strokeTint = "text-[#64748b] motion-reduce:opacity-80";
+/** Logo blue tint on light paper — subtlety from per-SVG `opacity-*` only. */
+const strokeTint = "text-[#3b82f6] motion-reduce:opacity-80";
 
 export type OdishaDecorVariant =
   | "hero"

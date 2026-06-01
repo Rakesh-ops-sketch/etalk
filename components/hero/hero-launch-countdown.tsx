@@ -59,11 +59,11 @@ export function HeroLaunchCountdown() {
     >
       {/* Gradient hairline — fades at edges, no box */}
       <div
-        className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(184,134,11,0.28)] to-transparent"
+        className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(0,102,255,0.22)] to-transparent"
         aria-hidden
       />
 
-      <div className="mt-5 border-l-2 border-[var(--brand-navy)]/15 pl-4 sm:pl-5">
+      <div className="mt-5 border-l-2 border-[var(--brand-blue)]/25 pl-4 sm:pl-5">
         <p className="text-[0.65rem] font-semibold uppercase leading-none tracking-[0.2em] text-[var(--brand-muted)] sm:text-[0.7rem]">
           {t.banner.eyebrow}
         </p>

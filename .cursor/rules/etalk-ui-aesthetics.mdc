@@ -10,10 +10,10 @@ Use this when building or changing UI so new screens match the established **lig
 ## Brand feel
 
 - **Education-first**: calm, trustworthy, readable—never flashy or “startup neon.”
-- **Warm paper, not flat gray**: base is warm off-white; cool navy **washes** add depth, not flat blocks of color.
-- **Dual accent**: **slate ink** (structure, body text) + **electric blue** `#0066FF` (CTAs, links, highlights—matches E-Talk logo). Logo on **warm paper / white** header like [SpeakX](https://speakx.ai/) / Duolingo—no dark plates behind the mark; prefer a **transparent** PNG/SVG export.
+- **Cool light paper**: base `#f5f8fc` with soft **blue→cyan** mesh washes (matches E-Talk logo gradient)—not warm cream or gold tints.
+- **Dual accent**: **slate ink** (structure, body text) + **electric blue** `#0066FF` → **cyan** `#00D4FF` / `#38BDF8` (CTAs, links, decor, accent lines). Logo on **light header** like [SpeakX](https://speakx.ai/)—no dark plates; prefer transparent PNG/SVG.
 - **Seamless sections**: gradient fades and **hairline** separators; avoid heavy boxed panels unless content truly needs a card.
-- **Cultural decor** (line art): **low opacity**, slate/navy tint—ambient only; must not compete with copy (stronger on `sm+`, softer on small screens).
+- **Cultural decor** (line art): **low opacity**, **blue** tint (`#3b82f6`)—ambient only; must not compete with copy.
 
 ## Color schema (CSS tokens)
 
@@ -21,48 +21,48 @@ Map these in `:root` / `@theme` when porting:
 
 | Role | Typical use |
 |------|----------------|
-| `--background` / `--etalk-bg-paper` | `#f6f5f0` warm paper |
+| `--background` / `--etalk-bg-paper` | `#f5f8fc` cool paper |
 | `--foreground` | Dark ink `#2a2f38` |
-| `--brand-navy` / `--brand-navy-deep` | `#1e293b` / `#0f172a` headings, edges, focus context |
+| `--brand-navy` / `--brand-navy-deep` | `#1e293b` / `#0f172a` headings, body emphasis |
+| `--brand-blue` / `--brand-blue-cyan` | `#0066FF` / `#00D4FF` accents, CTAs, gradients |
 | `--brand-muted` | Secondary body `#5c6570` |
-| `--brand-blue` / `--brand-gold-mid` (alias) | Accents, borders, icon wells, CTAs |
 | `--surface-elevated` | `#ffffff` cards on paper |
 | `--surface-subtle` | `#eeede8` secondary surfaces |
 | `--hairline` | `rgba(15, 23, 42, 0.08)` borders/dividers |
 
-**Page background**: layer `--etalk-navy-pattern` (soft blue-tinted navy radials + faint diagonal/grid repeats) **under** a warm linear wash—never a single flat fill.
+**Page background**: layer `--etalk-blue-pattern` (soft blue/cyan radials) under a cool linear wash—never gold/amber glows or warm beige vignettes.
 
 ## Typography
 
-- **Headings / wordmark**: Playfair (`.etalk-wordmark` = gold-forward gradient with **whisper of navy** at ends).
+- **Headings / wordmark**: `.etalk-wordmark` / `.etalk-text-brand-gradient` = **blue→cyan** gradient (logo), not gold.
 - **English UI**: rounded humanist sans (e.g. Baloo Thambi 2).
-- **Odia**: Noto Sans Oriya + paired Latin sans (e.g. Plus Jakarta) when `lang-or`.
-- **Hierarchy**: eyebrow (muted, tracked) → H1 (Playfair, ink) → accent line (gold) → body (muted).
+- **Odia**: Noto Sans Oriya + paired Latin sans when `lang-or`.
+- **Hierarchy**: eyebrow (muted) → H1 (ink) → **blue** accent line → body (muted).
 
 ## Components & surfaces
 
-- **Primary CTA** (`.etalk-btn-gold`): **metallic gold gradient** fill; **navy** `color` + **navy outer ring** + subtle **inset** highlight/shadow—reads as a gold button, not a navy bar.
-- **Secondary actions**: white/outline on paper, `border-[var(--hairline)]`, hover gold border tint—no dark “glass” pills on light theme.
-- **Feature tiles**: white card, hairline border, soft hover lift + gold edge glow—**not** dark translucent tiles.
-- **FAQ**: hairline rows, light hover wash—no stark white-on-dark rows.
-- **Header**: frosted warm paper + blur; border `--hairline`.
+- **Primary CTA** (`.etalk-btn-gold` / `.etalk-btn-primary`): **blue→cyan** gradient, white label, soft blue shadow—no gold/metallic fill.
+- **Secondary actions**: white/outline on paper, `border-[var(--hairline)]`, hover **blue** border tint (`#f8fbff` wash).
+- **Feature tiles**: white card, hairline border, hover lift + **blue** edge glow—not gold or yellow shadow.
+- **FAQ**: hairline rows, light hover wash.
+- **Header**: frosted cool paper + blur; border `--hairline`.
 
 ## Motion & hero
 
-- **Particles / canvas**: **subtle** network—low alpha lines, short link distance, moderate counts; **must not reduce legibility** on mobile (same effect as desktop, intensity tuned so text stays first).
-- **Decor SVGs**: opacity often **~0.08–0.2** on mobile, restore toward desktop at `sm:`.
-- Respect **`prefers-reduced-motion`**: pause decorative animation; simplify or dim particles.
+- **Particles / canvas**: subtle network in **blue** tones; must not reduce legibility on mobile.
+- **Decor SVGs**: low opacity blue line art.
+- Respect **`prefers-reduced-motion`**.
 
 ## Ethics & a11y
 
-- **Content over chrome**: if decoration overlaps text, **lower opacity** or **density**—never the reverse.
-- **Focus**: visible focus ring using brand gold (or navy + gold) with sensible offset.
-- **Contrast**: body text on paper meets readable contrast; gold gradient text reserved for wordmark/accents, not long paragraphs.
+- **Content over chrome**: lower decor opacity before lowering text contrast.
+- **Focus**: visible **blue** focus ring with sensible offset.
+- **Contrast**: body text on paper meets readable contrast; gradient text for short accents only.
 
 ## Porting to another app
 
-1. Copy the token block and **layered** `body` background pattern.
-2. Keep **one** humanist sans + **one** display serif for marketing pages.
-3. Reuse the **gold CTA + navy typography** pattern for primary actions.
-4. Apply **hairlines** and **soft shadows** instead of thick borders and dark cards.
-5. Treat **ambient graphics** as optional, low-contrast layers—test on **375px** width first.
+1. Copy the token block and **layered** `body` background (`--etalk-blue-pattern`).
+2. Keep one humanist sans + display/rounded heading style.
+3. Reuse **blue CTA + ink typography**—never reintroduce gold separators or amber quote glows.
+4. Apply hairlines and soft **blue-tinted** shadows instead of warm/yellow halos.
+5. Test ambient graphics at **375px** width first.

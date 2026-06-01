@@ -17,7 +17,7 @@ function usePrefersReducedMotion() {
 }
 
 /** Subtle branded shape for demos or hero accents — tune materials per page. */
-function GoldIcosahedron() {
+function BrandIcosahedron() {
   const meshRef = useRef<Mesh>(null);
   const reduceMotion = usePrefersReducedMotion();
 
@@ -33,11 +33,11 @@ function GoldIcosahedron() {
     <mesh ref={meshRef}>
       <icosahedronGeometry args={[1, 1]} />
       <meshStandardMaterial
-        color="#d4af37"
-        metalness={0.55}
-        roughness={0.28}
-        emissive="#5c4a10"
-        emissiveIntensity={0.12}
+        color="#0066ff"
+        metalness={0.5}
+        roughness={0.3}
+        emissive="#0047cc"
+        emissiveIntensity={0.15}
       />
     </mesh>
   );
@@ -66,8 +66,8 @@ export default function ThreeSceneInner({
       >
         <ambientLight intensity={0.4} />
         <directionalLight position={[4, 6, 4]} intensity={1.1} />
-        <pointLight position={[-3, -2, 3]} intensity={0.35} color="#fcf6ba" />
-        <GoldIcosahedron />
+        <pointLight position={[-3, -2, 3]} intensity={0.35} color="#7dd3fc" />
+        <BrandIcosahedron />
       </Canvas>
     </div>
   );
