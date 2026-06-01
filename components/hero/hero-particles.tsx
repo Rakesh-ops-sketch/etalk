@@ -77,14 +77,14 @@ function drawFrame(
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = `rgba(30, 58, 95, ${a1})`;
+        ctx.strokeStyle = `rgba(0, 102, 255, ${a1 * 0.85})`;
         ctx.lineWidth = lineWMain;
         ctx.lineCap = "round";
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = `rgba(200, 155, 45, ${a1 * 0.46})`;
+        ctx.strokeStyle = `rgba(51, 133, 255, ${a1 * 0.4})`;
         ctx.lineWidth = lineWGlow;
         ctx.stroke();
       }
@@ -97,7 +97,7 @@ function drawFrame(
     ctx.fillStyle =
       p.kind === "voice"
         ? `rgba(51, 65, 85, ${vDot})`
-        : `rgba(200, 150, 30, ${aiDot})`;
+        : `rgba(0, 102, 255, ${aiDot})`;
     ctx.fill();
   }
 }

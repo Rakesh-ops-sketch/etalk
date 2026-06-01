@@ -97,7 +97,7 @@ export function WaitlistMailDialog({ open, onOpenChange }: WaitlistMailDialogPro
               onChange={(e) => setName(e.target.value)}
               autoComplete="name"
               placeholder={w.namePlaceholder}
-              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(212,175,55,0.5)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-gold-mid)]"
+              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(0,102,255,0.45)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-blue)]"
             />
           </label>
           <label
@@ -115,7 +115,7 @@ export function WaitlistMailDialog({ open, onOpenChange }: WaitlistMailDialogPro
               autoComplete="email"
               inputMode="email"
               placeholder={w.emailPlaceholder}
-              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(212,175,55,0.5)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-gold-mid)]"
+              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(0,102,255,0.45)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-blue)]"
             />
           </label>
           <label
@@ -133,7 +133,7 @@ export function WaitlistMailDialog({ open, onOpenChange }: WaitlistMailDialogPro
               autoComplete="tel"
               inputMode="tel"
               placeholder={w.phonePlaceholder}
-              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(212,175,55,0.5)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-gold-mid)]"
+              className="min-h-11 w-full rounded-xl border border-[var(--hairline)] bg-white px-3.5 py-2.5 text-[var(--foreground)] outline-offset-2 placeholder:text-[var(--brand-muted)]/70 focus:border-[rgba(0,102,255,0.45)] focus:outline-2 focus:outline-offset-1 focus:outline-[var(--brand-blue)]"
             />
           </label>
         </div>
@@ -143,7 +143,7 @@ export function WaitlistMailDialog({ open, onOpenChange }: WaitlistMailDialogPro
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-5 text-sm font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-colors hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)]"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-5 text-sm font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-colors hover:border-[rgba(0,102,255,0.35)] hover:bg-[#f8fbff] hover:text-[var(--brand-blue-deep)]"
           >
             {w.cancel}
           </button>

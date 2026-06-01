@@ -4,12 +4,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 
 import { useLang } from "@/lib/i18n/lang-context";
 
-const WORDMARK = "etalk-wordmark m-0 p-0 font-sans font-bold leading-none tracking-tight";
-/** “E-Talk” — not tied to logo size; comfortable at all breakpoints */
-const HEADER_WORD =
-  "mb-0 text-xs font-extrabold sm:text-sm md:text-[0.9375rem]";
-const FOOTER_WORD = "mb-0.5 text-lg sm:text-xl";
-
 /**
  * Typewriter / tagline lines only (Odia + English). Kept small on narrow viewports so the band
  * stays compact; wordmark above uses `HEADER_WORD` separately.
@@ -17,7 +11,7 @@ const FOOTER_WORD = "mb-0.5 text-lg sm:text-xl";
 const ODIA_HEADER =
   "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] font-semibold max-md:text-[0.5rem] max-md:leading-tight text-xs leading-tight tracking-tight md:text-[0.8125rem] md:leading-tight";
 const EN_HEADER =
-  "font-medium text-[var(--brand-navy-deep)] max-md:text-[0.5rem] max-md:leading-tight max-md:tracking-tight sm:tracking-wide text-[0.6875rem] leading-tight md:text-xs";
+  "font-medium text-[var(--brand-blue-deep)] max-md:text-[0.5rem] max-md:leading-tight max-md:tracking-tight sm:tracking-wide text-[0.6875rem] leading-tight md:text-xs";
 
 /** Reserves width for longest `nav.brandTaglines` line (typing / swaps). */
 export const HEADER_BRAND_TEXT_MIN =
@@ -29,7 +23,7 @@ const FOOTER_BRAND_TEXT_MIN =
 
 const ODIA_FOOTER =
   "etalk-text-gold-gradient font-[family-name:var(--font-noto-oriya)] text-[0.8rem] font-semibold tracking-tight sm:text-sm";
-const EN_FOOTER = "text-sm font-medium leading-tight text-[var(--brand-navy-deep)]";
+const EN_FOOTER = "text-sm font-medium leading-tight text-[var(--brand-blue-deep)]";
 
 function graphemeSegments(text: string): string[] {
   if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
@@ -48,7 +42,7 @@ function graphemeSegments(text: string): string[] {
 }
 
 const Caret = () => (
-  <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-navy)]/70">
+  <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-blue)]/70">
     |
   </span>
 );
@@ -65,9 +59,6 @@ export function BrandLogoTextStatic({ variant }: { variant: "header" | "footer" 
 
   return (
     <div className="flex flex-col gap-0">
-      <p className={`${WORDMARK} ${variant === "header" ? HEADER_WORD : FOOTER_WORD}`}>
-        E-Talk
-      </p>
       <p className={`m-0 p-0 ${odiaClasses}`} lang="or">
         {first.odia}
       </p>
@@ -281,9 +272,6 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
 
   const inner = (
     <div className="flex flex-col gap-0">
-      <p className={`${WORDMARK} ${variant === "header" ? HEADER_WORD : FOOTER_WORD} min-h-0`}>
-        E-Talk
-      </p>
       <p className={`m-0 min-h-0 p-0 ${odiaClasses}`} lang="or">
         <span aria-hidden="true">
           {odiaShown}
@@ -299,7 +287,7 @@ export function BrandLogoText({ variant }: { variant: "header" | "footer" }) {
         </span>
       </p>
       <span className="sr-only">
-        E-Talk. {first.odia} {first.en}
+        E-Talk — {first.odia} {first.en}
       </span>
     </div>
   );

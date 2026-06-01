@@ -277,11 +277,6 @@ export const translations = {
         "Odia-first AI English learning — clear explanations, adaptive lessons, and confidence for exams, work, and daily life.",
       copyright: `© ${year} E-talk. Made with focus on Odisha.`,
       follow: "Follow us",
-      fromFounders: "Sister venture from the founders",
-      talentsTrackerName: "Talent's Tracker",
-      talentsTrackerTagline: "A step towards Success",
-      talentsTrackerAria:
-        "Talent's Tracker — opens thetalentstracker.com in a new tab",
       team: "Team",
       faq: "FAQ",
       waitlist: "Waitlist",
@@ -564,11 +559,6 @@ export const translations = {
         "ଓଡ଼ିଆ-ପ୍ରଥମ AI ଇଂରାଜୀ ଶିଖଣ—ସ୍ପଷ୍ଟ ବ୍ୟାଖ୍ୟା, ଅଭିଯୋଜ୍ୟ ପାଠ ଓ ପରୀକ୍ଷା, କାର୍ଯ୍ୟ ଓ ଦୈନନ୍ଦିନ ଜୀବନ ପାଇଁ ଆତ୍ମବିଶ୍ୱାସ।",
       copyright: `© ${year} ଇ-ଟକ୍। ଓଡ଼ିଶା ଉପରେ ଧ୍ୟାନ ଦେଇ ତିଆରି।`,
       follow: "ଅନୁସରଣ",
-      fromFounders: "ପ୍ରତିଷ୍ଠାତାଙ୍କ ଅନ୍ୟ ଉଦ୍ୟମ",
-      talentsTrackerName: "Talent's Tracker",
-      talentsTrackerTagline: "ସଫଳତା ଆଡ଼େ ଗୋଟିଏ ପଦକ୍ଷେପ",
-      talentsTrackerAria:
-        "Talent's Tracker — ନୂଆ ଟ୍ୟାବରେ thetalentstracker.com ଖୋଲିବ",
       team: "ଦଳ",
       faq: "ସାଧାରଣ ପ୍ରଶ୍ନ",
       waitlist: "ପ୍ରତୀକ୍ଷା ତାଲିକା",

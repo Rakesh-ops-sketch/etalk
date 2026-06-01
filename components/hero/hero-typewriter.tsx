@@ -153,7 +153,7 @@ export function HeroTypewriter({
       <span aria-hidden="true" className={className}>
         {display}
         {showCaret ? (
-          <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-navy)]/70">
+          <span className="etalk-typewriter-caret ml-px inline-block font-light text-[var(--brand-blue)]/70">
             |
           </span>
         ) : null}

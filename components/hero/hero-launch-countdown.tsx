@@ -103,7 +103,7 @@ export function HeroLaunchCountdown() {
         <p className="mt-4">
           <Link
             href="#cta"
-            className={`text-sm font-medium text-[var(--brand-muted)] underline decoration-[rgba(184,134,11,0.35)] underline-offset-[0.2em] transition-colors hover:text-[var(--brand-navy-deep)] hover:decoration-[rgba(184,134,11,0.55)] ${oriaFont}`}
+            className={`text-sm font-medium text-[var(--brand-muted)] underline decoration-[rgba(0,102,255,0.35)] underline-offset-[0.2em] transition-colors hover:text-[var(--brand-blue-deep)] hover:decoration-[rgba(0,102,255,0.55)] ${oriaFont}`}
           >
             {t.banner.secondaryLink}
           </Link>

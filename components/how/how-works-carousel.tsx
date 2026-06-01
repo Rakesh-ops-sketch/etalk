@@ -107,7 +107,7 @@ function ReelCard({
     <article
       className="etalk-how-card flex min-h-[200px] shrink-0 flex-col rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[#fafaf8] px-4 py-4 text-center shadow-[0_14px_36px_rgba(15,23,42,0.08)] backdrop-blur-md backdrop-saturate-150 [box-shadow:0_14px_36px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,0.95)]"
     >
-      <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(212,175,55,0.28)] text-[var(--brand-gold-dark)] ring-1 ring-[rgba(212,175,55,0.35)]">
+      <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(0,102,255,0.14)] text-[var(--brand-blue-deep)] ring-1 ring-[rgba(0,102,255,0.28)]">
         <Icon className="h-5 w-5" />
       </div>
       <h3

@@ -92,7 +92,7 @@ export function AudienceCarousel({
       >
         <button
           type="button"
-          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)]"
+          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(0,102,255,0.35)] hover:bg-[#f8fbff] hover:text-[var(--brand-blue-deep)]"
           onClick={() => scrollStep(-1)}
           aria-label={prevLabel}
         >
@@ -102,7 +102,7 @@ export function AudienceCarousel({
         </button>
         <button
           type="button"
-          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)]"
+          className="inline-flex min-h-10 min-w-[2.75rem] items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-3 text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,border-color,color] hover:border-[rgba(0,102,255,0.35)] hover:bg-[#f8fbff] hover:text-[var(--brand-blue-deep)]"
           onClick={() => scrollStep(1)}
           aria-label={nextLabel}
         >

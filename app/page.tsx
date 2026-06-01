@@ -6,7 +6,6 @@ import { useState } from "react";
 
 import { AudienceCarousel } from "@/components/audience";
 import {
-  BRAND_LOGO_MARK,
   BRAND_LOGO_SECTION_WATERMARK,
   BrandLogoMark,
 } from "@/components/brand/brand-logo-mark";
@@ -260,18 +259,12 @@ export default function Home() {
               className="group relative flex min-w-0 max-w-full items-center gap-1.5 rounded-lg outline-offset-2 transition-opacity duration-300 hover:opacity-92 focus-visible:opacity-100 sm:gap-2 md:gap-2.5"
               aria-label="E-talk — home"
             >
-              <span className="flex h-20 w-auto shrink-0 items-center sm:h-[5rem] md:h-[5.75rem]">
-                <Image
-                  src={BRAND_LOGO_MARK.src}
-                  alt=""
-                  width={BRAND_LOGO_MARK.width}
-                  height={BRAND_LOGO_MARK.height}
-                  className="h-full w-auto max-w-[min(100%,10rem)] object-contain object-left object-top [clip-path:inset(0_0_20%_0)] sm:max-w-[11rem] md:max-w-[12rem]"
-                  priority
-                  // loading="eager"
-                  sizes="(max-width: 640px) 48vw, 12rem"
-                />
-              </span>
+              <BrandLogoMark
+                variant="solid"
+                size="lg"
+                priority
+                className="!h-[4.25rem] max-w-[min(100%,10.5rem)] sm:!h-[5.25rem] sm:max-w-[11.5rem] md:!h-[5.75rem] md:max-w-[12.5rem]"
+              />
               <div className="flex min-h-0 min-w-0 max-w-full flex-col justify-center gap-0 self-center leading-[1.15]">
                 <HeaderBrandLockup />
               </div>
@@ -341,7 +334,7 @@ export default function Home() {
               alt=""
               width={BRAND_LOGO_SECTION_WATERMARK.width}
               height={BRAND_LOGO_SECTION_WATERMARK.height}
-              className="h-auto w-[min(100vw,56rem)] max-h-[min(92vh,70rem)] select-none object-contain object-center opacity-[0.03] saturate-[0.3] contrast-[0.9] sm:w-[min(100vw,68rem)] sm:max-h-[min(94vh,78rem)] sm:opacity-[0.034] md:w-[min(100vw,82rem)] md:max-h-[min(96vh,86rem)] md:opacity-[0.038]"
+              className="etalk-logo-watermark h-auto w-[min(100vw,56rem)] max-h-[min(92vh,70rem)] select-none object-contain object-center sm:w-[min(100vw,68rem)] sm:max-h-[min(94vh,78rem)] md:w-[min(100vw,82rem)] md:max-h-[min(96vh,86rem)]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 90rem"
               priority
               loading="eager"
@@ -415,7 +408,7 @@ export default function Home() {
                 </button>
                 <a
                   href="#how"
-                  className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(212,175,55,0.35)] hover:bg-[#fffefb] hover:text-[var(--brand-navy-deep)] ${oriaFont}`}
+                  className={`inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--hairline)] bg-white px-8 text-base font-medium text-[var(--brand-silver)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[background-color,box-shadow,color,border-color] duration-300 ease-out hover:border-[rgba(0,102,255,0.35)] hover:bg-[#f8fbff] hover:text-[var(--brand-blue-deep)] ${oriaFont}`}
                 >
                   {t.hero.secondaryCta}
                 </a>
@@ -529,7 +522,7 @@ export default function Home() {
               alt=""
               width={BRAND_LOGO_SECTION_WATERMARK.width}
               height={BRAND_LOGO_SECTION_WATERMARK.height}
-              className="h-auto w-[min(92vw,36rem)] max-h-[min(65vh,44rem)] select-none object-contain object-center opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,46rem)] sm:max-h-[min(68vh,50rem)] sm:opacity-[0.07] md:w-[min(100vw,54rem)] md:max-h-[min(72vh,54rem)] md:opacity-[0.085]"
+              className="etalk-logo-watermark h-auto w-[min(92vw,36rem)] max-h-[min(65vh,44rem)] select-none object-contain object-center sm:w-[min(100vw,46rem)] sm:max-h-[min(68vh,50rem)] md:w-[min(100vw,54rem)] md:max-h-[min(72vh,54rem)]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 56rem"
             />
           </div>
@@ -597,7 +590,7 @@ export default function Home() {
                     alt=""
                     width={BRAND_LOGO_SECTION_WATERMARK.width}
                     height={BRAND_LOGO_SECTION_WATERMARK.height}
-                    className="h-auto w-full max-w-[6.25rem] min-w-0 object-contain object-center saturate-[0.48] contrast-[0.92] sm:max-w-[7.75rem] md:max-w-[9rem]"
+                    className="etalk-logo-watermark h-auto w-full max-w-[6.25rem] min-w-0 object-contain object-center sm:max-w-[7.75rem] md:max-w-[9rem]"
                     sizes="(max-width: 640px) 28vw, 9rem"
                   />
                 </div>
@@ -701,7 +694,7 @@ export default function Home() {
               alt=""
               width={BRAND_LOGO_SECTION_WATERMARK.width}
               height={BRAND_LOGO_SECTION_WATERMARK.height}
-              className="h-auto w-[min(100vw,42rem)] max-h-[min(68vh,48rem)] select-none object-contain object-center opacity-[0.055] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,52rem)] sm:max-h-[min(72vh,54rem)] sm:opacity-[0.07] md:w-[min(100vw,58rem)] md:max-h-[min(75vh,60rem)] md:opacity-[0.085]"
+              className="etalk-logo-watermark h-auto w-[min(100vw,42rem)] max-h-[min(68vh,48rem)] select-none object-contain object-center sm:w-[min(100vw,52rem)] sm:max-h-[min(72vh,54rem)] md:w-[min(100vw,58rem)] md:max-h-[min(75vh,60rem)]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 60rem"
             />
           </div>
@@ -842,7 +835,7 @@ export default function Home() {
                     <summary className={`flex min-h-[3.25rem] cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-[var(--brand-silver)] transition-colors duration-300 group-hover:text-[var(--brand-navy-deep)] ${oriaFont}`}>
                       <span>{item.q}</span>
                       <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-gold-mid)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(212,175,55,0.25)] group-open:bg-[#fffefb] motion-reduce:transition-none"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline)] bg-white text-[var(--brand-gold-mid)] shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-[transform,background-color,box-shadow,border-color] duration-300 ease-out group-open:rotate-180 group-open:border-[rgba(0,102,255,0.25)] group-open:bg-[#f8fbff] motion-reduce:transition-none"
                         aria-hidden
                       >
                         <svg
@@ -931,7 +924,7 @@ export default function Home() {
             alt=""
             width={BRAND_LOGO_SECTION_WATERMARK.width}
             height={BRAND_LOGO_SECTION_WATERMARK.height}
-            className="h-auto w-[min(100vw,36rem)] max-h-[min(55vh,38rem)] select-none object-contain object-center opacity-[0.035] saturate-[0.4] contrast-[0.94] sm:w-[min(100vw,44rem)] sm:max-h-[min(60vh,44rem)] sm:opacity-[0.048] md:w-[min(100vw,50rem)] md:max-h-[min(64vh,48rem)] md:opacity-[0.058]"
+            className="etalk-logo-watermark h-auto w-[min(100vw,36rem)] max-h-[min(55vh,38rem)] select-none object-contain object-center sm:w-[min(100vw,44rem)] sm:max-h-[min(60vh,44rem)] md:w-[min(100vw,50rem)] md:max-h-[min(64vh,48rem)]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50rem"
           />
         </div>
@@ -940,11 +933,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 pb-6 sm:gap-7 sm:pb-7 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
                 <div className="shrink-0">
-                  <BrandLogoMark
-                    clipBakedWordmark
-                    variant="solid"
-                    size="xl"
-                  />
+                  <BrandLogoMark variant="solid" size="xl" />
                 </div>
                 <div className="min-w-0 max-w-2xl">
                   <BrandLogoText variant="footer" />
@@ -957,39 +946,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex w-full max-w-sm shrink-0 flex-col items-center gap-4 sm:mx-auto lg:ml-auto lg:max-w-xs">
-                <div className="flex w-full flex-col items-center gap-2.5 text-center">
+                <div className="flex w-full flex-col items-center gap-2.5 text-center lg:items-end lg:text-right">
                   <p className={`w-full text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--brand-muted)] ${oriaFont}`}>
                     {t.footer.follow}
                   </p>
                   <SocialLinks links={socialLinks} />
-                </div>
-                <div className={`mt-0 flex w-full flex-col items-center text-center ${oriaFont}`}>
-                  <p className="text-[0.65rem] font-medium uppercase tracking-[0.14em] text-[var(--brand-muted)]">
-                    {t.footer.fromFounders}
-                  </p>
-                  <a
-                    href="https://thetalentstracker.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2 inline-flex max-w-full flex-col items-center justify-center gap-2 rounded-lg py-1 transition-colors hover:bg-[rgba(255,255,255,0.5)] sm:flex-row sm:gap-2.5"
-                    aria-label={t.footer.talentsTrackerAria}
-                  >
-                    <Image
-                      src="/talents-tracker-logo.png"
-                      alt=""
-                      width={140}
-                      height={56}
-                      className="h-7 w-auto shrink-0 object-contain opacity-90 transition-opacity group-hover:opacity-100 sm:h-8"
-                    />
-                    <span className="min-w-0 text-center sm:text-left">
-                      <span className="block text-sm font-medium text-[var(--brand-silver)] transition-colors group-hover:text-[var(--brand-navy-deep)]">
-                        {t.footer.talentsTrackerName}
-                      </span>
-                      <span className="mt-0.5 block text-[0.7rem] leading-snug text-[var(--brand-muted)]">
-                        {t.footer.talentsTrackerTagline}
-                      </span>
-                    </span>
-                  </a>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Light education palette — warm paper base #f6f5f0, navy + gold accents */
+/* Light education palette — warm paper base #f6f5f0, electric blue accents (E-Talk logo) */
 :root {
   color-scheme: light;
   --background: #f6f5f0;
@@ -64,14 +64,19 @@
   --foreground: #2a2f38;
   --brand-navy: #1e293b;
   --brand-navy-deep: #0f172a;
+  --brand-blue: #0066ff;
+  --brand-blue-bright: #3385ff;
+  --brand-blue-deep: #0047cc;
+  --brand-blue-glow: rgba(0, 102, 255, 0.14);
   /* On light: "silver" = primary text (headings); muted = secondary */
   --brand-silver: #1e293b;
   --brand-muted: #5c6570;
-  --brand-gold-mid: #b8860b;
-  --brand-gold-light: #fcf6ba;
-  --brand-gold-dark: #7a5f0a;
-  --brand-border: rgba(184, 134, 11, 0.28);
-  --brand-glow: rgba(212, 175, 55, 0.14);
+  /* Legacy names → blue (existing components use --brand-gold-*) */
+  --brand-gold-mid: var(--brand-blue);
+  --brand-gold-light: #99c2ff;
+  --brand-gold-dark: #003d99;
+  --brand-border: rgba(0, 102, 255, 0.28);
+  --brand-glow: var(--brand-blue-glow);
   --surface-elevated: #ffffff;
   --surface-subtle: #eeede8;
   --hairline: rgba(15, 23, 42, 0.08);
@@ -84,7 +89,8 @@
   --color-brand-navy-deep: var(--brand-navy-deep);
   --color-brand-silver: var(--brand-silver);
   --color-brand-muted: var(--brand-muted);
-  --color-brand-gold: var(--brand-gold-mid);
+  --color-brand-gold: var(--brand-blue);
+  --color-brand-blue: var(--brand-blue);
   --font-sans: var(--font-baloo-thambi), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-odia: var(--font-noto-oriya);
@@ -220,9 +226,9 @@ html.lang-or body {
   text-wrap: balance;
 }
 
-/* Focus visible — WCAG-friendly; gold ring matches brand accent */
+/* Focus visible — electric blue ring */
 :focus-visible {
-  outline: 2px solid var(--brand-gold-mid);
+  outline: 2px solid var(--brand-blue);
   outline-offset: 2px;
 }
 
@@ -230,23 +236,20 @@ html.lang-or body {
   outline-offset: 3px;
 }
 
-/*
- * Primary CTAs — calm slate-navy (industry-standard primary: confident, not loud).
- * Gold stays in wordmark & accents; buttons use ink + soft depth only.
- */
+/* Primary CTAs — electric blue (logo accent) */
 .etalk-btn-gold {
   background: linear-gradient(
     180deg,
-    #2f3f56 0%,
-    #1e293b 48%,
-    #172033 100%
+    #4d94ff 0%,
+    #0066ff 45%,
+    #0047cc 100%
   );
-  color: #f8fafc;
+  color: #ffffff;
   text-shadow: none;
   box-shadow:
-    0 0 0 1px rgba(15, 23, 42, 0.2),
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 2px 8px rgba(15, 23, 42, 0.1);
+    0 0 0 1px rgba(0, 71, 204, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 4px 20px rgba(0, 102, 255, 0.28);
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -254,49 +257,42 @@ html.lang-or body {
   filter: none;
   background: linear-gradient(
     180deg,
-    #3d4f6a 0%,
-    #334155 45%,
-    #243145 100%
+    #66a3ff 0%,
+    #1a75ff 42%,
+    #0055e6 100%
   );
   box-shadow:
-    0 0 0 1px rgba(15, 23, 42, 0.22),
-    0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 6px 20px rgba(15, 23, 42, 0.14);
+    0 0 0 1px rgba(0, 71, 204, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 8px 28px rgba(0, 102, 255, 0.35);
 }
 
-/* Headline accent — readable gold on light paper; navy only at glyph edges */
+/* Headline / Odia accent — electric blue gradient (logo) */
 .etalk-text-gold-gradient {
   background: linear-gradient(
     122deg,
-    #334155 0%,
-    #334155 5%,
-    #8a6c14 14%,
-    #b8860b 30%,
-    #c9a227 44%,
-    #b8960b 52%,
-    #b8860b 66%,
-    #7a5f0a 82%,
-    #334155 94%,
-    #334155 100%
+    #0047cc 0%,
+    #0066ff 28%,
+    #66a3ff 48%,
+    #0066ff 62%,
+    #3385ff 78%,
+    #0047cc 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  /* Subtle edge so glyphs don’t disappear on cream / frosted header */
-  text-shadow: 0 0 0.5px rgba(15, 23, 42, 0.2);
+  text-shadow: 0 0 0.5px rgba(0, 71, 204, 0.15);
 }
 
-/* Wordmark — same: gold-forward, navy only tints the first/last glyphs */
 .etalk-wordmark {
   background: linear-gradient(
     122deg,
-    #0f172a 0%,
-    #c9a227 16%,
-    #fcf6ba 40%,
-    #d4af37 54%,
-    #b8860b 76%,
-    #334155 100%
+    #003d99 0%,
+    #0066ff 35%,
+    #99c2ff 52%,
+    #0066ff 72%,
+    #0047cc 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -325,20 +321,20 @@ html.lang-or body {
     linear-gradient(180deg, #e8ecf2 0%, var(--background) 100%);
 }
 
-/* Accent bands — gold + cool navy wash */
+/* Accent bands — blue + cool wash */
 .etalk-section-ambient {
   background:
     var(--etalk-navy-pattern),
     radial-gradient(
       ellipse 100% 55% at 50% 100%,
-      rgba(212, 175, 55, 0.07) 0%,
+      rgba(0, 102, 255, 0.06) 0%,
       transparent 52%
     ),
     radial-gradient(ellipse 70% 45% at 75% 20%, rgba(51, 65, 85, 0.06) 0%, transparent 55%),
     linear-gradient(180deg, var(--background) 0%, #f0ede6 55%, #e9edf4 100%);
 }
 
-/* Hairline separator — gold fade on light paper */
+/* Hairline separator — blue fade on light paper */
 .etalk-separator {
   height: 1px;
   width: 100%;
@@ -348,7 +344,7 @@ html.lang-or body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(184, 134, 11, 0.28) 50%,
+    rgba(0, 102, 255, 0.22) 50%,
     transparent 100%
   );
   opacity: 0.9;
@@ -370,16 +366,16 @@ html.lang-or body {
   border-radius: 2px;
   background: linear-gradient(
     180deg,
-    var(--brand-gold-mid) 0%,
-    rgba(212, 175, 55, 0.12) 100%
+    var(--brand-blue) 0%,
+    rgba(0, 102, 255, 0.1) 100%
   );
 }
 
 .etalk-accent-line--soft::before {
   background: linear-gradient(
     180deg,
-    rgba(212, 175, 55, 0.45) 0%,
-    rgba(212, 175, 55, 0.08) 100%
+    rgba(0, 102, 255, 0.4) 0%,
+    rgba(0, 102, 255, 0.06) 100%
   );
 }
 
@@ -400,7 +396,7 @@ html.lang-or body {
   .etalk-feature-tile:hover {
     background: #fffefb;
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.12),
+      0 0 0 1px rgba(0, 102, 255, 0.12),
       0 20px 40px -24px rgba(15, 23, 42, 0.12);
     transform: translateY(-3px);
   }
@@ -416,10 +412,10 @@ html.lang-or body {
   border-radius: 0.875rem;
   background: radial-gradient(
     circle at 30% 25%,
-    rgba(212, 175, 55, 0.18) 0%,
-    rgba(212, 175, 55, 0.04) 100%
+    rgba(0, 102, 255, 0.16) 0%,
+    rgba(0, 102, 255, 0.04) 100%
   );
-  color: var(--brand-gold-mid);
+  color: var(--brand-blue);
   transition:
     background 0.35s ease,
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -429,8 +425,8 @@ html.lang-or body {
   .etalk-feature-tile:hover .etalk-icon-well {
     background: radial-gradient(
       circle at 30% 25%,
-      rgba(212, 175, 55, 0.28) 0%,
-      rgba(212, 175, 55, 0.08) 100%
+      rgba(0, 102, 255, 0.24) 0%,
+      rgba(0, 102, 255, 0.08) 100%
     );
     transform: scale(1.04);
   }
@@ -500,13 +496,21 @@ html.lang-or body {
 }
 
 .etalk-btn-gold:active {
-  background: linear-gradient(
-    180deg,
-    #243145 0%,
-    #1e293b 100%
-  );
+  background: linear-gradient(180deg, #0055e6 0%, #0047cc 100%);
   box-shadow:
-    0 0 0 1px rgba(15, 23, 42, 0.24),
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 1px 4px rgba(15, 23, 42, 0.12);
+    0 0 0 1px rgba(0, 71, 204, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 1px 4px rgba(0, 102, 255, 0.2);
+}
+
+/* Ambient logo marks on paper — SpeakX-style, barely visible (no blend hacks) */
+.etalk-logo-watermark {
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .etalk-logo-watermark {
+    opacity: 0.045;
+  }
 }

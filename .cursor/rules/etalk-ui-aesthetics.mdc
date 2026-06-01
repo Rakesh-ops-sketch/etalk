@@ -11,7 +11,7 @@ Use this when building or changing UI so new screens match the established **lig
 
 - **Education-first**: calm, trustworthy, readable—never flashy or “startup neon.”
 - **Warm paper, not flat gray**: base is warm off-white; cool navy **washes** add depth, not flat blocks of color.
-- **Dual accent**: **navy/slate** (structure, text, depth) + **metallic gold** (CTAs, wordmark, key highlights). Gold is **primary** on buttons; navy appears as **rim, shadow, and text** on gold—not half-and-half fills.
+- **Dual accent**: **slate ink** (structure, body text) + **electric blue** `#0066FF` (CTAs, links, highlights—matches E-Talk logo). Logo on **warm paper / white** header like [SpeakX](https://speakx.ai/) / Duolingo—no dark plates behind the mark; prefer a **transparent** PNG/SVG export.
 - **Seamless sections**: gradient fades and **hairline** separators; avoid heavy boxed panels unless content truly needs a card.
 - **Cultural decor** (line art): **low opacity**, slate/navy tint—ambient only; must not compete with copy (stronger on `sm+`, softer on small screens).
 
@@ -25,7 +25,7 @@ Map these in `:root` / `@theme` when porting:
 | `--foreground` | Dark ink `#2a2f38` |
 | `--brand-navy` / `--brand-navy-deep` | `#1e293b` / `#0f172a` headings, edges, focus context |
 | `--brand-muted` | Secondary body `#5c6570` |
-| `--brand-gold-mid` / gold light/dark | Accents, borders, icon wells |
+| `--brand-blue` / `--brand-gold-mid` (alias) | Accents, borders, icon wells, CTAs |
 | `--surface-elevated` | `#ffffff` cards on paper |
 | `--surface-subtle` | `#eeede8` secondary surfaces |
 | `--hairline` | `rgba(15, 23, 42, 0.08)` borders/dividers |
