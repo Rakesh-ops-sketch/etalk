@@ -74,16 +74,13 @@ Thanks,`;
 export function mailtoWaitlist(): string {
   return mailtoWith(
     "E-Talk — Waitlist / early access",
-    "Hi E-Talk team,\n\nI'd like to join the waitlist or hear about early access.\n\nThanks,\n"
+    "Hi E-Talk team,\n\nI'd like to join the waitlist or hear about early access.\n\nThanks,\n",
   );
 }
 
 /** Opens the user's mail app — general contact */
 export function mailtoContact(): string {
-  return mailtoWith(
-    "E-Talk — Contact",
-    "Hi E-Talk team,\n\n"
-  );
+  return mailtoWith("E-Talk — Contact", "Hi E-Talk team,\n\n");
 }
 
 /** Plain mailto (no subject) */
@@ -112,7 +109,7 @@ export const socialLinks: SocialLinkConfig[] = [
   },
   {
     platform: "instagram",
-    href: "https://www.instagram.com/etalk.speak/",
+    href: "https://www.instagram.com/e_talk.ai?igsh=MWsxcjJsdGYzdzRtcw==",
     label: "E-Talk on Instagram",
   },
   {
