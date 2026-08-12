@@ -10,19 +10,23 @@
     "export-i18n-review": "npx tsx scripts/export-translation-review.ts"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.5.0",
-    "lottie-react": "^2.4.1",
+    "@radix-ui/react-tabs": "^1.1.21",
+    "@vercel/analytics": "^2.0.1",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.31.0",
+    "motion": "^13.1.0",
     "next": "16.2.2",
+    "nodemailer": "^9.0.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "three": "^0.183.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/three": "^0.183.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",

@@ -1,14 +1,2 @@
-import type { MetadataRoute } from "next";
-
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://etalk.app";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
-}
+import type { MetadataRoute } from "next"; import { locales,pageSlugs } from "@/lib/content";
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL??"https://e-talk.in";return locales.flatMap(locale=>Object.values(pageSlugs).map(slug=>({url:`${base}/${locale}${slug?`/${slug}`:""}`,lastModified:new Date(),changeFrequency:slug===""?"weekly":"monthly" as const,priority:slug===""?1:.7,alternates:{languages:{en:`${base}/en${slug?`/${slug}`:""}`,or:`${base}/or${slug?`/${slug}`:""}`}}})));}
